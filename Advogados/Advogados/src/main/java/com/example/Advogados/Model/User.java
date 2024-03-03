@@ -45,13 +45,12 @@ public class User {
     @NotEmpty
     private String password;
 
-
-    public String getValidationOAB() {
-        return validationOAB;
+    public Long getId() {
+        return Id;
     }
 
-    public void setValidationOAB(String validationOAB) {
-        this.validationOAB = validationOAB;
+    public void setId(Long id) {
+        Id = id;
     }
     
 
@@ -63,14 +62,6 @@ public class User {
         CPF = cPF;
     }
 
-
-    public Long getId() {
-        return Id;
-    }
-
-    public void setId(Long id) {
-        Id = id;
-    }
 
     public String getName() {
         return name;
@@ -102,6 +93,14 @@ public class User {
 
     public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public String getValidationOAB() {
+        return validationOAB;
+    }
+
+    public void setValidationOAB(String validationOAB) {
+        this.validationOAB = validationOAB;
     }
 
     public String getEmail() {
