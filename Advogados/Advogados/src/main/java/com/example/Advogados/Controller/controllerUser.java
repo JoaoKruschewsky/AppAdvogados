@@ -26,7 +26,7 @@ public User saveUser( @RequestBody User user){
     return action.save( user);
 }
 
-@GetMapping("getUsers")
+@GetMapping("getUser")
 public List<User> getUser(){
     return action.findAll();
 }
