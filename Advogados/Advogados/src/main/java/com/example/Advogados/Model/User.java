@@ -16,6 +16,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -27,15 +28,15 @@ public class User {
     private Long Id;
 
     @CPF
-    private String CPF;
+    private String cpf;
    
     private String name;
     private String surname;
+
     private Date dateOfBirth;
+    @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private Long phoneNumber;
     private String validationOAB;
-
-   
 
     @Email
     @NotEmpty
@@ -55,11 +56,11 @@ public class User {
     
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
     public void setCPF(String cPF) {
-        CPF = cPF;
+        cpf = cPF;
     }
 
 
