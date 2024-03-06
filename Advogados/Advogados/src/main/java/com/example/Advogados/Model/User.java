@@ -15,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -28,22 +29,23 @@ public class User {
     private Long Id;
 
     @CPF
+ 
     private String cpf;
    
     private String name;
     private String surname;
 
     private Date dateOfBirth;
-    @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
-    private Long phoneNumber;
+    //@Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
+    private String phoneNumber;
     private String validationOAB;
 
     @Email
-    @NotEmpty
+    
     private String email;
 
     @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
-    @NotEmpty
+  
     private String password;
 
     public Long getId() {
@@ -88,11 +90,11 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
     
