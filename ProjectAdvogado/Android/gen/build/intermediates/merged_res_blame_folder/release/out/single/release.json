@@ -1,0 +1,714 @@
+[
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-ldpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-ldpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorunselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorunselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorunselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorunselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_pict_save_16_5_6.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_pict_save_16_5_6.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorunselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorunselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_pict_save_16_5_6.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_pict_save_16_5_6.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorunselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorunselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorunselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorunselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorunselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorunselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_i_c_o_n_e________0.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/i_c_o_n_e________0.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/raw_wm_app_options.properties.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/raw/wm_app_options.properties"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorunselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorunselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorunselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorunselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_pict_save_16_5_6.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_pict_save_16_5_6.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorunselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorunselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_pict_save_16_5_6.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_pict_save_16_5_6.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/raw_options_compilation_85a5fd5e84204145a6dff02cf2ebcf90.properties.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/raw/options_compilation_85a5fd5e84204145a6dff02cf2ebcf90.properties"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorunselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorunselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorunselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorunselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorunselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorunselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorunselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorunselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorunselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorunselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorunselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorunselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorunselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorunselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorunselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorunselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_pict_save_16_5_6.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_pict_save_16_5_6.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorselected_disabled.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorselected_disabled.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_cbox_2_selectorselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_cbox_2_selectorselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorselected_pressed.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorselected_pressed.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_cbox_2_selectorunselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_cbox_2_selectorunselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectornormal.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selectorselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selectorselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorfocus.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_cbox_2_selectorunselected_focus.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_cbox_2_selectorunselected_focus.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selectordisabled.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_cbox_2_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_cbox_2_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_cbox_2_selectorunselected_normal.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_cbox_2_selectorunselected_normal.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_ok_5_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-mdpi_phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-mdpi/phoenix_btn_menu_4_np3_10_10_10_10_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxxhdpi_phoenix_btn_menu_4_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxxhdpi/phoenix_btn_menu_4_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_btn_menu_4_np3_10_10_10_10_selector.xml.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_btn_menu_4_np3_10_10_10_10_selector.xml"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xxhdpi_phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xxhdpi/phoenix_btn_cancel_1_np3_10_10_10_10_selectorhovered.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-hdpi_phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-hdpi/phoenix_edt_3_np3_8_8_8_8_selectorpressed.9.png"
+    },
+    {
+        "merged": "com.mycompany.projectadvogado-merged_res-5:/drawable-xhdpi_phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png.flat",
+        "source": "com.mycompany.projectadvogado-gen-6:/drawable-xhdpi/phoenix_edt_3_np3_8_8_8_8_selectornormal.9.png"
+    }
+]

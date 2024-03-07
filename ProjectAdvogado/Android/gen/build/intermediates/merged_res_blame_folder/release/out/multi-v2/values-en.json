@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.mycompany.projectadvogado-mergeReleaseResources-3:/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "C:\\My Projects\\ProjectAdvogado\\Android\\gen\\res\\values-en\\strings.xml",
+                    "from": {
+                        "startLines": "1,1",
+                        "startColumns": "77,11",
+                        "startOffsets": "116,50",
+                        "endColumns": "125,77",
+                        "endOffsets": "164,116"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,108",
+                        "endColumns": "52,70",
+                        "endOffsets": "103,174"
+                    }
+                }
+            ]
+        }
+    ]
+}

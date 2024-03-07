@@ -1,0 +1,196 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mycompany.projectadvogado"
+4    android:installLocation="auto"
+5    android:versionCode="3"
+6    android:versionName="1.0.0.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="23"
+9-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml
+10        android:targetSdkVersion="33" />
+10-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml
+11
+12    <supports-screens
+12-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2782-2941
+13        android:anyDensity="true"
+13-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2914-2939
+14        android:largeScreens="true"
+14-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2857-2884
+15        android:normalScreens="true"
+15-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2828-2856
+16        android:smallScreens="true"
+16-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2800-2827
+17        android:xlargeScreens="true" />
+17-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2885-2913
+18
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2941-3016
+19-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2958-3014
+20    <uses-permission android:name="android.permission.INTERNET" />
+20-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:3016-3077
+20-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:3033-3075
+21
+22    <application
+22-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:242-2782
+23        android:name="fr.pcsoft.wdjava.core.application.WDAndroidApp"
+23-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:255-316
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.8.0] C:\Users\joaop\.gradle\caches\transforms-3\8c18ab4978080bf764bfd1d03beac24a\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+25        android:extractNativeLibs="true"
+25-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:534-566
+26        android:icon="@drawable/i_c_o_n_e________0"
+26-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:350-393
+27        android:label="@string/app_name"
+27-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:317-349
+28        android:largeHeap="true"
+28-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:394-418
+29        android:requestLegacyExternalStorage="true"
+29-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:490-533
+30        android:resizeableActivity="true"
+30-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:420-453
+31        android:usesCleartextTraffic="true" >
+31-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:454-489
+32        <activity
+32-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:567-1010
+33            android:name="com.mycompany.projectadvogado.wdgen.GWDPProjectAdvogado$WDLanceur"
+33-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:577-628
+34            android:configChanges="keyboardHidden|orientation|screenSize|keyboard|smallestScreenSize|screenLayout"
+34-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:731-833
+35            android:exported="true"
+35-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:834-857
+36            android:label="@string/app_name"
+36-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:629-661
+37            android:theme="@style/Theme.AppCompat.Light.NoActionBar.Translucent" >
+37-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:662-730
+38            <intent-filter>
+38-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:858-999
+39                <action android:name="android.intent.action.MAIN" />
+39-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:873-924
+39-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:881-922
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:924-983
+41-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:934-981
+42            </intent-filter>
+43        </activity>
+44        <activity
+44-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1010-1258
+45            android:name="com.mycompany.projectadvogado.wdgen.GWDFWIN_Login$WDActiviteFenetre"
+45-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1020-1073
+46            android:configChanges="keyboardHidden|orientation|screenSize|keyboard|smallestScreenSize|screenLayout|uiMode"
+46-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1074-1183
+47            android:hardwareAccelerated="false"
+47-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1221-1256
+48            android:theme="@android:style/Theme" />
+48-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1184-1220
+49        <activity
+49-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1258-1509
+50            android:name="com.mycompany.projectadvogado.wdgen.GWDFWIN_cadastro$WDActiviteFenetre"
+50-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1268-1324
+51            android:configChanges="keyboardHidden|orientation|screenSize|keyboard|smallestScreenSize|screenLayout|uiMode"
+51-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1325-1434
+52            android:hardwareAccelerated="false"
+52-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1472-1507
+53            android:theme="@android:style/Theme" />
+53-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1435-1471
+54
+55        <uses-library
+55-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1509-1587
+56            android:name="org.apache.http.legacy"
+56-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1523-1560
+57            android:required="false" />
+57-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1561-1585
+58
+59        <activity
+59-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1587-1749
+60            android:name="fr.pcsoft.wdjava.core.erreur.report.WDErrorReportActivity"
+60-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1597-1669
+61            android:theme="@android:style/Theme.DeviceDefault.Light" />
+61-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1670-1726
+62
+63        <provider
+63-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1749-2068
+64            android:name="androidx.core.content.FileProvider"
+64-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1759-1808
+65            android:authorities="com.mycompany.projectadvogado.fileprovider"
+65-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1809-1873
+66            android:exported="false"
+66-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1874-1898
+67            android:grantUriPermissions="true" >
+67-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1899-1933
+68            <meta-data
+68-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1955-2057
+69                android:name="android.support.FILE_PROVIDER_PATHS"
+69-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:1966-2016
+70                android:resource="@xml/provider_paths" />
+70-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2017-2055
+71        </provider>
+72
+73        <receiver
+73-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2068-2207
+74            android:name="fr.pcsoft.wdjava.core.utils.WDAppUtils$APKInstallBroadcastReceiver"
+74-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2078-2159
+75            android:exported="false" />
+75-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2160-2184
+76
+77        <activity
+77-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2207-2377
+78            android:name="fr.pcsoft.wdjava.ui.activite.WDActivite$BlankActivity"
+78-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2217-2285
+79            android:theme="@style/Theme.AppCompat.Light.NoActionBar.Translucent" />
+79-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2286-2354
+80
+81        <service android:name="fr.pcsoft.wdjava.core.service.WDServiceLocal" />
+81-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2377-2447
+81-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2386-2445
+82
+83        <meta-data
+83-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2447-2528
+84            android:name="fr.pcsoft.first_window_name"
+84-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2458-2500
+85            android:value="WIN_Login" />
+85-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2501-2526
+86        <meta-data
+86-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2528-2607
+87            android:name="fr.pcsoft.first_window_name_tablet"
+87-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2539-2588
+88            android:value="" />
+88-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2589-2605
+89        <meta-data
+89-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2607-2687
+90            android:name="fr.pcsoft.splash_orientation_phone"
+90-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2618-2667
+91            android:value="4" />
+91-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2668-2685
+92        <meta-data
+92-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2687-2768
+93            android:name="fr.pcsoft.splash_orientation_tablet"
+93-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2698-2748
+94            android:value="4" />
+94-->C:\My Projects\ProjectAdvogado\Android\gen\AndroidManifest.xml:2:2749-2766
+95
+96        <provider
+96-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+97            android:name="androidx.startup.InitializationProvider"
+97-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+98            android:authorities="com.mycompany.projectadvogado.androidx-startup"
+98-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+99            android:exported="false" >
+99-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+100            <meta-data
+100-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+101                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+101-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+102                android:value="androidx.startup" />
+102-->[androidx.emoji2:emoji2:1.2.0] C:\Users\joaop\.gradle\caches\transforms-3\e54e561548c65fa8928b0a5331f40d5f\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+103            <meta-data
+103-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\joaop\.gradle\caches\transforms-3\db71e0f4d30cd839f95b3cd614158a19\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+104                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+104-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\joaop\.gradle\caches\transforms-3\db71e0f4d30cd839f95b3cd614158a19\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+105                android:value="androidx.startup" />
+105-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\joaop\.gradle\caches\transforms-3\db71e0f4d30cd839f95b3cd614158a19\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+106        </provider>
+107    </application>
+108
+109</manifest>
