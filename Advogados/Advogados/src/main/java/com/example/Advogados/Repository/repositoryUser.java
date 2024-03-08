@@ -6,8 +6,13 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.Advogados.Model.User;
 
-public interface repositoryUser extends CrudRepository <User, Long> {
-    
+public interface repositoryUser extends CrudRepository<User, Long> {
+
+    User findByEmail(String email);
+
+    User findBycpf(String cpf);
+
+    User findByphoneNumber(String phoneString);
 
     List<User> findAll();
 }
