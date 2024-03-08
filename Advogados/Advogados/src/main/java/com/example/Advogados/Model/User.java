@@ -29,23 +29,23 @@ public class User {
     private Long Id;
 
     @CPF
- 
+    @NotBlank
     private String cpf;
-   
+
     private String name;
     private String surname;
 
     private Date dateOfBirth;
-    //@Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
+    // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
     private String validationOAB;
 
     @Email
-    
+    @NotBlank
     private String email;
 
     @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
-  
+    @NotBlank
     private String password;
 
     public Long getId() {
@@ -55,7 +55,6 @@ public class User {
     public void setId(Long id) {
         Id = id;
     }
-    
 
     public String getCPF() {
         return cpf;
@@ -64,7 +63,6 @@ public class User {
     public void setCPF(String cPF) {
         cpf = cPF;
     }
-
 
     public String getName() {
         return name;
@@ -97,7 +95,7 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-    
+
     public String getValidationOAB() {
         return validationOAB;
     }
