@@ -1,28 +1,19 @@
 package com.example.Advogados.Model;
 
-import java.sql.Date;
-
 import org.hibernate.validator.constraints.br.CPF;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "Users")
-public class User {
+@Table(name = "Lawyers")
+public class Lawyers {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +24,15 @@ public class User {
     private String cpf;
 
     private String name;
+    private String titleLawyers;
+    private String specializedAir;
+    private String descricion;
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
+
+    @NotBlank
+    private String validationOAB;
 
     @Email
     @NotBlank
@@ -77,6 +74,14 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getValidationOAB() {
+        return validationOAB;
+    }
+
+    public void setValidationOAB(String validationOAB) {
+        this.validationOAB = validationOAB;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -93,4 +98,35 @@ public class User {
         this.password = password;
     }
 
+    public String getTitleLawyers() {
+        return titleLawyers;
+    }
+
+    public void setTitleLawyers(String titleLawyers) {
+        this.titleLawyers = titleLawyers;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getSpecializedAir() {
+        return specializedAir;
+    }
+
+    public void setSpecializedAir(String specializedAir) {
+        this.specializedAir = specializedAir;
+    }
+
+    public String getDescricion() {
+        return descricion;
+    }
+
+    public void setDescricion(String descricion) {
+        this.descricion = descricion;
+    }
 }
