@@ -28,7 +28,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @CPF
     @NotBlank
     private String cpf;
 

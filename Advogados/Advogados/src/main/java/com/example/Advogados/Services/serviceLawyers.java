@@ -1,39 +1,36 @@
 package com.example.Advogados.Services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.beanvalidation.CustomValidatorBean;
 
+import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.message.message;
 
 @Service
-public class servicesUser {
+public class serviceLawyers {
 
     @Autowired
-    repositoryUser action;
+    repositoryLawyers action;
 
     @Autowired
     message message;
 
-    public ResponseEntity<?> saveUser(User user, BindingResult result) {
-        User verifyUser = action.findByEmail(user.getEmail());
-        User verifyphoneNumber = action.findByphoneNumber(user.getPhoneNumber());
+    public ResponseEntity<?> saveLawyers(Lawyers lawyers, BindingResult result) {
+        Lawyers verifyUser = action.findByEmail(lawyers.getEmail());
+        Lawyers verifyphoneNumber = action.findByphoneNumber(lawyers.getPhoneNumber());
         if (result.hasErrors()) {
             StringBuilder errorMessage = new StringBuilder();
             for (FieldError error : result.getFieldErrors()) {
                 errorMessage.append(error.getDefaultMessage()).append("\n");
             }
             message.setMensagem(errorMessage.toString());
-            return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         } else if (verifyUser != null) {
             message.setMensagem("Já existe um cliente com esse email cadastrado");
 
@@ -44,11 +41,10 @@ public class servicesUser {
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 
         } else {
-            message.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + action.save(user));
+            message.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + action.save(lawyers));
 
             return new ResponseEntity<>(message, HttpStatus.OK);
 
         }
     }
-
 }
