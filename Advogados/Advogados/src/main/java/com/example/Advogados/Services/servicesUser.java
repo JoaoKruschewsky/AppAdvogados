@@ -33,7 +33,7 @@ public class servicesUser {
                 errorMessage.append(error.getDefaultMessage()).append("\n");
             }
             message.setMensagem(errorMessage.toString());
-            return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         } else if (verifyUser != null) {
             message.setMensagem("Já existe um cliente com esse email cadastrado");
 
@@ -48,6 +48,17 @@ public class servicesUser {
 
             return new ResponseEntity<>(message, HttpStatus.OK);
 
+        }
+    }
+
+    public ResponseEntity<?> verifyUser(User user) {
+        User existingUser = action.findByEmail(user.getEmail());
+
+        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+            return new ResponseEntity<>(existingUser, HttpStatus.OK);
+        } else {
+            message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
     }
 

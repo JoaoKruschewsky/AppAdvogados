@@ -8,7 +8,11 @@ import com.example.Advogados.Model.User;
 
 public interface repositoryUser extends CrudRepository<User, Long> {
 
-    User findByEmail(String email);
+    User findByname(String name);
+
+    User findByEmail(String emal);
+
+    User findByPassword(String password);
 
     User findBycpf(String cpf);
 
