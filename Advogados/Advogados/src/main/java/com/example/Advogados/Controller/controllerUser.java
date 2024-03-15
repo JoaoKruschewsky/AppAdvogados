@@ -43,8 +43,9 @@ public class controllerUser {
         return action.findAll();
     }
 
-    @GetMapping("getUserPerfil{name}")
-    public User getUserEmail(@PathVariable String name) {
+    @GetMapping("getUserbyName/{name}")
+    public List<User> getUserEmail(@PathVariable String name) {
         return action.findByname(name);
     }
+
 }

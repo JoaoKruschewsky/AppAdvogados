@@ -62,4 +62,7 @@ public class servicesUser {
         }
     }
 
+    public ResponseEntity<?> foundLawyers(User user){
+        User existLaywers = action.findByname(user.getName());
+    }
 }
