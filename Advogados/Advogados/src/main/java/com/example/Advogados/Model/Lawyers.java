@@ -26,6 +26,15 @@ public class Lawyers {
     private String titleLawyers;
     private String specializedAir;
     private String descricion;
+    private String img_profile;
+
+    public String getImg_Profile() {
+        return img_profile;
+    }
+
+    public void setImg_Profile(String img_Profile) {
+        this.img_profile = img_Profile;
+    }
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;

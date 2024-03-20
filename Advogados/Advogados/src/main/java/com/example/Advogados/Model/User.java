@@ -2,6 +2,8 @@ package com.example.Advogados.Model;
 
 import java.sql.Date;
 
+import javax.imageio.ImageIO;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Column;
@@ -35,6 +37,16 @@ public class User {
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
+    private String img_profile;
+
+    
+    public String getImg_Profile() {
+        return img_profile;
+    }
+
+    public void setImg_Profile(String img_Profile) {
+        this.img_profile = img_Profile;
+    }
 
     @Email
     @NotBlank
