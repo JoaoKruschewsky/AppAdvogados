@@ -1,6 +1,7 @@
 package com.example.Advogados.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.beanvalidation.CustomValidatorBean;
 
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Model.updateDTO;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.message.message;
 
@@ -60,6 +62,19 @@ public class servicesUser {
             message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
+    }
+
+    public ResponseEntity<?> uptade(Long ID, updateDTO updateDTO) {
+        Optional<User> optionalUser = action.findById(ID);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setDescricion(updateDTO.getDescricionDTO());
+            return new ResponseEntity<>(action.save(user), HttpStatus.OK);
+        } else {
+            message.setMensagem("Ocorreu um erro tente novamente");
+            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+        }
+
     }
 
 }

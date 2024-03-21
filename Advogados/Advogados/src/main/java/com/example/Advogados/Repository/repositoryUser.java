@@ -2,6 +2,8 @@ package com.example.Advogados.Repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.Advogados.Model.User;
@@ -19,4 +21,8 @@ public interface repositoryUser extends CrudRepository<User, Long> {
     User findByphoneNumber(String phoneString);
 
     List<User> findAll();
+
+    @Modifying
+    @Query(value = "UPDATE Users SET value = ? WHERE img_profile = ? ", nativeQuery = true)
+    void setaramout(int quantidade, String name);
 }

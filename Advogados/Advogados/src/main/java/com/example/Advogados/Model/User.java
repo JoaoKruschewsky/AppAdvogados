@@ -38,8 +38,16 @@ public class User {
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
     private String img_profile;
+    private String descricion;
 
-    
+    public String getDescricion() {
+        return descricion;
+    }
+
+    public void setDescricion(String descricion) {
+        this.descricion = descricion;
+    }
+
     public String getImg_Profile() {
         return img_profile;
     }
