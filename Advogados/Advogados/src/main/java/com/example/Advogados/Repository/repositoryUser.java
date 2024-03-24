@@ -10,7 +10,7 @@ import com.example.Advogados.Model.User;
 
 public interface repositoryUser extends CrudRepository<User, Long> {
 
-    List<User> findByname(String name);
+    List<User> findBynameStartingWithIgnoreCase(String name);
 
     User findByEmail(String emal);
 

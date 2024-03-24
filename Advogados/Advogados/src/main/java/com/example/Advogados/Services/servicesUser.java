@@ -69,6 +69,7 @@ public class servicesUser {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
             user.setDescricion(updateDTO.getDescricionDTO());
+            user.setImg_Profile(updateDTO.getImgDTO());
             return new ResponseEntity<>(action.save(user), HttpStatus.OK);
         } else {
             message.setMensagem("Ocorreu um erro tente novamente");

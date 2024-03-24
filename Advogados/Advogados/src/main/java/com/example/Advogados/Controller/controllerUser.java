@@ -51,7 +51,7 @@ public class controllerUser {
 
     @GetMapping("getUserbyName/{name}")
     public List<User> getUserEmail(@PathVariable String name) {
-        return action.findByname(name);
+        return action.findBynameStartingWithIgnoreCase(name);
     }
 
 }
