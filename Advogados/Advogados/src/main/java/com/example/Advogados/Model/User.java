@@ -1,6 +1,7 @@
 package com.example.Advogados.Model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 
@@ -14,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -38,14 +40,24 @@ public class User {
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
     private String img_profile;
-    private String descricion;
 
-    public String getDescricion() {
-        return descricion;
+    @OneToMany(mappedBy = "client")
+    private List<LawyerClientRelationship> lawyerRelationships;
+
+    @Email
+    @NotBlank
+    private String email;
+
+    @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
+    @NotBlank
+    private String password;
+
+    public List<LawyerClientRelationship> getLawyerRelationships() {
+        return lawyerRelationships;
     }
 
-    public void setDescricion(String descricion) {
-        this.descricion = descricion;
+    public void setLawyerRelationships(List<LawyerClientRelationship> lawyerRelationships) {
+        this.lawyerRelationships = lawyerRelationships;
     }
 
     public String getImg_Profile() {
@@ -55,14 +67,6 @@ public class User {
     public void setImg_Profile(String img_Profile) {
         this.img_profile = img_Profile;
     }
-
-    @Email
-    @NotBlank
-    private String email;
-
-    @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
-    @NotBlank
-    private String password;
 
     public Long getId() {
         return Id;

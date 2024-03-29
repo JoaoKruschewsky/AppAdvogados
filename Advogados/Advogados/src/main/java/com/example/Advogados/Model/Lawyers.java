@@ -1,11 +1,14 @@
 package com.example.Advogados.Model;
 
+import java.util.List;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,14 +30,10 @@ public class Lawyers {
     private String specializedAir;
     private String descricion;
     private String img_profile;
+    private String price;
 
-    public String getImg_Profile() {
-        return img_profile;
-    }
-
-    public void setImg_Profile(String img_Profile) {
-        this.img_profile = img_Profile;
-    }
+    @OneToMany(mappedBy = "lawyer")
+    private List<LawyerClientRelationship> clientRelationships;
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
@@ -56,6 +55,30 @@ public class Lawyers {
 
     public void setId(Long id) {
         Id = id;
+    }
+
+    public List<LawyerClientRelationship> getClientRelationships() {
+        return clientRelationships;
+    }
+
+    public void setClientRelationships(List<LawyerClientRelationship> clientRelationships) {
+        this.clientRelationships = clientRelationships;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getImg_Profile() {
+        return img_profile;
+    }
+
+    public void setImg_Profile(String img_Profile) {
+        this.img_profile = img_Profile;
     }
 
     public String getCPF() {

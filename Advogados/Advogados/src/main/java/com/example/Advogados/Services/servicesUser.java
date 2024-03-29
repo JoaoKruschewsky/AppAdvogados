@@ -57,6 +57,7 @@ public class servicesUser {
         User existingUser = action.findByEmail(user.getEmail());
 
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+            message.setMensagem("login aceito Usuario.");
             return new ResponseEntity<>(existingUser, HttpStatus.OK);
         } else {
             message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
@@ -64,18 +65,6 @@ public class servicesUser {
         }
     }
 
-    public ResponseEntity<?> uptade(Long ID, updateDTO updateDTO) {
-        Optional<User> optionalUser = action.findById(ID);
-        if (optionalUser.isPresent()) {
-            User user = optionalUser.get();
-            user.setDescricion(updateDTO.getDescricionDTO());
-            user.setImg_Profile(updateDTO.getImgDTO());
-            return new ResponseEntity<>(action.save(user), HttpStatus.OK);
-        } else {
-            message.setMensagem("Ocorreu um erro tente novamente");
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-        }
 
-    }
 
 }
