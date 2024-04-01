@@ -52,11 +52,11 @@ public class serviceLawyers {
     }
 
     public ResponseEntity<?> verifyLawyers(Lawyers Lawyers) {
-        Lawyers existingUser = action.findByEmail(Lawyers.getEmail());
+        Lawyers existingLawyers = action.findByEmail(Lawyers.getEmail());
 
-        if (existingUser != null && existingUser.getPassword().equals(Lawyers.getPassword())) {
+        if (existingLawyers != null && existingLawyers.getPassword().equals(Lawyers.getPassword())) {
             message.setMensagem("login aceito Advogado.");
-            return new ResponseEntity<>(existingUser, HttpStatus.OK);
+            return new ResponseEntity<>(existingLawyers, HttpStatus.OK);
         } else {
             message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);

@@ -39,10 +39,10 @@ public class controllerUser {
         return service.verifyUser(user);
     }
 
-    @PostMapping("saveUpdatesUser/{id}")
+   /*  @PostMapping("saveUpdatesUser/{id}")
     public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateDTO updateDTO) {
         return service.uptade(id, updateDTO);
-    }
+    }*/
 
     @GetMapping("getUser")
     public List<User> getUser() {

@@ -36,8 +36,8 @@ public class controllerLawyers {
     }
 
     @PostMapping("verifyLaywers")
-    public ResponseEntity<?> verifyLawyers(@RequestBody Lawyers user) {
-        return service.verifyLawyers(user);
+    public ResponseEntity<?> verifyLawyers(@RequestBody Lawyers Lawyers) {
+        return service.verifyLawyers(Lawyers);
     }
 
     @PostMapping("saveUpdatesUser/{id}")

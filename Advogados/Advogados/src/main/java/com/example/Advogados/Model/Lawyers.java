@@ -38,7 +38,7 @@ public class Lawyers {
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
 
-    @NotBlank
+    // @NotBlank
     private String validationOAB;
 
     @Email
@@ -57,14 +57,6 @@ public class Lawyers {
         Id = id;
     }
 
-    public List<LawyerClientRelationship> getClientRelationships() {
-        return clientRelationships;
-    }
-
-    public void setClientRelationships(List<LawyerClientRelationship> clientRelationships) {
-        this.clientRelationships = clientRelationships;
-    }
-
     public String getPrice() {
         return price;
     }
@@ -79,14 +71,6 @@ public class Lawyers {
 
     public void setImg_Profile(String img_Profile) {
         this.img_profile = img_Profile;
-    }
-
-    public String getCPF() {
-        return cpf;
-    }
-
-    public void setCPF(String cPF) {
-        cpf = cPF;
     }
 
     public String getName() {
@@ -159,5 +143,13 @@ public class Lawyers {
 
     public void setDescricion(String descricion) {
         this.descricion = descricion;
+    }
+
+    public List<LawyerClientRelationship> getClientRelationships() {
+        return clientRelationships;
+    }
+
+    public void setClientRelationships(List<LawyerClientRelationship> clientRelationships) {
+        this.clientRelationships = clientRelationships;
     }
 }
