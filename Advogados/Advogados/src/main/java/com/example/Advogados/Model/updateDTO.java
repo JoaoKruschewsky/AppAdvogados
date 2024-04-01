@@ -1,9 +1,13 @@
 package com.example.Advogados.Model;
 
+import java.math.BigDecimal;
+
 public class updateDTO {
     private String imgDTO;
     private String descricionDTO;
-    private String priceDTO;
+    private String titleLawyerDTO;
+    private String specializedAirDTO;
+    private BigDecimal priceDTO;
 
     public String getImgDTO() {
         return imgDTO;
@@ -21,11 +25,27 @@ public class updateDTO {
         this.descricionDTO = descricionDTO;
     }
 
-    public String getPriceDTO() {
+    public BigDecimal getPriceDTO() {
         return priceDTO;
     }
 
-    public void setPriceDTO(String priceDTO) {
+    public void setPriceDTO(BigDecimal priceDTO) {
         this.priceDTO = priceDTO;
+    }
+
+    public String getTitleLawyerDTO() {
+        return titleLawyerDTO;
+    }
+
+    public void setTitleLawyerDTO(String titleLawyerDTO) {
+        this.titleLawyerDTO = titleLawyerDTO;
+    }
+
+    public String getSpecializedAirDTO() {
+        return specializedAirDTO;
+    }
+
+    public void setSpecializedAirDTO(String specelizedAirDTO) {
+        this.specializedAirDTO = specelizedAirDTO;
     }
 }

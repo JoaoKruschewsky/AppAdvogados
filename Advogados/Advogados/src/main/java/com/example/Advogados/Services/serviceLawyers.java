@@ -70,6 +70,8 @@ public class serviceLawyers {
             Lawyers.setDescricion(updateDTO.getDescricionDTO());
             Lawyers.setImg_Profile(updateDTO.getImgDTO());
             Lawyers.setPrice(updateDTO.getPriceDTO());
+            Lawyers.setSpecializedAir(updateDTO.getSpecializedAirDTO());
+            Lawyers.setTitleLawyers(updateDTO.getTitleLawyerDTO());
             return new ResponseEntity<>(action.save(Lawyers), HttpStatus.OK);
         } else {
             message.setMensagem("Ocorreu um erro tente novamente");

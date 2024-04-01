@@ -21,32 +21,37 @@ import com.example.Advogados.Services.serviceLawyers;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/lawyers")
+@RequestMapping("/api/lawyer")
 public class controllerLawyers {
 
     @Autowired
-    serviceLawyers service;
+    private serviceLawyers service;
 
     @Autowired
-    repositoryLawyers action;
+    private repositoryLawyers action;
 
-    @PostMapping("saveLawyers")
+    @PostMapping("saveLawyer")
     public ResponseEntity<?> saveLawyers(@RequestBody Lawyers lawyers, BindingResult result) {
         return service.saveLawyers(lawyers, result);
     }
 
-    @PostMapping("verifyLaywers")
+    @PostMapping("verifyLawyer")
     public ResponseEntity<?> verifyLawyers(@RequestBody Lawyers Lawyers) {
         return service.verifyLawyers(Lawyers);
     }
 
-    @PostMapping("saveUpdatesUser/{id}")
+    @GetMapping("getLawyer")
+    public List<Lawyers> getLawyers() {
+        return action.findAll();
+    }
+
+    @PostMapping("saveUpdatesLawyer/{id}")
     public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateDTO updateDTO) {
         return service.uptade(id, updateDTO);
     }
 
-    @GetMapping("getUserbyName/{name}")
-    public List<Lawyers> getUserEmail(@PathVariable String name) {
+    @GetMapping("getLawyerbyName/{name}")
+    public List<Lawyers> getLawyerEmail(@PathVariable String name) {
         return action.findBynameStartingWithIgnoreCase(name);
     }
 

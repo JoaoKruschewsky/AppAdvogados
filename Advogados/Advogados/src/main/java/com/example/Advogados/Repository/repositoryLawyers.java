@@ -18,4 +18,6 @@ public interface repositoryLawyers extends CrudRepository<Lawyers, Long> {
     List<Lawyers> findBynameStartingWithIgnoreCase(String name);
 
     Lawyers findByphoneNumber(String phoneString);
+
+    List<Lawyers> findAll();
 }

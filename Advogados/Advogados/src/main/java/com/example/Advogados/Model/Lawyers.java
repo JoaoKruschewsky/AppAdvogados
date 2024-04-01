@@ -1,5 +1,6 @@
 package com.example.Advogados.Model;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -30,7 +31,7 @@ public class Lawyers {
     private String specializedAir;
     private String descricion;
     private String img_profile;
-    private String price;
+    private BigDecimal price;
 
     @OneToMany(mappedBy = "lawyer")
     private List<LawyerClientRelationship> clientRelationships;
@@ -57,11 +58,11 @@ public class Lawyers {
         Id = id;
     }
 
-    public String getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

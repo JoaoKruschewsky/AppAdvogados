@@ -20,7 +20,7 @@ import com.example.Advogados.Services.servicesUser;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class controllerUser {
 
     @Autowired
@@ -39,16 +39,17 @@ public class controllerUser {
         return service.verifyUser(user);
     }
 
-   /*  @PostMapping("saveUpdatesUser/{id}")
-    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateDTO updateDTO) {
-        return service.uptade(id, updateDTO);
-    }*/
+    /*
+     * @PostMapping("saveUpdatesUser/{id}")
+     * public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody
+     * updateDTO updateDTO) {
+     * return service.uptade(id, updateDTO);
+     * }
+     */
 
     @GetMapping("getUser")
     public List<User> getUser() {
         return action.findAll();
     }
-
-    
 
 }
