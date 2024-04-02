@@ -1,5 +1,7 @@
 package com.example.Advogados.Services;
 
+import java.math.BigDecimal;
+import java.util.Currency;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,11 +67,13 @@ public class serviceLawyers {
 
     public ResponseEntity<?> uptade(Long ID, updateDTO updateDTO) {
         Optional<Lawyers> optionalUser = action.findById(ID);
+
+        BigDecimal price = BigDecimal.valueOf(updateDTO.getPriceDTO().getNumericCode());
         if (optionalUser.isPresent()) {
             Lawyers Lawyers = optionalUser.get();
             Lawyers.setDescricion(updateDTO.getDescricionDTO());
             Lawyers.setImg_Profile(updateDTO.getImgDTO());
-            Lawyers.setPrice(updateDTO.getPriceDTO());
+            Lawyers.setPrice(price);
             Lawyers.setSpecializedAir(updateDTO.getSpecializedAirDTO());
             Lawyers.setTitleLawyers(updateDTO.getTitleLawyerDTO());
             return new ResponseEntity<>(action.save(Lawyers), HttpStatus.OK);

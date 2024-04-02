@@ -1,13 +1,14 @@
 package com.example.Advogados.Model;
 
 import java.math.BigDecimal;
+import java.util.Currency;
 
 public class updateDTO {
     private String imgDTO;
     private String descricionDTO;
     private String titleLawyerDTO;
     private String specializedAirDTO;
-    private BigDecimal priceDTO;
+    private Currency priceDTO;
 
     public String getImgDTO() {
         return imgDTO;
@@ -25,11 +26,11 @@ public class updateDTO {
         this.descricionDTO = descricionDTO;
     }
 
-    public BigDecimal getPriceDTO() {
+    public Currency getPriceDTO() {
         return priceDTO;
     }
 
-    public void setPriceDTO(BigDecimal priceDTO) {
+    public void setPriceDTO(Currency priceDTO) {
         this.priceDTO = priceDTO;
     }
 
