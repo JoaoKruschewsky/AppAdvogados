@@ -8,7 +8,7 @@ public class updateDTO {
     private String descricionDTO;
     private String titleLawyerDTO;
     private String specializedAirDTO;
-    private Currency priceDTO;
+    private BigDecimal priceDTO;
 
     public String getImgDTO() {
         return imgDTO;
@@ -26,11 +26,11 @@ public class updateDTO {
         this.descricionDTO = descricionDTO;
     }
 
-    public Currency getPriceDTO() {
+    public BigDecimal getPriceDTO() {
         return priceDTO;
     }
 
-    public void setPriceDTO(Currency priceDTO) {
+    public void setPriceDTO(BigDecimal priceDTO) {
         this.priceDTO = priceDTO;
     }
 

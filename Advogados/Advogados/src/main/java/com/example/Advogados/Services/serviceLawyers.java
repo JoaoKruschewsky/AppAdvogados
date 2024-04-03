@@ -68,12 +68,11 @@ public class serviceLawyers {
     public ResponseEntity<?> uptade(Long ID, updateDTO updateDTO) {
         Optional<Lawyers> optionalUser = action.findById(ID);
 
-        BigDecimal price = BigDecimal.valueOf(updateDTO.getPriceDTO().getNumericCode());
         if (optionalUser.isPresent()) {
             Lawyers Lawyers = optionalUser.get();
             Lawyers.setDescricion(updateDTO.getDescricionDTO());
             Lawyers.setImg_Profile(updateDTO.getImgDTO());
-            Lawyers.setPrice(price);
+            Lawyers.setPrice(updateDTO.getPriceDTO());
             Lawyers.setSpecializedAir(updateDTO.getSpecializedAirDTO());
             Lawyers.setTitleLawyers(updateDTO.getTitleLawyerDTO());
             return new ResponseEntity<>(action.save(Lawyers), HttpStatus.OK);
