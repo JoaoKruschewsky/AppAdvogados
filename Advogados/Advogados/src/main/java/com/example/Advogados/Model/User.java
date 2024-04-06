@@ -7,6 +7,8 @@ import javax.imageio.ImageIO;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,6 +44,7 @@ public class User {
     private String img_profile;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<LawyerClientRelationship> lawyerRelationships;
 
     @Email

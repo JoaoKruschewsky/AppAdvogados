@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,6 +36,7 @@ public class Lawyers {
     private BigDecimal price;
 
     @OneToMany(mappedBy = "lawyer")
+    @JsonIgnore
     private List<LawyerClientRelationship> clientRelationships;
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
