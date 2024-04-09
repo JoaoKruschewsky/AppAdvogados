@@ -31,8 +31,13 @@ public class controllerRelationShip {
         return action.save(relationship);
     }
 
-    @GetMapping("getRelation/{id}")
-    public ResponseEntity<?> getRelationByID(@PathVariable Long id) {
-        return service.getRelations(id);
+    @GetMapping("getRelationUser/{id}")
+    public ResponseEntity<?> getRelationUser(@PathVariable Long id) {
+        return service.getRelationsUser(id);
+    }
+
+    @GetMapping("getRelationLawyer/{id}")
+    public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
+        return service.getRelationsLawyer(id);
     }
 }

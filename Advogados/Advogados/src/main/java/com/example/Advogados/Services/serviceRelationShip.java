@@ -35,13 +35,11 @@ public class serviceRelationShip {
     @Autowired
     private message msg;
 
-    public ResponseEntity<?> getRelations(long id) {
+    public ResponseEntity<?> getRelationsUser(long id) {
 
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
             ArrayList<String> names = new ArrayList<>();
-            ArrayList<String> status = new ArrayList<>();
-            List<List<String>> relationStatus = new ArrayList<>();
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -55,7 +53,37 @@ public class serviceRelationShip {
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
 
-                    relationStatus.add(names);
+                }
+                return new ResponseEntity<>(names, HttpStatus.OK);
+            } catch (JsonProcessingException e) {
+                // Trate a exceção aqui
+                e.printStackTrace(); // ou qualquer outra forma de tratamento
+                msg.setMensagem("User não encontrado");
+                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } else {
+            msg.setMensagem("Não existe usuário com esse nome");
+            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public ResponseEntity<?> getRelationsLawyer(long id) {
+
+        List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByLawyerId(id);
+        if (!user.isEmpty()) {
+            ArrayList<String> names = new ArrayList<>();
+
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writeValueAsString(user);
+                JsonNode rootNode = objectMapper.readTree(json);
+
+                for (JsonNode node : rootNode) {
+
+                    JsonNode lawyerNode = node.get("client");
+                    JsonNode lawyerStatus = node.get("status");
+                    names.add(lawyerNode.get("name").asText());
+                    names.add(lawyerStatus.asText());
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);

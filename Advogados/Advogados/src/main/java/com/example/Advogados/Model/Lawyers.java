@@ -11,11 +11,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import jakarta.websocket.OnMessage;
 
 @Entity
 @Table(name = "Lawyers")
@@ -38,6 +41,10 @@ public class Lawyers {
     @OneToMany(mappedBy = "lawyer")
     @JsonIgnore
     private List<LawyerClientRelationship> clientRelationships;
+
+    @OneToMany(mappedBy = "lawyersId")
+    @JsonIgnore
+    private List<Requests> requests;
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
@@ -155,5 +162,13 @@ public class Lawyers {
 
     public void setClientRelationships(List<LawyerClientRelationship> clientRelationships) {
         this.clientRelationships = clientRelationships;
+    }
+
+    public List<Requests> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Requests> requests) {
+        this.requests = requests;
     }
 }

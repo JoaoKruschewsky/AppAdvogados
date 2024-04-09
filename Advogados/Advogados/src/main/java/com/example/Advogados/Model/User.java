@@ -47,6 +47,10 @@ public class User {
     @JsonIgnore
     private List<LawyerClientRelationship> lawyerRelationships;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Requests> requests;
+
     @Email
     @NotBlank
     private String email;
@@ -117,6 +121,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Requests> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Requests> requests) {
+        this.requests = requests;
     }
 
 }
