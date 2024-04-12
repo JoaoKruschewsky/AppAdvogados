@@ -1,6 +1,7 @@
 package com.example.Advogados.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,8 @@ public interface repositoryLawyers extends CrudRepository<Lawyers, Long> {
     Lawyers findByEmail(String email);
 
     Lawyers findBycpf(String cpf);
+
+    Optional<Lawyers> findById(Long id);
 
     List<Lawyers> findBynameStartingWithIgnoreCase(String name);
 

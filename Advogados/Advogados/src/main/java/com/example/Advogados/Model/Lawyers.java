@@ -42,7 +42,7 @@ public class Lawyers {
     @JsonIgnore
     private List<LawyerClientRelationship> clientRelationships;
 
-    @OneToMany(mappedBy = "lawyersId")
+    @OneToMany(mappedBy = "lawyer")
     @JsonIgnore
     private List<Requests> requests;
 

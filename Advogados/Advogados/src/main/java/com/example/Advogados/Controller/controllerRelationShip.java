@@ -27,8 +27,8 @@ public class controllerRelationShip {
     private serviceRelationShip service;
 
     @PostMapping("saveRelation")
-    public LawyerClientRelationship saveRelation(@RequestBody LawyerClientRelationship relationship) {
-        return action.save(relationship);
+    public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship) {
+        return service.saveRelation(relationship);
     }
 
     @GetMapping("getRelationUser/{id}")

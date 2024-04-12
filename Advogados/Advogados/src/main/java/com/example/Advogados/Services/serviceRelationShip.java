@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.apache.catalina.connector.Response;
 import org.apache.tomcat.util.http.parser.HttpParser;
 import org.apache.tomcat.util.json.JSONFilter;
+import org.aspectj.internal.lang.annotation.ajcDeclareAnnotation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.message.message;
@@ -25,6 +27,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.qos.logback.core.read.ListAppender;
+import lombok.extern.java.Log;
 
 @Service
 public class serviceRelationShip {
@@ -33,7 +36,29 @@ public class serviceRelationShip {
     private repositoryRelationShip action;
 
     @Autowired
+    private repositoryUser actionUser;
+
+    @Autowired
+    private repositoryLawyers actionLawyer;
+
+    @Autowired
     private message msg;
+
+    public ResponseEntity<?> saveRelation(LawyerClientRelationship relation) {
+        Optional<User> existingUser = actionUser.findById(relation.getClient().getId());
+        Optional<Lawyers> existingLawyer = actionLawyer.findById(relation.getLawyer().getId());
+        if (existingUser.isPresent() && existingLawyer.isPresent()) {
+            ArrayList<Object> saves = new ArrayList<>();
+            saves.add(existingUser);
+            saves.add(existingLawyer);
+            action.save(relation);
+
+            return new ResponseEntity<>(saves, HttpStatus.OK);
+        } else {
+            msg.setMensagem("Não foi possível salvar a relação");
+            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        }
+    }
 
     public ResponseEntity<?> getRelationsUser(long id) {
 
@@ -69,13 +94,13 @@ public class serviceRelationShip {
 
     public ResponseEntity<?> getRelationsLawyer(long id) {
 
-        List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByLawyerId(id);
-        if (!user.isEmpty()) {
-            ArrayList<String> names = new ArrayList<>();
+        List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
+        if (!Lawyer.isEmpty()) {
+            ArrayList<Object> names = new ArrayList<>();
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
-                String json = objectMapper.writeValueAsString(user);
+                String json = objectMapper.writeValueAsString(Lawyer);
                 JsonNode rootNode = objectMapper.readTree(json);
 
                 for (JsonNode node : rootNode) {
@@ -84,6 +109,7 @@ public class serviceRelationShip {
                     JsonNode lawyerStatus = node.get("status");
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
+                    names.add(lawyerNode.get("id"));
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
@@ -95,7 +121,7 @@ public class serviceRelationShip {
             }
         } else {
             msg.setMensagem("Não existe usuário com esse nome");
-            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
         }
     }
 }

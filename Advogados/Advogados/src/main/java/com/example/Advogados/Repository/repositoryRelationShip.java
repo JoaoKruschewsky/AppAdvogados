@@ -30,6 +30,10 @@ public interface repositoryRelationShip extends CrudRepository<LawyerClientRelat
 
     List<LawyerClientRelationship> findAllLawyerClientRelationshipsByClientId(long id);
 
+    Optional<LawyerClientRelationship> findClientById(long id);
+
+    Optional<LawyerClientRelationship> findLawyerById(long id);
+
     List<LawyerClientRelationship> findAllLawyerClientRelationshipsByLawyerId(long id);
 
     // Optional<LawyerClientRelationship> findClientById(long id);
@@ -38,7 +42,7 @@ public interface repositoryRelationShip extends CrudRepository<LawyerClientRelat
 
     // Optional<LawyerClientRelationship> findClientById(long id);
 
-    List<LawyerClientRelationship> findLawyerById(Long id);
+    Optional<LawyerClientRelationship> findLawyerById(Long id);
 
     List<String> findStatusByClientId(Long id);
 }

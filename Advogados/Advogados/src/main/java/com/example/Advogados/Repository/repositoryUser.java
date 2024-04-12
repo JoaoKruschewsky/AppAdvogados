@@ -1,6 +1,7 @@
 package com.example.Advogados.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +16,8 @@ public interface repositoryUser extends CrudRepository<User, Long> {
     List<User> findBynameStartingWithIgnoreCase(String name);
 
     User findByEmail(String emal);
+
+    Optional<User> findById(long id);
 
     User findByPassword(String password);
 

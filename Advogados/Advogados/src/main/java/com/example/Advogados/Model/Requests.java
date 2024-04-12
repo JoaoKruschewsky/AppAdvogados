@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Requests")
+@Table(name = "AllRequests")
 public class Requests {
 
     @Id
@@ -19,11 +19,14 @@ public class Requests {
 
     @ManyToOne
     @JoinColumn(name = "lawyer_id")
-    private Lawyers lawyersId;
+    private Lawyers lawyer;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    private String changeRelation;
+
 
     private String status;
 
@@ -36,11 +39,11 @@ public class Requests {
     }
 
     public Lawyers getLawyers() {
-        return lawyersId;
+        return lawyer;
     }
 
     public void setLawyers(Lawyers lawyers) {
-        this.lawyersId = lawyers;
+        this.lawyer = lawyers;
     }
 
     public User getUsers() {
@@ -57,6 +60,14 @@ public class Requests {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+    
+    public String getChangeRelation() {
+        return changeRelation;
+    }
+
+    public void setChangeRelation(String changeRelation) {
+        this.changeRelation = changeRelation;
     }
 
 }
