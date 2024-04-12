@@ -60,7 +60,7 @@ public class serviceRelationShip {
         }
     }
 
-    public ResponseEntity<?> getRelationsUser(long id) {
+    public ResponseEntity<?> getRelationsUser(final long id) {
 
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
@@ -92,7 +92,7 @@ public class serviceRelationShip {
         }
     }
 
-    public ResponseEntity<?> getRelationsLawyer(long id) {
+    public ResponseEntity<?> getRelationsLawyer(final long id) {
 
         List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
         if (!Lawyer.isEmpty()) {
