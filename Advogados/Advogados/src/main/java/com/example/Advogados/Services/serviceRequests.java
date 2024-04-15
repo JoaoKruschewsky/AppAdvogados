@@ -69,11 +69,15 @@ public class serviceRequests {
 
                     JsonNode lawyerNode = node.get("lawyers");
                     JsonNode lawyerStatus = node.get("status");
-                    names.add(lawyerNode.get("name").asText());
-                    names.add(lawyerStatus.asText());
+                    if (lawyerStatus.asText().equalsIgnoreCase("pendente")) {
+                        names.add(lawyerNode.get("name").asText());
+                        names.add(lawyerStatus.asText());
+                    } else {
+
+                    }
 
                 }
-                return new ResponseEntity<>(names, HttpStatus.OK);
+                return new ResponseEntity<>(user, HttpStatus.OK);
             } catch (JsonProcessingException e) {
                 // Trate a exceção aqui
                 e.printStackTrace(); // ou qualquer outra forma de tratamento
@@ -101,25 +105,24 @@ public class serviceRequests {
 
                     JsonNode lawyerNode = node.get("lawyers");
                     JsonNode lawyerStatus = node.get("status");
+                    JsonNode relation = node.get("changeRelation");
                     int i = lawyerNode.get("id").asInt();
+                    if (i != requests.getLawyers().getId()) {
 
-                    if (i == requests.getLawyers().getId()) {
-                        if (lawyerStatus.asText().equals("pendente")) {
-                            action.save(requests);
-                            msg.setMensagem("Solicitacao salva com sucesso");
-                            return new ResponseEntity<>(msg, HttpStatus.OK);
-                        } else {
-                            msg.setMensagem("Essa solicitacao já foi: " + lawyerStatus.asText());
-                            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
-                        }
+                        continue;
+
+                    } else if (!lawyerStatus.asText().equalsIgnoreCase("pendente")) {
+
+                        msg.setMensagem("Essa solicitacao foi: " + lawyerStatus.asText());
+                        return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
                     } else {
-                        return new ResponseEntity<>("Nao tem uma solicitacao com esse Advogado",
-                                HttpStatus.BAD_REQUEST);
-
+                        // action.save(requests);
+                        msg.setMensagem("Solicitação de " + relation.asText() +
+                                " salva com sucesso.");
                     }
                 }
 
-                return new ResponseEntity<>(null);
+                return new ResponseEntity<>(msg, HttpStatus.OK);
 
             } catch (JsonProcessingException e) {
 
@@ -128,7 +131,9 @@ public class serviceRequests {
                 return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
             }
 
-        } else {
+        } else
+
+        {
             msg.setMensagem("Não foi possível encontrar o Usuario ");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         }
