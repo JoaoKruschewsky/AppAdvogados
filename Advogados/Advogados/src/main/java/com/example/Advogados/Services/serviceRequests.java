@@ -86,7 +86,7 @@ public class serviceRequests {
         }
     }
 
-    public ResponseEntity<?> saveSecondRequests(Requests requests) {
+    public ResponseEntity<?> saveSecondRequests(final Requests requests) {
 
         List<Requests> existingRequestsUser = action.findRequestsByUserId(requests.getUsers().getId());
 
@@ -113,7 +113,8 @@ public class serviceRequests {
                             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
                         }
                     } else {
-                        return new ResponseEntity<>("Nao tem uma solicitacao com esse Advogado", HttpStatus.BAD_REQUEST);
+                        return new ResponseEntity<>("Nao tem uma solicitacao com esse Advogado",
+                                HttpStatus.BAD_REQUEST);
 
                     }
                 }
