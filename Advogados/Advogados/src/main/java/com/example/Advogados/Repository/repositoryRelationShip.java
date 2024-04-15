@@ -44,5 +44,4 @@ public interface repositoryRelationShip extends CrudRepository<LawyerClientRelat
 
     Optional<LawyerClientRelationship> findLawyerById(Long id);
 
-    List<String> findStatusByClientId(Long id);
 }

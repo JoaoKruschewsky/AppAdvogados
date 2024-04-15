@@ -124,4 +124,6 @@ public class serviceRelationShip {
             return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
         }
     }
+
+
 }

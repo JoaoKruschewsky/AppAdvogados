@@ -34,8 +34,8 @@ public class controllerAllRequests {
     }
 
     @PostMapping("secondRequests")
-    public Requests secondRequestSave(@RequestBody Requests request) {
-        return action.save(request);
+    public ResponseEntity<?> secondRequestSave(@RequestBody Requests request) {
+        return service.saveSecondRequests(request);
     }
 
     @GetMapping("getRequestsUser/{id}")

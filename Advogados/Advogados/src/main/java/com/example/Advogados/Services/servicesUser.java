@@ -63,8 +63,7 @@ public class servicesUser {
             message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
+
     }
-
-
 
 }
