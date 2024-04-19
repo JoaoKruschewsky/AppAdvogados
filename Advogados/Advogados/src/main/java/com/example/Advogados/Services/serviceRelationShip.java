@@ -64,7 +64,7 @@ public class serviceRelationShip {
 
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
-            ArrayList<String> names = new ArrayList<>();
+            ArrayList<Object> names = new ArrayList<>();
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
@@ -77,6 +77,7 @@ public class serviceRelationShip {
                     JsonNode lawyerStatus = node.get("status");
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
+                    names.add(lawyerNode.get("id"));
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
@@ -124,6 +125,5 @@ public class serviceRelationShip {
             return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
         }
     }
-
 
 }
