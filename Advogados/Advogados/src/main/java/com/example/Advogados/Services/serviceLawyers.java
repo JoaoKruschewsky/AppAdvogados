@@ -26,45 +26,6 @@ public class serviceLawyers {
     @Autowired
     message message;
 
-    public ResponseEntity<?> saveLawyers(Lawyers lawyers, BindingResult result) {
-        Lawyers verifyUser = action.findByEmail(lawyers.getEmail());
-        Lawyers verifyphoneNumber = action.findByphoneNumber(lawyers.getPhoneNumber());
-        if (result.hasErrors()) {
-            StringBuilder errorMessage = new StringBuilder();
-            for (FieldError error : result.getFieldErrors()) {
-                errorMessage.append(error.getDefaultMessage()).append("\n");
-            }
-            message.setMensagem(errorMessage.toString());
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-        } else if (verifyUser != null) {
-            message.setMensagem("Já existe um cliente com esse email cadastrado");
-
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-        } else if (verifyphoneNumber != null) {
-            message.setMensagem("Número de Telefone cadastrado");
-
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-
-        } else {
-            message.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + action.save(lawyers));
-
-            return new ResponseEntity<>(message, HttpStatus.OK);
-
-        }
-    }
-
-    public ResponseEntity<?> verifyLawyers(Lawyers Lawyers) {
-        Lawyers existingLawyers = action.findByEmail(Lawyers.getEmail());
-
-        if (existingLawyers != null && existingLawyers.getPassword().equals(Lawyers.getPassword())) {
-            message.setMensagem("login aceito Advogado.");
-            return new ResponseEntity<>(existingLawyers, HttpStatus.OK);
-        } else {
-            message.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
-            return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-        }
-    }
-
     public ResponseEntity<?> uptade(Long ID, updateDTO updateDTO) {
         Optional<Lawyers> optionalUser = action.findById(ID);
 

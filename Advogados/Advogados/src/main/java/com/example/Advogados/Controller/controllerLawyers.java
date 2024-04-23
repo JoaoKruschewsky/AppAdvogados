@@ -31,8 +31,8 @@ public class controllerLawyers {
     private repositoryLawyers action;
 
     @PostMapping("saveLawyer")
-    public ResponseEntity<?> saveLawyers(@RequestBody Lawyers lawyers, BindingResult result) {
-        return service.saveLawyers(lawyers, result);
+    public ResponseEntity<?> saveLawyers(@RequestBody Lawyers lawyers) {
+        return service.saveLawyers(lawyers);
     }
 
     @PostMapping("verifyLawyer")

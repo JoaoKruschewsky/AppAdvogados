@@ -27,7 +27,7 @@ public class servicesUser {
     message message;
 
     public ResponseEntity<?> saveUser(User user, BindingResult result) {
-        User verifyUser = action.findByEmail(user.getEmail());
+        Optional<User> verifyUser = action.findByEmail(user.getEmail());
         User verifyphoneNumber = action.findByphoneNumber(user.getPhoneNumber());
         if (result.hasErrors()) {
             StringBuilder errorMessage = new StringBuilder();
@@ -54,9 +54,9 @@ public class servicesUser {
     }
 
     public ResponseEntity<?> verifyUser(User user) {
-        User existingUser = action.findByEmail(user.getEmail());
+        Optional<User> existingUser = action.findByEmail(user.getEmail());
 
-        if (existingUser != null && existingUser.getPassword().equals(user.getPassword())) {
+        if (existingUser != null && existingUser.get().getPassword().equals(user.getPassword())) {
             message.setMensagem("login aceito Usuario.");
             return new ResponseEntity<>(existingUser, HttpStatus.OK);
         } else {

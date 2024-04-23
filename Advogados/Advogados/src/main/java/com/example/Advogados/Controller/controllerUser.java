@@ -30,8 +30,8 @@ public class controllerUser {
     private servicesUser service;
 
     @PostMapping("saveUser")
-    public ResponseEntity<?> saveUser(@RequestBody User user, BindingResult result) {
-        return service.saveUser(user, result);
+    public ResponseEntity<?> saveUser(@RequestBody User user) {
+        return service.saveUser(user);
     }
 
     @PostMapping("verifyUser")

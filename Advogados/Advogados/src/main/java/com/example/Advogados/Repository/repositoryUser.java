@@ -15,7 +15,7 @@ public interface repositoryUser extends CrudRepository<User, Long> {
 
     List<User> findBynameStartingWithIgnoreCase(String name);
 
-    User findByEmail(String emal);
+    Optional<User> findByEmail(String emal);
 
     Optional<User> findById(long id);
 
