@@ -17,26 +17,36 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.updateDTO;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.servicesUser;
+import com.example.Advogados.Services.loginService.loginUser;
+import com.example.Advogados.Services.registerService.saveUser;
+
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
 public class controllerUser {
 
-    @Autowired
+   
     private repositoryUser action;
+    private servicesUser service;
+    private saveUser saveService;
+    private loginUser loginService;
 
     @Autowired
-    private servicesUser service;
-
+    public void setWired(repositoryUser action, servicesUser service, saveUser saveService, loginUser loginService){
+        this.action = action;
+        this.service = service;
+        this.saveService = saveService;
+        this.loginService = loginService;
+    }
     @PostMapping("saveUser")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
-        return service.saveUser(user);
+        return saveService.verifyUser(user);
     }
 
     @PostMapping("verifyUser")
     public ResponseEntity<?> verifyUser(@RequestBody User user) {
-        return service.verifyUser(user);
+        return loginService.verifyLoginUser(user);
     }
 
     /*
