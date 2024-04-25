@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.updateDTO;
+import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Services.serviceLawyers;
 import com.example.Advogados.Services.loginService.loginLawyer;
 import com.example.Advogados.Services.registerService.saveLawyer;
+import com.example.Advogados.Services.updateService.updateLawyerService;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -27,17 +27,18 @@ import com.example.Advogados.Services.registerService.saveLawyer;
 public class controllerLawyers {
 
     
-    private serviceLawyers service;
+    
     private repositoryLawyers action;
     private saveLawyer saveService;
     private loginLawyer loginService;
+    private updateLawyerService updateLawyerService;
 
     @Autowired
-    public void setWired(serviceLawyers service, repositoryLawyers action,saveLawyer saveService, loginLawyer loginService){
-        this.service = service;
+    public void setWired(repositoryLawyers action,saveLawyer saveService, loginLawyer loginService, updateLawyerService updateLawyerService){
         this.action = action;
         this.saveService = saveService;
         this.loginService = loginService;
+        this.updateLawyerService = updateLawyerService;
     }
 
     @PostMapping("saveLawyer")
@@ -56,8 +57,8 @@ public class controllerLawyers {
     }
 
     @PostMapping("saveUpdatesLawyer/{id}")
-    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateDTO updateDTO) {
-        return service.uptade(id, updateDTO);
+    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateLawyerDTO updateDTO) {
+        return updateLawyerService.updateLawyer(id, updateDTO);
     }
 
     @GetMapping("getLawyerbyName/{name}")

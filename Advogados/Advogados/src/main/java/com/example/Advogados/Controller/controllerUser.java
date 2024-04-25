@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.updateDTO;
+import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
+import com.example.Advogados.Model.modelDTO.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.servicesUser;
+import com.example.Advogados.Services.interfaces.update.updateUser;
 import com.example.Advogados.Services.loginService.loginUser;
 import com.example.Advogados.Services.registerService.saveUser;
 
@@ -28,21 +29,27 @@ public class controllerUser {
 
    
     private repositoryUser action;
-    private servicesUser service;
     private saveUser saveService;
     private loginUser loginService;
+    private updateUser updateUser;
 
     @Autowired
-    public void setWired(repositoryUser action, servicesUser service, saveUser saveService, loginUser loginService){
+    public void setWired(repositoryUser action, saveUser saveService, loginUser loginService, updateUser updateUser){
         this.action = action;
-        this.service = service;
         this.saveService = saveService;
         this.loginService = loginService;
+        this.updateUser = updateUser;
     }
     @PostMapping("saveUser")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         return saveService.verifyUser(user);
     }
+
+    @PostMapping("saveUpdatesUser/{id}")
+    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateUserDTO updateDTO) {
+        return updateUser.updateUser(id, updateDTO);
+    }
+
 
     @PostMapping("verifyUser")
     public ResponseEntity<?> verifyUser(@RequestBody User user) {
