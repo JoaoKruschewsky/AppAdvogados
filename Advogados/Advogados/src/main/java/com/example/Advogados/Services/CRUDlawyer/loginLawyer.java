@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Lawyers;
+import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.lawyer.loginLawyerInterface;
 import com.example.Advogados.message.message;

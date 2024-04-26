@@ -7,22 +7,29 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryUser;
+<<<<<<< HEAD:Advogados/Advogados/src/main/java/com/example/Advogados/Services/CRUDuser/saveUser.java
 import com.example.Advogados.Services.interfaces.User.verifySaveUser;
+=======
+import com.example.Advogados.Services.interfaces.savei.verifySaveUser;
+import com.example.Advogados.Services.interfaces.validation.validationI;
+>>>>>>> 814acb3cb164465bbca1cd63251701976f7b8b2d:Advogados/Advogados/src/main/java/com/example/Advogados/Services/registerService/saveUser.java
 import com.example.Advogados.message.message;
 
 @Service
-public class saveUser implements verifySaveUser{
+public class saveUser implements verifySaveUser {
     private repositoryUser actionUser;
     private message msg;
 
     @Autowired
-    public void setWired( repositoryUser actionUser, message msg) {
+    public void setWired(repositoryUser actionUser, message msg) {
         this.actionUser = actionUser;
         this.msg = msg;
     }
-    public ResponseEntity<?> verifyUser (User user){
+
+    public ResponseEntity<?> verifyUser(User user) {
         Optional<User> verifyUser = actionUser.findByEmail(user.getEmail());
         // User verifyphoneNumber = actionUser.findByphoneNumber(user.getPhoneNumber());
         if (verifyUser.get().getEmail() != user.getEmail()) {
