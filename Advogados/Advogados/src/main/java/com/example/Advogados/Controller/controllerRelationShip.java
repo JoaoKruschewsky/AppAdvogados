@@ -13,18 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Services.serviceRelationShip;
+import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
+import com.example.Advogados.Services.CRUDrelations.relationReadUser;
+import com.example.Advogados.Services.CRUDrelations.serviceRelationShip;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/relationShip")
 public class controllerRelationShip {
 
-    @Autowired
+   
     private repositoryRelationShip action;
+    private serviceRelationShip service;
+    private relationReadLawyer relationReadLawyer;
+    private relationReadUser relationReadUser;
 
     @Autowired
-    private serviceRelationShip service;
+    public void setWired(repositoryRelationShip action, relationReadLawyer relationReadLawyer, serviceRelationShip service, relationReadUser relationReadUser){
+        this.action = action;
+        this.relationReadLawyer = relationReadLawyer;
+        this.service = service;
+        this.relationReadUser = relationReadUser;
+
+    }
 
     @PostMapping("saveRelation")
     public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship) {
@@ -33,11 +44,11 @@ public class controllerRelationShip {
 
     @GetMapping("getRelationUser/{id}")
     public ResponseEntity<?> getRelationUser(@PathVariable Long id) {
-        return service.getRelationsUser(id);
+        return relationReadUser.getRelationShip(id);
     }
 
     @GetMapping("getRelationLawyer/{id}")
     public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
-        return service.getRelationsLawyer(id);
+        return relationReadLawyer.getRelationShip(id);
     }
 }

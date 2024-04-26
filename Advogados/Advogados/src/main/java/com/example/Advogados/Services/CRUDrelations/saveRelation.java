@@ -32,17 +32,19 @@ import lombok.extern.java.Log;
 @Service
 public class serviceRelationShip {
 
-    @Autowired
+    
     private repositoryRelationShip action;
-
-    @Autowired
     private repositoryUser actionUser;
-
-    @Autowired
     private repositoryLawyers actionLawyer;
+    private message msg;
 
     @Autowired
-    private message msg;
+    public void setWired(repositoryRelationShip action, repositoryUser actionUser, repositoryLawyers actionLawyers, message msg){
+        this.action = action;
+        this.actionUser = actionUser;
+        this.actionLawyer = actionLawyers;
+        this.msg = msg;
+    }
 
     public ResponseEntity<?> saveRelation(LawyerClientRelationship relation) {
         Optional<User> existingUser = actionUser.findById(relation.getClient().getId());
@@ -52,8 +54,8 @@ public class serviceRelationShip {
             saves.add(existingUser);
             saves.add(existingLawyer);
             action.save(relation);
-
-            return new ResponseEntity<>(saves, HttpStatus.OK);
+            msg.setMensagem("Relacao salva entre " + saves);
+            return new ResponseEntity<>(msg, HttpStatus.OK);
         } else {
             msg.setMensagem("Não foi possível salvar a relação");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);

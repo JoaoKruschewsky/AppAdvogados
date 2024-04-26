@@ -16,17 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Repository.repositoryRequests;
 import com.example.Advogados.Services.serviceRequests;
+import com.example.Advogados.Services.CRUDrelations.readLawyer;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/requests")
 public class controllerAllRequests {
 
+  
+    private repositoryRequests action;
+    private serviceRequests service;
+    
     @Autowired
-    repositoryRequests action;
-
-    @Autowired
-    serviceRequests service;
+    public void setWired(repositoryRequests action, serviceRequests service){
+        this.action = action;
+        this.service = service;
+    }
 
     @PostMapping("firstRequest")
     public ResponseEntity<?> firstRequestSave(@RequestBody Requests request) {
