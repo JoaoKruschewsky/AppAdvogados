@@ -1,9 +1,9 @@
-package com.example.Advogados.Model;
+package com.example.Advogados.Model.modelDTO;
 
 import java.math.BigDecimal;
 import java.util.Currency;
 
-public class updateDTO {
+public class updateLawyerDTO {
     private String imgDTO;
     private String descricionDTO;
     private String titleLawyerDTO;

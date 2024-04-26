@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.registerService;
+package com.example.Advogados.Services.CRUDuser;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.savei.verifySaveUser;
+import com.example.Advogados.Services.interfaces.User.verifySaveUser;
 import com.example.Advogados.message.message;
 
 @Service

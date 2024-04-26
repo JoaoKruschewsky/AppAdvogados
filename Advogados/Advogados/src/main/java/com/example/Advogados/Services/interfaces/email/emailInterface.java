@@ -5,5 +5,5 @@ import org.springframework.http.ResponseEntity;
 
 public interface emailInterface {
     
-    public ResponseEntity<?> emailService(String email);
+    public ResponseEntity<?> emailService(String email, String subject, String message);
 }

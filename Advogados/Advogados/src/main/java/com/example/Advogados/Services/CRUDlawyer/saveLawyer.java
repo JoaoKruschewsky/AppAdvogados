@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.registerService;
+package com.example.Advogados.Services.CRUDlawyer;
 
 import java.util.Optional;
 
@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.email.emailInterface;
-import com.example.Advogados.Services.interfaces.savei.verifySaveLawyer;
+import com.example.Advogados.Services.interfaces.lawyer.verifySaveLawyer;
 import com.example.Advogados.message.message;
 
 @Service
-public class saveLawyer implements verifySaveLawyer, emailInterface {
+public class saveLawyer implements verifySaveLawyer{
 
     private repositoryLawyers actionLawyers;
     private message msg;
@@ -30,9 +30,9 @@ public class saveLawyer implements verifySaveLawyer, emailInterface {
         this.msg = msg;
         this.javaMailSender = javaMailSender;
     }
-    Value("${spring.mail.username}")
+    @Value("${spring.mail.username}")
         private String sender;
-        
+
     public ResponseEntity<?> verifySaveLawyer(Lawyers lawyers){
       
             Optional<Lawyers> verifyLawyers = actionLawyers.findByEmail(lawyers.getEmail());
@@ -46,23 +46,8 @@ public class saveLawyer implements verifySaveLawyer, emailInterface {
             }
     
         }
-
-        @
         
-        public ResponseEntity<?> emailService(String email, String subject, String message) {
-    
-            try {
-                SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-                simpleMailMessage.setFrom(sender);
-                simpleMailMessage.setTo(email);
-                simpleMailMessage.setSubject(subject);
-                simpleMailMessage.setText(message);
-                javaMailSender.send(simpleMailMessage);
-            } catch (Exception e) {
-                // TODO: handle exception
-            }
-    
-        }
+     
     
 
 }

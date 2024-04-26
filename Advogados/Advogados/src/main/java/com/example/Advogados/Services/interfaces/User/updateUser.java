@@ -1,8 +1,8 @@
-package com.example.Advogados.Services.interfaces.update;
+package com.example.Advogados.Services.interfaces.User;
 
 import org.springframework.http.ResponseEntity;
 
-import com.example.Advogados.Model.updateUserDTO;
+import com.example.Advogados.Model.modelDTO.updateUserDTO;
 
 public interface updateUser {
     

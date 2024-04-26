@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.updateService;
+package com.example.Advogados.Services.CRUDuser;
 
 import java.util.Optional;
 
@@ -8,10 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.updateLawyerDTO;
-import com.example.Advogados.Model.updateUserDTO;
+import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
+import com.example.Advogados.Model.modelDTO.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.update.updateUser;
+import com.example.Advogados.Services.interfaces.User.updateUser;
 import com.example.Advogados.message.message;
 
 @Service

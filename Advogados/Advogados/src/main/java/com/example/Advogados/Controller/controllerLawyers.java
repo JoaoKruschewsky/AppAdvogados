@@ -17,9 +17,9 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Services.loginService.loginLawyer;
-import com.example.Advogados.Services.registerService.saveLawyer;
-import com.example.Advogados.Services.updateService.updateLawyerService;
+import com.example.Advogados.Services.CRUDlawyer.loginLawyer;
+import com.example.Advogados.Services.CRUDlawyer.saveLawyer;
+import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
 
 @RestController
 @CrossOrigin(origins = "*")

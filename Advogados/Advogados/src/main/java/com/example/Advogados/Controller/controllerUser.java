@@ -17,9 +17,9 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
 import com.example.Advogados.Model.modelDTO.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.update.updateUser;
-import com.example.Advogados.Services.loginService.loginUser;
-import com.example.Advogados.Services.registerService.saveUser;
+import com.example.Advogados.Services.CRUDuser.loginUser;
+import com.example.Advogados.Services.CRUDuser.saveUser;
+import com.example.Advogados.Services.interfaces.User.updateUser;
 
 
 @RestController

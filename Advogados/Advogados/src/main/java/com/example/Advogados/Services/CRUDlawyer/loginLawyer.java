@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.loginService;
+package com.example.Advogados.Services.CRUDlawyer;
 
 import java.util.Optional;
 
@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Services.interfaces.login.verifyLoginLawyer;
+import com.example.Advogados.Services.interfaces.lawyer.loginLawyerInterface;
 import com.example.Advogados.message.message;
 
 @Service
-public class loginLawyer implements verifyLoginLawyer {
+public class loginLawyer implements loginLawyerInterface {
     private repositoryLawyers actionLawyers;
     private message msg;
 

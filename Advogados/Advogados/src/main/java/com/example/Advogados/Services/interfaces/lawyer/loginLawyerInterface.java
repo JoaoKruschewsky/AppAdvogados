@@ -1,11 +1,12 @@
-package com.example.Advogados.Services.interfaces.login;
+package com.example.Advogados.Services.interfaces.lawyer;
 
 import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.Lawyers;
 
-public interface verifyLoginLawyer  {
+public interface loginLawyerInterface  {
 
     
     public ResponseEntity<?> verifySaveLawyers(Lawyers Lawyers);
 }
+    

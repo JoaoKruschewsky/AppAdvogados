@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.interfaces.savei;
+package com.example.Advogados.Services.interfaces.lawyer;
 
 import org.springframework.http.ResponseEntity;
 
