@@ -10,12 +10,8 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryUser;
-<<<<<<< HEAD:Advogados/Advogados/src/main/java/com/example/Advogados/Services/CRUDuser/saveUser.java
 import com.example.Advogados.Services.interfaces.User.verifySaveUser;
-=======
-import com.example.Advogados.Services.interfaces.savei.verifySaveUser;
 import com.example.Advogados.Services.interfaces.validation.validationI;
->>>>>>> 814acb3cb164465bbca1cd63251701976f7b8b2d:Advogados/Advogados/src/main/java/com/example/Advogados/Services/registerService/saveUser.java
 import com.example.Advogados.message.message;
 
 @Service

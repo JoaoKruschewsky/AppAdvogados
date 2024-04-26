@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Repository.repositoryRelationShip;
@@ -15,20 +16,21 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service
 public class relationReadLawyer implements getRelations {
-    
+
     private repositoryRelationShip action;
     private message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, message msg){
+    public void setWired(repositoryRelationShip action, message msg) {
         this.action = action;
         this.msg = msg;
 
     }
 
-    public ResponseEntity<?> getRelationShip ( final Long id){
-         List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
+    public ResponseEntity<?> getRelationShip(final Long id) {
+        List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
         if (!Lawyer.isEmpty()) {
             ArrayList<Object> names = new ArrayList<>();
 
