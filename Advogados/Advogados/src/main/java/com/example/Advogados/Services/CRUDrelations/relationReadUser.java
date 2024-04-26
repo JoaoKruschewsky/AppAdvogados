@@ -15,7 +15,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class readUser implements getRelations{
+public class relationReadUser implements getRelations{
         
     
     private repositoryRelationShip action;

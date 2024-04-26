@@ -6,5 +6,5 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "asdas")
 public class sadasd  extends User{
-    
+    private String sdasd;
 }

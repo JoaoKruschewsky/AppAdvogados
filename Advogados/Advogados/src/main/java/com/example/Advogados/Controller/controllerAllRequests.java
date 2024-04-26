@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Repository.repositoryRequests;
 import com.example.Advogados.Services.serviceRequests;
-import com.example.Advogados.Services.CRUDrelations.readLawyer;
+import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
 
 @RestController
 @CrossOrigin(origins = "*")

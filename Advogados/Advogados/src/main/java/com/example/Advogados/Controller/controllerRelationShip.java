@@ -15,7 +15,7 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
 import com.example.Advogados.Services.CRUDrelations.relationReadUser;
-import com.example.Advogados.Services.CRUDrelations.serviceRelationShip;
+import com.example.Advogados.Services.CRUDrelations.saveRelation;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -24,12 +24,12 @@ public class controllerRelationShip {
 
    
     private repositoryRelationShip action;
-    private serviceRelationShip service;
+    private saveRelation service;
     private relationReadLawyer relationReadLawyer;
     private relationReadUser relationReadUser;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, relationReadLawyer relationReadLawyer, serviceRelationShip service, relationReadUser relationReadUser){
+    public void setWired(repositoryRelationShip action, relationReadLawyer relationReadLawyer, saveRelation service, relationReadUser relationReadUser){
         this.action = action;
         this.relationReadLawyer = relationReadLawyer;
         this.service = service;
