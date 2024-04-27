@@ -28,7 +28,7 @@ public class saveUser implements verifySaveUser {
     public ResponseEntity<?> verifyUser(User user) {
         Optional<User> verifyUser = actionUser.findByEmail(user.getEmail());
         // User verifyphoneNumber = actionUser.findByphoneNumber(user.getPhoneNumber());
-        if (verifyUser.get().getEmail() != user.getEmail()) {
+        if (!verifyUser.isEmpty()) {
             msg.setMensagem("Já existe um email cadastrado");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         } else {

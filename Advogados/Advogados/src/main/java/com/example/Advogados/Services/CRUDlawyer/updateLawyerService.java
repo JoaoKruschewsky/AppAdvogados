@@ -15,21 +15,20 @@ import com.example.Advogados.Services.interfaces.lawyer.uptadeLawyer;
 import com.example.Advogados.message.message;
 
 @Service
-public class updateLawyerService implements uptadeLawyer{
-    
+public class updateLawyerService implements uptadeLawyer {
+
     private repositoryLawyers action;
     private message message;
 
     @Autowired
-    public void setWired(repositoryLawyers action, message message){
+    public void setWired(repositoryLawyers action, message message) {
         this.action = action;
         this.message = message;
     }
 
-
-    public ResponseEntity<?> updateLawyer(Long id, updateLawyerDTO updateDTO){
+    public ResponseEntity<?> updateLawyer(Long id, updateLawyerDTO updateDTO) {
         Optional<Lawyers> optionalLawyer = action.findById(id);
-
+        System.out.println(optionalLawyer.get());
         if (optionalLawyer.isPresent()) {
             optionalLawyer.get().setDescricion(updateDTO.getDescricionDTO());
             optionalLawyer.get().setImg_Profile(updateDTO.getImgDTO());
@@ -38,7 +37,7 @@ public class updateLawyerService implements uptadeLawyer{
             optionalLawyer.get().setTitleLawyers(updateDTO.getTitleLawyerDTO());
             return new ResponseEntity<>(action.save(optionalLawyer.get()), HttpStatus.OK);
         } else {
-            message.setMensagem("Ocorreu um erro tente novamente");
+            message.setMensagem("Ocorreu um erro tente novamente" + optionalLawyer.get());
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
         }
 

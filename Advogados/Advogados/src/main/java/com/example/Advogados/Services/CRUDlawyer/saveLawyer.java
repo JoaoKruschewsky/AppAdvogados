@@ -17,37 +17,34 @@ import com.example.Advogados.Services.interfaces.lawyer.verifySaveLawyer;
 import com.example.Advogados.message.message;
 
 @Service
-public class saveLawyer implements verifySaveLawyer{
+public class saveLawyer implements verifySaveLawyer {
 
     private repositoryLawyers actionLawyers;
     private message msg;
     private JavaMailSender javaMailSender;
 
-
     @Autowired
-    public void setWired(repositoryLawyers actionLawyers,message msg, JavaMailSender javaMailSender) {
+    public void setWired(repositoryLawyers actionLawyers, message msg, JavaMailSender javaMailSender) {
         this.actionLawyers = actionLawyers;
         this.msg = msg;
         this.javaMailSender = javaMailSender;
     }
-    @Value("${spring.mail.username}")
-        private String sender;
 
-    public ResponseEntity<?> verifySaveLawyer(Lawyers lawyers){
-      
-            Optional<Lawyers> verifyLawyers = actionLawyers.findByEmail(lawyers.getEmail());
-            if (verifyLawyers.get().getEmail() != lawyers.getEmail()) {
-                msg.setMensagem("Já existe um email cadastrado");
-                return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
-            } else {
-                msg.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + actionLawyers.save(lawyers));
-    
-                return new ResponseEntity<>(msg, HttpStatus.OK);
-            }
-    
+    @Value("${spring.mail.username}")
+    private String sender;
+
+    public ResponseEntity<?> verifySaveLawyer(Lawyers lawyers) {
+
+        Optional<Lawyers> verifyLawyers = actionLawyers.findByEmail(lawyers.getEmail());
+        if (!verifyLawyers.isEmpty()) {
+            msg.setMensagem("Já existe um email cadastrado");
+            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        } else {
+            msg.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + actionLawyers.save(lawyers));
+
+            return new ResponseEntity<>(msg, HttpStatus.OK);
         }
-        
-     
-    
+
+    }
 
 }

@@ -92,7 +92,7 @@ public class serviceRequests {
                         names.add(lawyerNode.get("id").asInt());
 
                     } else {
-                        // names.add(lawyerNode.get("name").asText() + " e " + lawyerStatus.asText());
+                        names.add(lawyerNode.get("name").asText() + " e " + lawyerStatus.asText());
                     }
 
                 }
