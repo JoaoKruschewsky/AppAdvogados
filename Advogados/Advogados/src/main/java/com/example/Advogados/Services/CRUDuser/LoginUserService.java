@@ -30,7 +30,7 @@ public class LoginUserService implements loginUserInterface {
 
         if (existingUser.isPresent() && existingUser.get().getPassword().equals(user.getPasswordDTO())) {
             // msg.setMensagem("login aceito Usuario.");
-            return new ResponseEntity<>( HttpStatus.OK);
+            return new ResponseEntity<>(existingUser, HttpStatus.OK);
         } else {
             // msg.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
