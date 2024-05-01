@@ -29,8 +29,8 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "Users")
 public class User {
@@ -63,6 +63,16 @@ public class User {
     @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
     @NotBlank
     private String password;
+
+    public User(Long id, @NotBlank String cpf, String name, String phoneNumber, @Email @NotBlank String email,
+            @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres") @NotBlank String password) {
+        Id = id;
+        this.cpf = cpf;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+    }
 
     public List<LawyerClientRelationship> getLawyerRelationships() {
         return lawyerRelationships;

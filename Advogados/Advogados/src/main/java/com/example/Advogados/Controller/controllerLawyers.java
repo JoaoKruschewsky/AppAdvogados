@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
+import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
+import com.example.Advogados.Model.DTO.Lawyer.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.CRUDlawyer.loginLawyer;
 import com.example.Advogados.Services.CRUDlawyer.saveLawyer;
@@ -26,15 +27,14 @@ import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
 @RequestMapping("/api/lawyer")
 public class controllerLawyers {
 
-    
-    
     private repositoryLawyers action;
     private saveLawyer saveService;
     private loginLawyer loginService;
     private updateLawyerService updateLawyerService;
 
     @Autowired
-    public void setWired(repositoryLawyers action,saveLawyer saveService, loginLawyer loginService, updateLawyerService updateLawyerService){
+    public void setWired(repositoryLawyers action, saveLawyer saveService, loginLawyer loginService,
+            updateLawyerService updateLawyerService) {
         this.action = action;
         this.saveService = saveService;
         this.loginService = loginService;
@@ -47,8 +47,8 @@ public class controllerLawyers {
     }
 
     @PostMapping("verifyLawyer")
-    public ResponseEntity<?> verifyLawyers(@RequestBody Lawyers Lawyers) {
-        return loginService.verifySaveLawyers(Lawyers);
+    public ResponseEntity<?> verifyLawyers(@RequestBody LoginLawyerDTO Lawyers) {
+        return loginService.verifyLoginLawyers(Lawyers);
     }
 
     @GetMapping("getLawyer")

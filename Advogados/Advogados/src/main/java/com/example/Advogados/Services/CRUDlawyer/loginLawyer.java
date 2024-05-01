@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.lawyer.loginLawyerInterface;
 import com.example.Advogados.message.message;
@@ -24,10 +25,10 @@ public class loginLawyer implements loginLawyerInterface {
         this.msg = msg;
     }
 
-    public ResponseEntity<?> verifySaveLawyers(Lawyers Lawyers) {
-        Optional<Lawyers> existingLawyers = actionLawyers.findByEmail(Lawyers.getEmail());
+    public ResponseEntity<?> verifyLoginLawyers(LoginLawyerDTO Lawyers) {
+        Optional<Lawyers> existingLawyers = actionLawyers.findByEmail(Lawyers.getEmailDTO());
 
-        if (existingLawyers != null && existingLawyers.get().getPassword().equals(Lawyers.getPassword())) {
+        if (existingLawyers != null && existingLawyers.get().getPassword().equals(Lawyers.getPasswordDTO())) {
             msg.setMensagem("login aceito Advogado.");
             return new ResponseEntity<>(existingLawyers, HttpStatus.OK);
         } else {

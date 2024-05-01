@@ -8,12 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.User.loginUserInterface;
 import com.example.Advogados.message.message;
 
 @Service
-public class loginUser implements loginUserInterface{
+public class LoginUserService implements loginUserInterface {
 
     private repositoryUser actionUser;
     private message msg;
@@ -24,16 +25,15 @@ public class loginUser implements loginUserInterface{
         this.msg = msg;
     }
 
+    public ResponseEntity<?> verifyLoginUser(LoginUserDTO user) {
+        Optional<User> existingUser = actionUser.findByEmail(user.getEmailDTO());
 
-    public ResponseEntity<?> verifyLoginUser(User user) {
-        Optional<User> existingUser = actionUser.findByEmail(user.getEmail());
-
-        if (existingUser != null && existingUser.get().getPassword().equals(user.getPassword())) {
-            msg.setMensagem("login aceito Usuario.");
-            return new ResponseEntity<>(existingUser, HttpStatus.OK);
+        if (existingUser.isPresent() && existingUser.get().getPassword().equals(user.getPasswordDTO())) {
+            // msg.setMensagem("login aceito Usuario.");
+            return new ResponseEntity<>( HttpStatus.OK);
         } else {
-            msg.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
-            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+            // msg.setMensagem("Usuário não cadastrado ou credenciais inválidas.");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
     }

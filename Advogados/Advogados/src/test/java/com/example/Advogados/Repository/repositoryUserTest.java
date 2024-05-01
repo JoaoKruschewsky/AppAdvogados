@@ -29,18 +29,34 @@ public class repositoryUserTest {
     @DisplayName("Should get User succes from data base")
     void testFindByEmailSuccess() {
 
-        String email = "2sdasd@gmail.com";
-        this.createUser(email);
+        String email = "asdsadasd@gmail.com";
+        this.createUser();
 
         Optional<User> foundedUser = this.repositoryUser.findByEmail(email);
 
         assertThat(foundedUser.isPresent()).isTrue();
     }
 
-    private User createUser(User user) {
-        User newUser = new User(user);
-        
-        newUser.setEmail(email);
+    @Test
+    @DisplayName("Should not get User succes from data base")
+    void testFindByEmailCase2() {
+
+        String email = "asdsadasd@gmail.com";
+
+        Optional<User> foundedUser = this.repositoryUser.findByEmail(email);
+
+        assertThat(foundedUser.isEmpty()).isTrue();
+    }
+
+    private User createUser() {
+        User newUser = new User();
+        newUser.setCPF("12312312321");
+        newUser.setEmail("asdsadasd@gmail.com");
+        newUser.setName("sdasd");
+        newUser.setPassword("12345678");
+        newUser.setPhoneNumber("2131231231");
+        this.entityManager.persist(newUser);
+
         return newUser;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.Advogados.Model.modelDTO;
+package com.example.Advogados.Model.DTO.User;
 
 public class updateUserDTO {
 

@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
+import com.example.Advogados.Model.DTO.Lawyer.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.lawyer.uptadeLawyer;
 import com.example.Advogados.message.message;

@@ -8,26 +8,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
-import com.example.Advogados.Model.modelDTO.updateUserDTO;
+import com.example.Advogados.Model.DTO.User.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.User.updateUser;
 import com.example.Advogados.message.message;
 
 @Service
-public class updateUserService implements updateUser {
-    
+public class UpdateUserService implements updateUser {
+
     private repositoryUser action;
     private message message;
 
     @Autowired
-    public void setWired(repositoryUser action, message message){
+    public void setWired(repositoryUser action, message message) {
         this.action = action;
         this.message = message;
     }
 
-
-    public ResponseEntity<?> updateUser(Long id, updateUserDTO updateUserDTO){
+    public ResponseEntity<?> updateUser(Long id, updateUserDTO updateUserDTO) {
         Optional<User> optionalUser = action.findById(id);
 
         if (optionalUser.isPresent()) {

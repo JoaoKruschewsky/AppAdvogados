@@ -13,7 +13,7 @@ import com.example.Advogados.Services.interfaces.User.verifySaveUser;
 import com.example.Advogados.message.message;
 
 @Service
-public class saveUser implements verifySaveUser{
+public class SaveUserService implements verifySaveUser{
     private repositoryUser actionUser;
     private message msg;
 

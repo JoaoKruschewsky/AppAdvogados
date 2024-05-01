@@ -14,32 +14,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.modelDTO.updateLawyerDTO;
-import com.example.Advogados.Model.modelDTO.updateUserDTO;
+import com.example.Advogados.Model.DTO.User.LoginUserDTO;
+import com.example.Advogados.Model.DTO.User.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.CRUDuser.loginUser;
-import com.example.Advogados.Services.CRUDuser.saveUser;
+import com.example.Advogados.Services.CRUDuser.LoginUserService;
+import com.example.Advogados.Services.CRUDuser.SaveUserService;
 import com.example.Advogados.Services.interfaces.User.updateUser;
-
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
 public class controllerUser {
 
-   
     private repositoryUser action;
-    private saveUser saveService;
-    private loginUser loginService;
+    private SaveUserService saveService;
+    private LoginUserService loginService;
     private updateUser updateUser;
 
     @Autowired
-    public void setWired(repositoryUser action, saveUser saveService, loginUser loginService, updateUser updateUser){
+    public void setWired(repositoryUser action, SaveUserService saveService, LoginUserService loginService,
+            updateUser updateUser) {
         this.action = action;
         this.saveService = saveService;
         this.loginService = loginService;
         this.updateUser = updateUser;
     }
+
     @PostMapping("saveUser")
     public ResponseEntity<?> saveUser(@RequestBody User user) {
         return saveService.verifyUser(user);
@@ -50,9 +50,8 @@ public class controllerUser {
         return updateUser.updateUser(id, updateDTO);
     }
 
-
     @PostMapping("verifyUser")
-    public ResponseEntity<?> verifyUser(@RequestBody User user) {
+    public ResponseEntity<?> verifyUser(@RequestBody LoginUserDTO user) {
         return loginService.verifyLoginUser(user);
     }
 

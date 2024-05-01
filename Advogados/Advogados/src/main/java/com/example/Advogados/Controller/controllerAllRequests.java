@@ -23,13 +23,10 @@ import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
 @RequestMapping("/api/requests")
 public class controllerAllRequests {
 
-  
-    private repositoryRequests action;
     private serviceRequests service;
-    
+
     @Autowired
-    public void setWired(repositoryRequests action, serviceRequests service){
-        this.action = action;
+    public void setWired(serviceRequests service) {
         this.service = service;
     }
 
