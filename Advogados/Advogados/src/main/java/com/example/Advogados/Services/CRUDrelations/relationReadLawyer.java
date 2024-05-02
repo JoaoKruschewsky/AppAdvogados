@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.Model.Enum.RelationEnum;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.interfaces.relations.getRelations;
 import com.example.Advogados.message.message;
@@ -31,6 +32,7 @@ public class relationReadLawyer implements getRelations {
 
     public ResponseEntity<?> getRelationShip(final Long id) {
         List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
+        RelationEnum emandamento = RelationEnum.Em_Andamento;
         if (!Lawyer.isEmpty()) {
             ArrayList<Object> names = new ArrayList<>();
 
@@ -43,20 +45,26 @@ public class relationReadLawyer implements getRelations {
 
                     JsonNode lawyerNode = node.get("client");
                     JsonNode lawyerStatus = node.get("status");
-                    names.add(lawyerNode.get("name").asText());
-                    names.add(lawyerStatus.asText());
-                    names.add(lawyerNode.get("id"));
+
+                    if (lawyerStatus.asText().equals(emandamento.getRelation())) {
+                        names.add(lawyerNode.get("name").asText());
+                        names.add(lawyerStatus.asText());
+                        names.add(lawyerNode.get("id"));
+
+                    } else {
+                        names.add("sexo");
+                    }
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
             } catch (JsonProcessingException e) {
                 // Trate a exceção aqui
                 e.printStackTrace(); // ou qualquer outra forma de tratamento
-                msg.setMensagem("User não encontrado");
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
+                // msg.setMensagem("User não encontrado");
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         } else {
-            msg.setMensagem("Não existe usuário com esse nome");
+            // msg.setMensagem("Não existe usuário com esse nome");
             return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
         }
     }

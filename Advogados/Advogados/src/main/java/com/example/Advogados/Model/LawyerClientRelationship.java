@@ -9,9 +9,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Lawyer_Client_Relationship")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class LawyerClientRelationship {
 
     @Id
@@ -28,27 +36,4 @@ public class LawyerClientRelationship {
     @JoinColumn(name = "client_id")
     private User client;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public User getClient() {
-        return client;
-    }
-
-    public void setClient(User client) {
-        this.client = client;
-    }
-
-    public Lawyers getLawyer() {
-        return lawyer;
-    }
-
-    public void setLawyer(Lawyers lawyer) {
-        this.lawyer = lawyer;
-    }
 }

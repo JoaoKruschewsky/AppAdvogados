@@ -1,10 +1,12 @@
 package com.example.Advogados.Model.DTO.User;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class updateUserDTO {
 
     private String emailDTO;

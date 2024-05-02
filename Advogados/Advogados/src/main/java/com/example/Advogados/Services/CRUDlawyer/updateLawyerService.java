@@ -28,14 +28,15 @@ public class updateLawyerService implements uptadeLawyer {
 
     public ResponseEntity<?> updateLawyer(Long id, updateLawyerDTO updateDTO) {
         Optional<Lawyers> optionalLawyer = action.findById(id);
-        System.out.println(optionalLawyer.get());
         if (optionalLawyer.isPresent()) {
             optionalLawyer.get().setDescricion(updateDTO.getDescricionDTO());
-            optionalLawyer.get().setImg_Profile(updateDTO.getImgDTO());
+            optionalLawyer.get().setImg_profile(updateDTO.getImgDTO());
             optionalLawyer.get().setPrice(updateDTO.getPriceDTO());
             optionalLawyer.get().setSpecializedAir(updateDTO.getSpecializedAirDTO());
             optionalLawyer.get().setTitleLawyers(updateDTO.getTitleLawyerDTO());
-            return new ResponseEntity<>(action.save(optionalLawyer.get()), HttpStatus.OK);
+            action.save(optionalLawyer.get());
+            // message.setMensagem("Atualizacoes salva com Sucesso");
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
             message.setMensagem("Ocorreu um erro tente novamente" + optionalLawyer.get());
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);

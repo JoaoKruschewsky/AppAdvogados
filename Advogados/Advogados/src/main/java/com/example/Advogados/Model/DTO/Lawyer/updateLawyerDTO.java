@@ -3,6 +3,9 @@ package com.example.Advogados.Model.DTO.Lawyer;
 import java.math.BigDecimal;
 import java.util.Currency;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class updateLawyerDTO {
     private String imgDTO;
     private String descricionDTO;
