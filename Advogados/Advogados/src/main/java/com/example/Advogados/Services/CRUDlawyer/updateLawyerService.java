@@ -35,8 +35,8 @@ public class updateLawyerService implements uptadeLawyer {
             optionalLawyer.get().setSpecializedAir(updateDTO.getSpecializedAirDTO());
             optionalLawyer.get().setTitleLawyers(updateDTO.getTitleLawyerDTO());
             action.save(optionalLawyer.get());
-            // message.setMensagem("Atualizacoes salva com Sucesso");
-            return new ResponseEntity<>(HttpStatus.OK);
+            message.setMensagem("Atualizacoes salva com Sucesso");
+            return new ResponseEntity<>(message, HttpStatus.OK);
         } else {
             message.setMensagem("Ocorreu um erro tente novamente" + optionalLawyer.get());
             return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
