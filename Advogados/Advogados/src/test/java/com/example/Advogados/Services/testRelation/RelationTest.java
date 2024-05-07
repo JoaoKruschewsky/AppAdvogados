@@ -3,20 +3,27 @@ package com.example.Advogados.Services.testRelation;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.catalina.connector.Response;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
@@ -26,11 +33,19 @@ import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
+import com.example.Advogados.Services.CRUDrelations.saveRelation;
+import com.example.Advogados.message.message;
 
+import lombok.var;
+
+@ExtendWith(MockitoExtension.class)
 public class RelationTest {
 
     @Mock
     private repositoryUser actionUser;
+
+    @Mock
+    private message message;
 
     @Mock
     private repositoryLawyers actionLawyers;
@@ -42,8 +57,9 @@ public class RelationTest {
     @InjectMocks
     private relationReadLawyer relationReadLawyer;
 
-    Lawyers lawyers = createLawyers();
-    User user = createUser();
+    @Autowired
+    @InjectMocks
+    private saveRelation saveRelation;
 
     @BeforeEach
     void setup() {
@@ -53,7 +69,6 @@ public class RelationTest {
 
     public User createUser() {
         return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null);
-
     }
 
     public Lawyers createLawyers() {
@@ -63,10 +78,11 @@ public class RelationTest {
     }
 
     public LawyerClientRelationship createRelation() {
-        return new LawyerClientRelationship(1L, this.lawyers, "Concluido", this.user);
+        return new LawyerClientRelationship(1L, this.createLawyers(), "Concluido", this.createUser());
     }
 
     @Nested
+    @DisplayName("Mostrar todos as relacoes do advogado")
     class ReadRelationLawyer {
 
         @Test
@@ -76,12 +92,6 @@ public class RelationTest {
 
             List<LawyerClientRelationship> listRelation = new ArrayList<>();
             listRelation.add(relationNew);
-
-            when(actionLawyers.save(lawyers)).thenReturn(lawyers);
-
-            when(actionUser.save(user)).thenReturn(user);
-
-            when(actionRelation.save(relationNew)).thenReturn(relationNew);
 
             when(actionRelation.findAllLawyerClientRelationshipsByLawyerId(1L))
                     .thenReturn(listRelation);
@@ -94,5 +104,27 @@ public class RelationTest {
 
         }
 
+    }
+
+    @Nested
+    @DisplayName("Salvando Relacoes")
+    class SaveRelation {
+
+        @Test
+        void SaveRelationTeste() {
+
+            when(actionUser.findById(createRelation().getClient().getId())).thenReturn(Optional.of(createUser()));
+
+            when(actionLawyers.findById(createRelation().getLawyer().getId())).thenReturn(Optional.of(createLawyers()));
+
+            ResponseEntity<?> save = saveRelation.saveRelation(createRelation());
+
+            assertEquals(HttpStatus.OK, save.getStatusCode());
+
+            message.setMensagem("Relacao salva entre " + new ArrayList<>());
+
+            assertEquals(message, save.getBody());
+
+        }
     }
 }
