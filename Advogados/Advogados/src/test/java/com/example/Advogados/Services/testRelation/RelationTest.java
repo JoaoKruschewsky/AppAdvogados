@@ -71,6 +71,7 @@ public class RelationTest {
         return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null);
     }
 
+
     public Lawyers createLawyers() {
         return new Lawyers(1L, "2312312", "krel", null, null, null, null, null, null, null, "12312312",
                 null, "joao@gmail.com", "12345678");
@@ -87,6 +88,7 @@ public class RelationTest {
 
         @Test
         void readRelationTest() {
+           
 
             LawyerClientRelationship relationNew = createRelation();
 
