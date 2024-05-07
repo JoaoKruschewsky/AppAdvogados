@@ -25,6 +25,7 @@ public class loginLawyer implements loginLawyerInterface {
         this.msg = msg;
     }
 
+    @Override
     public ResponseEntity<?> verifyLoginLawyers(LoginLawyerDTO Lawyers) {
         Optional<Lawyers> existingLawyers = actionLawyers.findByEmail(Lawyers.getEmailDTO());
 
