@@ -32,7 +32,7 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
+import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.saveRelation;
 import com.example.Advogados.message.message;
 
@@ -41,11 +41,12 @@ import lombok.var;
 @ExtendWith(MockitoExtension.class)
 public class RelationTest {
 
-    @Mock
-    private repositoryUser actionUser;
 
     @Mock
     private message message;
+
+    @Mock 
+    private repositoryUser actionUser;
 
     @Mock
     private repositoryLawyers actionLawyers;
@@ -55,7 +56,7 @@ public class RelationTest {
 
     @Autowired
     @InjectMocks
-    private relationReadLawyer relationReadLawyer;
+    private ReadRelations relationReadLawyer;
 
     @Autowired
     @InjectMocks
@@ -98,7 +99,7 @@ public class RelationTest {
             when(actionRelation.findAllLawyerClientRelationshipsByLawyerId(1L))
                     .thenReturn(listRelation);
 
-            ResponseEntity<?> result = relationReadLawyer.getRelationShip(1L);
+            ResponseEntity<?> result = relationReadLawyer.ReadUser(1L);
 
             assertEquals(HttpStatus.OK, result.getStatusCode());
 
@@ -125,7 +126,7 @@ public class RelationTest {
 
             message.setMensagem("Relacao salva entre " + new ArrayList<>());
 
-            assertEquals(message, save.getBody());
+            assertEquals(save.getBody(), message );
 
         }
     }

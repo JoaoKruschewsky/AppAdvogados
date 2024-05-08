@@ -23,6 +23,8 @@ public interface repositoryRequests extends CrudRepository<Requests, Long> {
 
     List<String> findStatusByUserId(final Long id);
 
+    List<Requests> findRequestsByLawyerId(final Long id);
+
     // Optional<String> findByStatusByUserId(final Long id);
 
 }

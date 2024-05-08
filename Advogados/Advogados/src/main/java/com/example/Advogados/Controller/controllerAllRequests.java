@@ -15,33 +15,37 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Repository.repositoryRequests;
-import com.example.Advogados.Services.serviceRequests;
-import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
+import com.example.Advogados.Services.CRUDrelations.ReadRelations;
+import com.example.Advogados.Services.CRUDrequests.CreatedRequests;
+import com.example.Advogados.Services.CRUDrequests.ReadRequests;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/requests")
 public class controllerAllRequests {
 
-    private serviceRequests service;
+    private CreatedRequests created;
+
+    private ReadRequests read;
 
     @Autowired
-    public void setWired(serviceRequests service) {
-        this.service = service;
+    public void setWired(CreatedRequests service, ReadRequests read) {
+        this.created = service;
+        this.read = read;
     }
 
     @PostMapping("firstRequest")
     public ResponseEntity<?> firstRequestSave(@RequestBody Requests request) {
-        return service.saveRequests(request);
+        return created.saveRequests(request);
     }
 
     @PostMapping("secondRequests")
     public ResponseEntity<?> secondRequestSave(@RequestBody Requests request) {
-        return service.saveSecondRequests(request);
+        return created.saveSecondRequests(request);
     }
 
     @GetMapping("getRequestsUser/{id}")
     public ResponseEntity<?> getRequestsUser(@PathVariable Long id) {
-        return service.getRequestsUser(id);
+        return read.ReadUser(id);
     }
 }

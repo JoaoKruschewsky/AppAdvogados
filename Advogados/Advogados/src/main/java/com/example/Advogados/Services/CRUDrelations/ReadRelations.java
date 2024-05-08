@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.Model.Enum.RelationEnum;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.interfaces.relations.getRelations;
 import com.example.Advogados.message.message;
@@ -17,7 +18,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class relationReadUser implements getRelations {
+public class ReadRelations implements getRelations {
 
     private repositoryRelationShip action;
     private message msg;
@@ -29,7 +30,42 @@ public class relationReadUser implements getRelations {
 
     }
 
-    public ResponseEntity<?> getRelationShip(final Long id) {
+    @Override
+    public ResponseEntity<?> ReadLawyer(final Long id) {
+        List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
+        if (!Lawyer.isEmpty()) {
+            ArrayList<Object> names = new ArrayList<>();
+
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+                String json = objectMapper.writeValueAsString(Lawyer);
+                JsonNode rootNode = objectMapper.readTree(json);
+
+                for (JsonNode node : rootNode) {
+
+                    JsonNode lawyerNode = node.get("client");
+                    JsonNode lawyerStatus = node.get("status");
+
+                    names.add(lawyerNode.get("name").asText());
+                    names.add(lawyerStatus.asText());
+                    names.add(lawyerNode.get("id"));
+
+                }
+                return new ResponseEntity<>(names, HttpStatus.OK);
+            } catch (JsonProcessingException e) {
+                // Trate a exceção aqui
+                e.printStackTrace(); // ou qualquer outra forma de tratamento
+                msg.setMensagem("User não encontrado");
+                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        } else {
+            msg.setMensagem("Não existe usuário com esse nome");
+            return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> ReadUser(final Long id) {
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
             ArrayList<Object> names = new ArrayList<>();
@@ -60,5 +96,4 @@ public class relationReadUser implements getRelations {
             return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
         }
     }
-
 }

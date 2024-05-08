@@ -4,5 +4,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface getRelations {
     
-    public ResponseEntity<?> getRelationShip(final Long id);
+    public ResponseEntity<?> ReadUser(final Long id);
+
+    public ResponseEntity<?> ReadLawyer(final Long id);
 }

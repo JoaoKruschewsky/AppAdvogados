@@ -8,10 +8,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "AllRequests")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Requests {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,44 +39,14 @@ public class Requests {
 
     private String status;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Lawyers getLawyers() {
-        return lawyer;
-    }
-
-    public void setLawyers(Lawyers lawyers) {
-        this.lawyer = lawyers;
-    }
-
-    public User getUsers() {
-        return user;
-    }
-
-    public void setUsers(User users) {
-        this.user = users;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public Requests(Lawyers lawyer, User user, String changeRelation, String status) {
+        this.lawyer = lawyer;
+        this.user = user;
+        this.changeRelation = changeRelation;
         this.status = status;
     }
-    
-    public String getChangeRelation() {
-        return changeRelation;
-    }
 
-    public void setChangeRelation(String changeRelation) {
-        this.changeRelation = changeRelation;
-    }
+   
 
 }

@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Services.CRUDrelations.relationReadLawyer;
-import com.example.Advogados.Services.CRUDrelations.relationReadUser;
+import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.saveRelation;
 
 @RestController
@@ -25,15 +24,13 @@ public class controllerRelationShip {
    
     private repositoryRelationShip action;
     private saveRelation service;
-    private relationReadLawyer relationReadLawyer;
-    private relationReadUser relationReadUser;
+    private ReadRelations readRelations;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, relationReadLawyer relationReadLawyer, saveRelation service, relationReadUser relationReadUser){
+    public void setWired(repositoryRelationShip action, ReadRelations relationReadLawyer, saveRelation service){
         this.action = action;
-        this.relationReadLawyer = relationReadLawyer;
+        this.readRelations = relationReadLawyer;
         this.service = service;
-        this.relationReadUser = relationReadUser;
 
     }
 
@@ -44,11 +41,11 @@ public class controllerRelationShip {
 
     @GetMapping("getRelationUser/{id}")
     public ResponseEntity<?> getRelationUser(@PathVariable Long id) {
-        return relationReadUser.getRelationShip(id);
+        return readRelations.ReadUser(id);
     }
 
     @GetMapping("getRelationLawyer/{id}")
     public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
-        return relationReadLawyer.getRelationShip(id);
+        return readRelations.ReadLawyer(id);
     }
 }
