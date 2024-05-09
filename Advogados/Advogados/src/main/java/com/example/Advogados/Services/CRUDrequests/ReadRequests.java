@@ -20,12 +20,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class ReadRequests implements getRequests  {
+public class ReadRequests implements getRequests {
     private repositoryRequests action;
     private message msg;
-    
+
     @Autowired
-    public void setWired( repositoryRequests action, message msg){
+    public void setWired(repositoryRequests action, message msg) {
         this.action = action;
         this.msg = msg;
 
@@ -46,15 +46,11 @@ public class ReadRequests implements getRequests  {
 
                     JsonNode userNode = node.get("user");
                     JsonNode userStatus = node.get("status");
-                    if (userStatus.asText().equalsIgnoreCase("pendente")) {
-                        names.add(userNode.get("name").asText());
-                        names.add(userStatus.asText());
-                        names.add(node.get("changeRelation").asText());
-                        names.add(userNode.get("id").asInt());
 
-                    } else {
-                        names.add(userNode.get("name").asText() + " e " + userStatus.asText());
-                    }
+                    names.add(userNode.get("name").asText());
+                    names.add(userStatus.asText());
+                    names.add(node.get("changeRelation").asText());
+                    names.add(userNode.get("id").asInt());
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
@@ -83,17 +79,12 @@ public class ReadRequests implements getRequests  {
 
                 for (JsonNode node : rootNode) {
 
-                    JsonNode lawyerNode = node.get("lawyers");
+                    JsonNode lawyerNode = node.get("lawyer");
                     JsonNode lawyerStatus = node.get("status");
-                    if (lawyerStatus.asText().equalsIgnoreCase("pendente")) {
-                        names.add(lawyerNode.get("name").asText());
-                        names.add(lawyerStatus.asText());
-                        names.add(node.get("changeRelation").asText());
-                        names.add(lawyerNode.get("id").asInt());
-
-                    } else {
-                        names.add(lawyerNode.get("name").asText() + " e " + lawyerStatus.asText());
-                    }
+                    names.add(lawyerNode.get("name").asText());
+                    names.add(lawyerStatus.asText());
+                    names.add(node.get("changeRelation").asText());
+                    names.add(lawyerNode.get("id").asInt());
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
@@ -109,5 +100,4 @@ public class ReadRequests implements getRequests  {
         }
     }
 
-    
 }

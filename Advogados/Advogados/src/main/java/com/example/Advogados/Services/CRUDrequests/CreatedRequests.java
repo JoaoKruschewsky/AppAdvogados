@@ -25,8 +25,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class CreatedRequests implements SavesRequests {
-    
-    
+
     private repositoryUser actionUser;
     private repositoryLawyers actionLawyer;
     private repositoryRequests action;
@@ -34,7 +33,8 @@ public class CreatedRequests implements SavesRequests {
     private message msg;
 
     @Autowired
-    public void setWired(repositoryUser actionUser, repositoryLawyers actionLawyers, repositoryRequests action, repositoryRelationShip actionRelation, message msg){
+    public void setWired(repositoryUser actionUser, repositoryLawyers actionLawyers, repositoryRequests action,
+            repositoryRelationShip actionRelation, message msg) {
         this.actionUser = actionUser;
         this.actionLawyer = actionLawyers;
         this.action = action;
@@ -42,6 +42,7 @@ public class CreatedRequests implements SavesRequests {
         this.msg = msg;
 
     }
+
     @Override
     public ResponseEntity<?> saveRequests(final Requests requests) {
 
@@ -61,7 +62,6 @@ public class CreatedRequests implements SavesRequests {
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         }
     }
-
 
     @Override
     public ResponseEntity<?> saveSecondRequests(final Requests requests) {
