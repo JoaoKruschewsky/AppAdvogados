@@ -21,7 +21,6 @@ import lombok.Setter;
 @Setter
 public class Requests {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,17 +35,6 @@ public class Requests {
 
     private String changeRelation;
 
-
     private String status;
-
-
-    public Requests(Lawyers lawyer, User user, String changeRelation, String status) {
-        this.lawyer = lawyer;
-        this.user = user;
-        this.changeRelation = changeRelation;
-        this.status = status;
-    }
-
-   
 
 }

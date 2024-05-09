@@ -1,16 +1,10 @@
 package com.example.Advogados.Services.CRUDrequests;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.apache.catalina.connector.Request;
 import org.apache.catalina.connector.Response;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,7 +20,7 @@ import com.example.Advogados.Repository.repositoryRequests;
 import com.example.Advogados.message.message;
 
 @ExtendWith(MockitoExtension.class)
-public class ReadRequestsTest {
+public class DropRequestsTest {
 
     @Mock
     private repositoryRequests action;
@@ -35,7 +29,7 @@ public class ReadRequestsTest {
     private message msg;
 
     @InjectMocks
-    private ReadRequests readRequests;
+    DropRequests dropRequests;
 
     public User createUser() {
         return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null);
@@ -47,26 +41,20 @@ public class ReadRequestsTest {
 
     }
 
-    @Nested
-    @DisplayName("Leitura das solicitacoes foi sucesso")
-    class TestingReadLawyer {
-        @Test
-        void testReadLawyer() {
-            Requests newRequests = new Requests(1L, createLawyers(), createUser(), "Em andamento", "pendente");
+    @Test
+    void testDrop() {
+        Requests requests = new Requests(1L, this.createLawyers(), this.createUser(), "em andamento", "pendente");
+        Requests requestsTwo = new Requests(2L, this.createLawyers(), this.createUser(), "em andamento", "pendente");
 
-            when(action.findRequestsByLawyerId(1L)).thenReturn(List.of(newRequests));
+        ArrayList<Long> listRequests = new ArrayList<>();
+        listRequests.add(requests.getId());
+        listRequests.add(requestsTwo.getId());
 
-            ResponseEntity<?> read = readRequests.ReadLawyer(1L);
+        ResponseEntity<?> response = dropRequests.drop(listRequests);
 
-            assertEquals(HttpStatus.OK, read.getStatusCode());
+        assertEquals(response.getStatusCode(), HttpStatus.OK);
 
-            List<Object> listObject = new ArrayList<>();
-            listObject.add("joao");
-            listObject.add("pendente");
-            listObject.add("Em andamento");
-            listObject.add(1);
-            assertEquals(read.getBody(), listObject);
-
-        }
+        msg.setMensagem("Solicitacoes apagada com sucesso");
+        assertEquals(response.getBody(), msg);
     }
 }

@@ -17,7 +17,7 @@ public interface repositoryRequests extends CrudRepository<Requests, Long> {
 
     // Optional<Requests> findRequestsByUserId(final Long id);
 
-    // Optional<Requests> findRequestsByLawyerId(final Long id);
+    Optional<Requests> findById(final Long id);
 
     // Optional<String> findRequestsByUserId(final Long id);
 
