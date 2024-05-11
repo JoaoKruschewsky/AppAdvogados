@@ -46,7 +46,9 @@ public class ReadRequests implements getRequests {
 
                     JsonNode userNode = node.get("user");
                     JsonNode userStatus = node.get("status");
+                    JsonNode requestId = node.get("id");
 
+                    names.add(requestId.get("id").asInt());
                     names.add(userNode.get("name").asText());
                     names.add(userStatus.asText());
                     names.add(node.get("changeRelation").asText());
@@ -81,6 +83,8 @@ public class ReadRequests implements getRequests {
 
                     JsonNode lawyerNode = node.get("lawyer");
                     JsonNode lawyerStatus = node.get("status");
+
+                    names.add(node.get("id"));
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
                     names.add(node.get("changeRelation").asText());

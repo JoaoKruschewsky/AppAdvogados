@@ -1,6 +1,7 @@
 package com.example.Advogados.Services.CRUDrequests;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class DropRequests implements DropUI {
     }
 
     @Override
-    public ResponseEntity<?> drop(final ArrayList<Long> id) {
+    public ResponseEntity<?> drop(final List<Long> id) {
         for (Long longID : id) {
             action.deleteById(longID);
         }
