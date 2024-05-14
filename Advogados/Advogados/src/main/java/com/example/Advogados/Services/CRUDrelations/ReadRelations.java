@@ -46,6 +46,7 @@ public class ReadRelations implements getRelations {
                     JsonNode lawyerNode = node.get("client");
                     JsonNode lawyerStatus = node.get("status");
 
+                    names.add(node.get("id"));
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
                     names.add(lawyerNode.get("id"));
@@ -79,6 +80,7 @@ public class ReadRelations implements getRelations {
 
                     JsonNode lawyerNode = node.get("lawyer");
                     JsonNode lawyerStatus = node.get("status");
+                    names.add(node.get("id"));
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
                     names.add(lawyerNode.get("id"));

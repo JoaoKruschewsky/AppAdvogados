@@ -1,8 +1,11 @@
 package com.example.Advogados.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
+import com.example.Advogados.Services.CRUDrelations.DropRElations;
+import com.example.Advogados.Services.CRUDrelations.DropRelations;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.saveRelation;
 
@@ -21,16 +26,16 @@ import com.example.Advogados.Services.CRUDrelations.saveRelation;
 @RequestMapping("/api/relationShip")
 public class controllerRelationShip {
 
-   
-    private repositoryRelationShip action;
     private saveRelation service;
     private ReadRelations readRelations;
+    private DropRelations dropRelations;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, ReadRelations relationReadLawyer, saveRelation service){
-        this.action = action;
+    public void setWired(ReadRelations relationReadLawyer, saveRelation service,
+            DropRelations dropRelations) {
         this.readRelations = relationReadLawyer;
         this.service = service;
+        this.dropRelations = dropRelations;
 
     }
 
@@ -47,5 +52,10 @@ public class controllerRelationShip {
     @GetMapping("getRelationLawyer/{id}")
     public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
         return readRelations.ReadLawyer(id);
+    }
+
+    @DeleteMapping("dropRelations")
+    public ResponseEntity<?> deleteRelations(@RequestBody List<Long> id) {
+        return dropRelations.drop(id);
     }
 }

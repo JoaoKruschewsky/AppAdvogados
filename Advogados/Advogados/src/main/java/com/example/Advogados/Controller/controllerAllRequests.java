@@ -51,7 +51,7 @@ public class controllerAllRequests {
 
     @GetMapping("getRequestsUser/{id}")
     public ResponseEntity<?> getRequestsUser(@PathVariable Long id) {
-        return read.ReadUser(id);
+        return read.readUser(id);
     }
 
     @DeleteMapping("dropRequests")

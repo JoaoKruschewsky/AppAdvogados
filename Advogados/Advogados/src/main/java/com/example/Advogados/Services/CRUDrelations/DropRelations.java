@@ -1,28 +1,26 @@
-package com.example.Advogados.Services.CRUDrequests;
+package com.example.Advogados.Services.CRUDrelations;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.repositoryRequests;
+import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.interfaces.DropRelationsAndRequests.DropUI;
 import com.example.Advogados.message.message;
 
 @Service
-public class DropRequests implements DropUI {
+public class DropRelations implements DropUI {
 
-    private repositoryRequests action;
+    private repositoryRelationShip action;
     private message msg;
 
     @Autowired
-    public void setWired(repositoryRequests action, message msg) {
+    public void setWired(repositoryRelationShip action, message msg) {
         this.action = action;
         this.msg = msg;
 
@@ -30,18 +28,20 @@ public class DropRequests implements DropUI {
 
     @Override
     public ResponseEntity<?> drop(final List<Long> id) {
+
         action.deleteAllById(id);
-        
+
         for (Long verifyID : id) {
 
-            Optional<Requests> verifyRequests = action.findById(verifyID);
+            Optional<LawyerClientRelationship> verifyRelations = action.findById(verifyID);
 
-            if (verifyRequests.isEmpty()) {
-                msg.setMensagem("Solicitacoes apagada com sucesso.");
+            if (verifyRelations.isEmpty()) {
+                msg.setMensagem("Relaceos apagada com sucesso.");
                 return new ResponseEntity<>(msg, HttpStatus.OK);
             }
         }
         msg.setMensagem("Ocorreu um tente novamente mais tarde.");
         return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
     }
+
 }

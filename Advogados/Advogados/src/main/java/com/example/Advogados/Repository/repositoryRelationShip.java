@@ -15,34 +15,16 @@ import com.example.Advogados.Model.User;
 @Repository
 public interface repositoryRelationShip extends CrudRepository<LawyerClientRelationship, Long> {
 
-    /*
-     * @Query("SELECT u.name FROM User u INNER JOIN LawyerClientRelationship lcr ON lcr.client.id  = u.id WHERE lcr.client.id = :clientId"
-     * )
-     * Optional<LawyerClientRelationship> findClientById(@Param("clientId") Long
-     * clientId);
-     */
+    List<LawyerClientRelationship> findAllLawyerClientRelationshipsByClientId(final long id);
 
-    /*
-     * @Query("SELECT l.name FROM Lawyers l INNER JOIN LawyerClientRelationship lcr ON lcr.lawyer.id = l.id WHERE lcr.lawyer.id = :lawyerId"
-     * )
-     * List<String> findLawyerById(@Param("lawyerId") Long lawyerId);
-     */
+    Optional<LawyerClientRelationship> findClientById(final long id);
 
-    List<LawyerClientRelationship> findAllLawyerClientRelationshipsByClientId(long id);
+    Optional<LawyerClientRelationship> findById(final long id);
 
-    Optional<LawyerClientRelationship> findClientById(long id);
-    
+    Optional<LawyerClientRelationship> findLawyerById(final long id);
 
-    Optional<LawyerClientRelationship> findLawyerById(long id);
+    List<LawyerClientRelationship> findAllLawyerClientRelationshipsByLawyerId(final long id);
 
-    List<LawyerClientRelationship> findAllLawyerClientRelationshipsByLawyerId(long id);
-
-    // Optional<LawyerClientRelationship> findClientById(long id);
-
-    // List<Lawyers> findAllLawyer();
-
-    // Optional<LawyerClientRelationship> findClientById(long id);
-
-    Optional<LawyerClientRelationship> findLawyerById(Long id);
+    Optional<LawyerClientRelationship> findLawyerById(final Long id);
 
 }

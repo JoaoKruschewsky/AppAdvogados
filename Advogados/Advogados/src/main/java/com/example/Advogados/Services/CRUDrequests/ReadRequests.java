@@ -32,44 +32,7 @@ public class ReadRequests implements getRequests {
     }
 
     @Override
-    public ResponseEntity<?> ReadLawyer(final Long id) {
-        List<Requests> user = action.findRequestsByLawyerId(id);
-        if (!user.isEmpty()) {
-            ArrayList<Object> names = new ArrayList<>();
-
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-                String json = objectMapper.writeValueAsString(user);
-                JsonNode rootNode = objectMapper.readTree(json);
-
-                for (JsonNode node : rootNode) {
-
-                    JsonNode userNode = node.get("user");
-                    JsonNode userStatus = node.get("status");
-                    JsonNode requestId = node.get("id");
-
-                    names.add(requestId.get("id").asInt());
-                    names.add(userNode.get("name").asText());
-                    names.add(userStatus.asText());
-                    names.add(node.get("changeRelation").asText());
-                    names.add(userNode.get("id").asInt());
-
-                }
-                return new ResponseEntity<>(names, HttpStatus.OK);
-            } catch (JsonProcessingException e) {
-                // Trate a exceção aqui
-                e.printStackTrace(); // ou qualquer outra forma de tratamento
-                msg.setMensagem("Advogado não encontrado");
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } else {
-            msg.setMensagem("Não existe Advogado com esse nome");
-            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
-        }
-    }
-
-    @Override
-    public ResponseEntity<?> ReadUser(final Long id) {
+    public ResponseEntity<?> readUser(final long id) {
         List<Requests> user = action.findRequestsByUserId(id);
         if (!user.isEmpty()) {
             ArrayList<Object> names = new ArrayList<>();
