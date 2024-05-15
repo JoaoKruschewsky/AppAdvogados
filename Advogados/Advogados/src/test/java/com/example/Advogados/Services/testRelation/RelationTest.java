@@ -41,11 +41,10 @@ import lombok.var;
 @ExtendWith(MockitoExtension.class)
 public class RelationTest {
 
-
     @Mock
     private message message;
 
-    @Mock 
+    @Mock
     private repositoryUser actionUser;
 
     @Mock
@@ -72,7 +71,6 @@ public class RelationTest {
         return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null);
     }
 
-
     public Lawyers createLawyers() {
         return new Lawyers(1L, "2312312", "krel", null, null, null, null, null, null, null, "12312312",
                 null, "joao@gmail.com", "12345678");
@@ -89,7 +87,6 @@ public class RelationTest {
 
         @Test
         void readRelationTest() {
-           
 
             LawyerClientRelationship relationNew = createRelation();
 
@@ -120,13 +117,13 @@ public class RelationTest {
 
             when(actionLawyers.findById(createRelation().getLawyer().getId())).thenReturn(Optional.of(createLawyers()));
 
-            ResponseEntity<?> save = saveRelation.saveRelation(createRelation());
+            ResponseEntity<?> save = saveRelation.saveNewRelation(createRelation());
 
             assertEquals(HttpStatus.OK, save.getStatusCode());
 
             message.setMensagem("Relacao salva entre " + new ArrayList<>());
 
-            assertEquals(save.getBody(), message );
+            assertEquals(save.getBody(), message);
 
         }
     }

@@ -66,55 +66,19 @@ public class CreatedRequests implements SavesRequests {
     @Override
     public ResponseEntity<?> saveSecondRequests(final Requests requests) {
 
-        List<Requests> existingRequestsUser = action.findRequestsByUserId(requests.getUser().getId());
+        Optional<User> existingUser = actionUser.findById(requests.getUser().getId());
+        Optional<Lawyers> existingLawyer = actionLawyer.findById(requests.getLawyer().getId());
+        
+        if (existingUser.isPresent() && existingLawyer.isPresent()) {
+            ArrayList<Object> saves = new ArrayList<>();
+            saves.add(existingUser);
+            saves.add(existingLawyer);
+            saves.add(requests);
+            action.save(requests);
 
-        if (!existingRequestsUser.isEmpty()) {
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-                String json = objectMapper.writeValueAsString(existingRequestsUser);
-                JsonNode rootNode = objectMapper.readTree(json);
-
-                for (JsonNode node : rootNode) {
-
-                    JsonNode lawyerNode = node.get("lawyers");
-                    JsonNode lawyerStatus = node.get("status");
-                    JsonNode relation = node.get("changeRelation");
-                    int i = lawyerNode.get("id").asInt();
-                    if (i != requests.getLawyer().getId()) {
-
-                        continue;
-
-                    } else if (!lawyerStatus.asText().equalsIgnoreCase("pendente")) {
-
-                        msg.setMensagem("Essa solicitacao foi: " + lawyerStatus.asText());
-                        return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
-                    } else {
-
-                        LawyerClientRelationship relationShip = new LawyerClientRelationship();
-
-                        relationShip.setLawyer(requests.getLawyer());
-                        relationShip.setClient(requests.getUser());
-                        relationShip.setStatus(requests.getChangeRelation());
-                        actionRelation.save(relationShip);
-                        action.save(requests);
-                        msg.setMensagem("Solicitação de " + relation.asText() +
-                                " salva com sucesso.");
-                    }
-                }
-
-                return new ResponseEntity<>(msg, HttpStatus.OK);
-
-            } catch (JsonProcessingException e) {
-
-                e.printStackTrace();
-                msg.setMensagem("User não encontrado");
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-
-        } else
-
-        {
-            msg.setMensagem("Não foi possível encontrar o Usuario ");
+            return new ResponseEntity<>(saves, HttpStatus.OK);
+        } else {
+            msg.setMensagem("Não foi possível salvar a relação");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         }
     }
