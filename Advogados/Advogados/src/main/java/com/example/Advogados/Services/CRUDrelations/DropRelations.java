@@ -11,16 +11,16 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.interfaces.DropRelationsAndRequests.DropUI;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class DropRelations implements DropUI {
 
     private repositoryRelationShip action;
-    private message msg;
+    private Message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, message msg) {
+    public void setWired(repositoryRelationShip action, Message msg) {
         this.action = action;
         this.msg = msg;
 

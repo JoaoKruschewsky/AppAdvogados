@@ -24,7 +24,7 @@ import com.example.Advogados.Services.interfaces.User.updateUser;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
-public class controllerUser {
+public class ControllerUser {
 
     private repositoryUser action;
     private SaveUserService saveService;

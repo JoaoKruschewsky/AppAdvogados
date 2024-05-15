@@ -26,7 +26,7 @@ import com.example.Advogados.Services.CRUDrequests.ReadRequests;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/requests")
-public class controllerAllRequests {
+public class ControllerAllRequests {
 
     private CreatedRequests created;
     private ReadRequests read;

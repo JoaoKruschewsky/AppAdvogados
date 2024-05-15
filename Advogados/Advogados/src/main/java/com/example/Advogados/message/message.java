@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Component
 @AllArgsConstructor
 @NoArgsConstructor
-public class message {
+public class Message {
 
     private String mensagem;
 

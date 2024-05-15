@@ -25,7 +25,7 @@ import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/lawyer")
-public class controllerLawyers {
+public class ControllerLawyers {
 
     private repositoryLawyers action;
     private saveLawyer saveService;

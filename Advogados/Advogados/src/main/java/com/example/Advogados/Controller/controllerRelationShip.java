@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Services.CRUDrelations.DropRElations;
 import com.example.Advogados.Services.CRUDrelations.DropRelations;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.saveRelation;
@@ -24,7 +23,7 @@ import com.example.Advogados.Services.CRUDrelations.saveRelation;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/relationShip")
-public class controllerRelationShip {
+public class ControllerRelationShip {
 
     private saveRelation service;
     private ReadRelations readRelations;
