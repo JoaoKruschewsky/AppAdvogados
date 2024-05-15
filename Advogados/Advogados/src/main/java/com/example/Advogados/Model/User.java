@@ -44,6 +44,7 @@ public class User {
     private Long Id;
 
     @NotBlank
+    @CPF(message = "Insira um CPF válido")
     private String cpf;
 
     private String name;
