@@ -12,15 +12,15 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.lawyer.loginLawyerInterface;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class loginLawyer implements loginLawyerInterface {
     private repositoryLawyers actionLawyers;
-    private message msg;
+    private Message msg;
 
     @Autowired
-    public void setWired(repositoryLawyers actionLawyers, message msg) {
+    public void setWired(repositoryLawyers actionLawyers, Message msg) {
         this.actionLawyers = actionLawyers;
         this.msg = msg;
     }

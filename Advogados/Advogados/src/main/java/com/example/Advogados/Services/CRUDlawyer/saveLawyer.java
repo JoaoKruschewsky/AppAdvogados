@@ -14,17 +14,17 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.email.emailInterface;
 import com.example.Advogados.Services.interfaces.lawyer.verifySaveLawyer;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class saveLawyer implements verifySaveLawyer {
 
     private repositoryLawyers actionLawyers;
-    private message msg;
+    private Message msg;
     private JavaMailSender javaMailSender;
 
     @Autowired
-    public void setWired(repositoryLawyers actionLawyers, message msg, JavaMailSender javaMailSender) {
+    public void setWired(repositoryLawyers actionLawyers, Message msg, JavaMailSender javaMailSender) {
         this.actionLawyers = actionLawyers;
         this.msg = msg;
         this.javaMailSender = javaMailSender;

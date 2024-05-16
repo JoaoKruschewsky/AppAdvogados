@@ -12,16 +12,16 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.DTO.Lawyer.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.lawyer.uptadeLawyer;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class updateLawyerService implements uptadeLawyer {
 
     private repositoryLawyers action;
-    private message message;
+    private Message message;
 
     @Autowired
-    public void setWired(repositoryLawyers action, message message) {
+    public void setWired(repositoryLawyers action, Message message) {
         this.action = action;
         this.message = message;
     }
