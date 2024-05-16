@@ -21,6 +21,8 @@ import com.example.Advogados.Services.CRUDuser.LoginUserService;
 import com.example.Advogados.Services.CRUDuser.SaveUserService;
 import com.example.Advogados.Services.interfaces.User.updateUser;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
@@ -41,7 +43,7 @@ public class ControllerUser {
     }
 
     @PostMapping("saveUser")
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
+    public ResponseEntity<?> saveUser(@Valid @RequestBody User user) {
         return saveService.verifyUser(user);
     }
 

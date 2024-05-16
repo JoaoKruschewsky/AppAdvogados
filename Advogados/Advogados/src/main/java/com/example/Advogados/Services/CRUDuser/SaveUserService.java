@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Services.infra.RestExpectionHandler;
 import com.example.Advogados.Services.interfaces.User.verifySaveUser;
 import com.example.Advogados.message.Message;
 
@@ -27,6 +28,7 @@ public class SaveUserService implements verifySaveUser {
         Optional<User> verifyUser = actionUser.findByEmail(user.getEmail());
         // User verifyphoneNumber = actionUser.findByphoneNumber(user.getPhoneNumber());
         if (!verifyUser.isEmpty()) {
+
             msg.setMensagem("Já existe um email cadastrado");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         } else {

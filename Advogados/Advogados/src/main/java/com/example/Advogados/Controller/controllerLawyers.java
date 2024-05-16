@@ -22,6 +22,8 @@ import com.example.Advogados.Services.CRUDlawyer.loginLawyer;
 import com.example.Advogados.Services.CRUDlawyer.saveLawyer;
 import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/lawyer")
@@ -42,7 +44,7 @@ public class ControllerLawyers {
     }
 
     @PostMapping("saveLawyer")
-    public ResponseEntity<?> saveLawyers(@RequestBody Lawyers lawyers) {
+    public ResponseEntity<?> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
         return saveService.verifySaveLawyer(lawyers);
     }
 
