@@ -10,19 +10,20 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.User.verifySaveUser;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
-public class SaveUserService implements verifySaveUser{
+public class SaveUserService implements verifySaveUser {
     private repositoryUser actionUser;
-    private message msg;
+    private Message msg;
 
     @Autowired
-    public void setWired( repositoryUser actionUser, message msg) {
+    public void setWired(repositoryUser actionUser, Message msg) {
         this.actionUser = actionUser;
         this.msg = msg;
     }
-    public ResponseEntity<?> verifyUser (User user){
+
+    public ResponseEntity<?> verifyUser(User user) {
         Optional<User> verifyUser = actionUser.findByEmail(user.getEmail());
         // User verifyphoneNumber = actionUser.findByphoneNumber(user.getPhoneNumber());
         if (!verifyUser.isEmpty()) {

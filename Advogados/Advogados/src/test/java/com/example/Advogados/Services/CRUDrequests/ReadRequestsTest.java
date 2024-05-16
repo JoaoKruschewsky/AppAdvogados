@@ -23,7 +23,7 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRequests;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @ExtendWith(MockitoExtension.class)
 public class ReadRequestsTest {
@@ -32,7 +32,7 @@ public class ReadRequestsTest {
     private repositoryRequests action;
 
     @Mock
-    private message msg;
+    private Message msg;
 
     @InjectMocks
     private ReadRequests readRequests;

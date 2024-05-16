@@ -34,7 +34,7 @@ import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.saveRelation;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 import lombok.var;
 
@@ -42,7 +42,7 @@ import lombok.var;
 public class RelationTest {
 
     @Mock
-    private message message;
+    private Message message;
 
     @Mock
     private repositoryUser actionUser;

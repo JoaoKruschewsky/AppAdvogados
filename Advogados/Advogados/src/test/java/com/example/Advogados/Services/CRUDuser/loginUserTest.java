@@ -24,7 +24,7 @@ import org.springframework.http.ResponseEntity;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 public class loginUserTest {
 
@@ -60,7 +60,8 @@ public class loginUserTest {
     void testVerifyLoginUserCase2() {
         LoginUserDTO newUser = new LoginUserDTO("pedro@gmail.com", "12345678");
 
-        Optional<User> user = Optional.of(new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null));
+        Optional<User> user = Optional
+                .of(new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null));
 
         when(actionUser.findByEmail(newUser.getEmailDTO())).thenReturn(user);
 

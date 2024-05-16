@@ -27,7 +27,7 @@ import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
 import com.example.Advogados.Services.CRUDuser.UpdateUserService;
 import com.example.Advogados.Services.interfaces.User.updateUser;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 public class UpdateTest {
 

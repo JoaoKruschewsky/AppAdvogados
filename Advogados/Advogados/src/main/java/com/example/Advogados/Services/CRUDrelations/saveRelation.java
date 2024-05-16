@@ -15,7 +15,7 @@ import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.relations.saveRelationUI;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class saveRelation implements saveRelationUI {
@@ -23,11 +23,11 @@ public class saveRelation implements saveRelationUI {
     private repositoryRelationShip action;
     private repositoryUser actionUser;
     private repositoryLawyers actionLawyer;
-    private message msg;
+    private Message msg;
 
     @Autowired
     public void setWired(repositoryRelationShip action, repositoryUser actionUser, repositoryLawyers actionLawyers,
-            message msg) {
+            Message msg) {
         this.action = action;
         this.actionUser = actionUser;
         this.actionLawyer = actionLawyers;

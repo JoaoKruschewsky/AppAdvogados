@@ -12,7 +12,7 @@ import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Enum.RelationEnum;
 import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Services.interfaces.relations.getRelations;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,10 +21,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ReadRelations implements getRelations {
 
     private repositoryRelationShip action;
-    private message msg;
+    private Message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, message msg) {
+    public void setWired(repositoryRelationShip action, Message msg) {
         this.action = action;
         this.msg = msg;
 

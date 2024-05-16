@@ -11,16 +11,16 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.User.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.User.updateUser;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @Service
 public class UpdateUserService implements updateUser {
 
     private repositoryUser action;
-    private message message;
+    private Message message;
 
     @Autowired
-    public void setWired(repositoryUser action, message message) {
+    public void setWired(repositoryUser action, Message message) {
         this.action = action;
         this.message = message;
     }

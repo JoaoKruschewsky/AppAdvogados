@@ -22,7 +22,7 @@ import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 
 @ExtendWith(MockitoExtension.class)
 public class DropRelationsTest {
@@ -34,7 +34,7 @@ public class DropRelationsTest {
     private DropRelations dropRelations;
 
     @Mock
-    private message msg;
+    private Message msg;
 
     @Test
     void testDrop() {

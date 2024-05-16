@@ -18,7 +18,7 @@ import com.example.Advogados.Repository.repositoryRelationShip;
 import com.example.Advogados.Repository.repositoryRequests;
 import com.example.Advogados.Repository.repositoryUser;
 import com.example.Advogados.Services.interfaces.requests.SavesRequests;
-import com.example.Advogados.message.message;
+import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,11 +30,11 @@ public class CreatedRequests implements SavesRequests {
     private repositoryLawyers actionLawyer;
     private repositoryRequests action;
     private repositoryRelationShip actionRelation;
-    private message msg;
+    private Message msg;
 
     @Autowired
     public void setWired(repositoryUser actionUser, repositoryLawyers actionLawyers, repositoryRequests action,
-            repositoryRelationShip actionRelation, message msg) {
+            repositoryRelationShip actionRelation, Message msg) {
         this.actionUser = actionUser;
         this.actionLawyer = actionLawyers;
         this.action = action;
@@ -68,7 +68,7 @@ public class CreatedRequests implements SavesRequests {
 
         Optional<User> existingUser = actionUser.findById(requests.getUser().getId());
         Optional<Lawyers> existingLawyer = actionLawyer.findById(requests.getLawyer().getId());
-        
+
         if (existingUser.isPresent() && existingLawyer.isPresent()) {
             ArrayList<Object> saves = new ArrayList<>();
             saves.add(existingUser);
