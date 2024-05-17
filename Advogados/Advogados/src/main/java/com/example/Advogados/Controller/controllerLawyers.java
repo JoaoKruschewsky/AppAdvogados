@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
 import com.example.Advogados.Model.DTO.Lawyer.updateLawyerDTO;
 import com.example.Advogados.Repository.repositoryLawyers;

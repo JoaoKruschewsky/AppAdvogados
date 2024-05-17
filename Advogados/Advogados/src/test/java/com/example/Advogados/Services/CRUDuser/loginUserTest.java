@@ -61,7 +61,7 @@ public class loginUserTest {
         LoginUserDTO newUser = new LoginUserDTO("pedro@gmail.com", "12345678");
 
         Optional<User> user = Optional
-                .of(new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null));
+                .of(new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null, null));
 
         when(actionUser.findByEmail(newUser.getEmailDTO())).thenReturn(user);
 

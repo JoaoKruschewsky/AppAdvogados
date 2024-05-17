@@ -38,7 +38,7 @@ public class ReadRequestsTest {
     private ReadRequests readRequests;
 
     public User createUser() {
-        return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null);
+        return new User(1L, "21312312", "joao", "213123123", "pedro@gmail.com", null, null, "12345678", null, null);
     }
 
     public Lawyers createLawyers() {

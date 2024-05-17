@@ -84,7 +84,7 @@ public class UpdateTest {
             updateUserDTO uptadeUser = new updateUserDTO("sdas@gmail.com", "123123123", "asdsasad");
 
             Optional<User> user = Optional.of(new User(1L, "123123123", "sadasd", "23123213", "asdasd", null, null,
-                    "saasdsada@gmail.com", "12345678"));
+                    "saasdsada@gmail.com", "12345678", null));
 
             when(actionUser.findById(user.get().getId())).thenReturn(user);
 
