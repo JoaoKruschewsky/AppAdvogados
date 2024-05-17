@@ -52,7 +52,7 @@ public class UpdateTest {
                     new BigDecimal(32.32));
             Optional<Lawyers> lawyers = Optional
                     .of(new Lawyers(1L, "2312312", "krel", null, null, null, null, null, null, null, "12312312",
-                            null, "joao@gmail.com", "12345678"));
+                            null, "joao@gmail.com", "12345678", null));
 
             when(action.findById(lawyers.get().getId())).thenReturn(lawyers);
 

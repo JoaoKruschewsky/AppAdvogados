@@ -37,7 +37,7 @@ public class DropRequestsTest {
 
     public Lawyers createLawyers() {
         return new Lawyers(1L, "2312312", "krel", null, null, null, null, null, null, null, "12312312",
-                null, "joao@gmail.com", "12345678");
+                null, "joao@gmail.com", "12345678", null);
 
     }
 

@@ -7,9 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
@@ -19,7 +16,7 @@ import com.example.Advogados.Services.interfaces.User.loginUserInterface;
 import com.example.Advogados.message.Message;
 
 @Service
-public class LoginUserService implements loginUserInterface, UserDetailsService {
+public class LoginUserService implements loginUserInterface {
 
     private repositoryUser actionUser;
     private Message msg;
@@ -46,16 +43,4 @@ public class LoginUserService implements loginUserInterface, UserDetailsService 
 
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // TODO Auto-generated method stub
-        Optional<User> user = actionUser.findByEmail(username);
-
-        if (user.isEmpty()) {
-            logger.error("User not found " + username);
-            throw new UsernameNotFoundException("Email not found");
-        }
-        logger.info("User found: " + username);
-        return user.get();
-    }
 }
