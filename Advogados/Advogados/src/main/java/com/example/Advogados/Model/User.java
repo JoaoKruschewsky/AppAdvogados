@@ -14,7 +14,9 @@ import javax.imageio.ImageIO;
 import org.hibernate.annotations.ManyToAny;
 import org.hibernate.mapping.Map;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.example.Advogados.Model.DTO.LoginDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -156,6 +158,10 @@ public class User {
 
     public void setRequests(List<Requests> requests) {
         this.requests = requests;
+    }
+
+    public boolean isLoginCorrect(LoginDTO loginDTO, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(loginDTO.getPassword(), this.password);
     }
 
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 import com.example.Advogados.Model.DTO.User.updateUserDTO;
 import com.example.Advogados.Repository.repositoryUser;
@@ -43,7 +44,7 @@ public class ControllerUser {
     }
 
     @PostMapping("saveUser")
-    public ResponseEntity<?> saveUser(@Valid @RequestBody User user) {
+    public ResponseEntity<?> saveUser(@RequestBody User user) {
         return saveService.verifyUser(user);
     }
 
@@ -52,10 +53,12 @@ public class ControllerUser {
         return updateUser.updateUser(id, updateDTO);
     }
 
-    @PostMapping("verifyUser")
-    public ResponseEntity<?> verifyUser(@RequestBody LoginUserDTO user) {
-        return loginService.verifyLoginUser(user);
-    }
+    /*
+     * @PostMapping("verifyUser")
+     * public ResponseEntity<?> verifyUser(@RequestBody LoginDTO user) {
+     * return loginService.verifyLoginUser(user);
+     * }
+     */
 
     /*
      * @PostMapping("saveUpdatesUser/{id}")
