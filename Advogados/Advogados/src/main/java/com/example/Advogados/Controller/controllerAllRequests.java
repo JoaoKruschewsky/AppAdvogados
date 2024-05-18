@@ -47,6 +47,7 @@ public class ControllerAllRequests {
     }
 
     @PostMapping("secondRequests")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> secondRequestSave(@RequestBody Requests request) {
         return created.saveSecondRequests(request);
     }

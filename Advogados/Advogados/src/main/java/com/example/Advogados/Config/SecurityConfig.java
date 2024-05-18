@@ -37,13 +37,34 @@ public class SecurityConfig {
     @Value("${jwt.key.private}")
     private RSAPrivateKey privateKey;
 
+    private final String urlLawyer = "api/lawyer/";
+    private final String urlUser = "api/user/";
+    private final String urlRelations = "api/relationShip/";
+    private final String urlRequest = "api/requests/";
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(authorize -> authorize
-                .requestMatchers(HttpMethod.POST, "api/user/saveUser").permitAll()
+                .requestMatchers(HttpMethod.POST, urlUser + "saveUser").permitAll()
+                .requestMatchers(HttpMethod.POST, urlUser + "saveUptadesUser/{id}").permitAll()
+
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.POST, "api/lawyer/saveLawyer").permitAll()
+                .requestMatchers(HttpMethod.POST, urlLawyer + "saveLawyer").permitAll()
+                .requestMatchers(HttpMethod.POST, urlLawyer + "saveUptadesLawyer/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, urlLawyer + "getLawyer").permitAll()
+                .requestMatchers(HttpMethod.GET, urlLawyer + "getLawyerByName{Name}").permitAll()
+
+                .requestMatchers(HttpMethod.POST, urlRequest + "firstRequest").permitAll()
+                .requestMatchers(HttpMethod.POST, urlRequest + "secondRequests").permitAll()
+                .requestMatchers(HttpMethod.GET, urlRequest + "getRequestsUser/{id}").permitAll()
+                .requestMatchers(HttpMethod.DELETE, urlRequest + "dropRequests").permitAll()
+
+                .requestMatchers(HttpMethod.POST, urlRelations + "saveRelations").permitAll()
+                .requestMatchers(HttpMethod.GET, urlRelations + "getRelationsUser/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, urlRelations + "getRelationsLawyer/{id}").permitAll()
+                .requestMatchers(HttpMethod.DELETE, urlRelations + "dropRelations").permitAll()
+
                 .anyRequest().authenticated())
                 .csrf(csrf -> csrf.disable())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(Customizer.withDefaults()))

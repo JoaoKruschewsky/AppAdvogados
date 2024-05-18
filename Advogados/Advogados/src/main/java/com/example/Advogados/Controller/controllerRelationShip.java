@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,16 +40,19 @@ public class ControllerRelationShip {
     }
 
     @PostMapping("saveRelation")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship) {
         return service.saveNewRelation(relationship);
     }
 
     @GetMapping("getRelationUser/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> getRelationUser(@PathVariable Long id) {
         return readRelations.ReadUser(id);
     }
 
     @GetMapping("getRelationLawyer/{id}")
+    @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
     public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
         return readRelations.ReadLawyer(id);
     }
