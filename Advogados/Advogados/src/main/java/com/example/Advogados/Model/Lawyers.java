@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Set;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.example.Advogados.Model.DTO.LoginDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -79,5 +81,9 @@ public class Lawyers {
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "tb_users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Role> roles;
+
+    public boolean isLoginCorrect(LoginDTO loginDTO, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(loginDTO.getPassword(), this.password);
+    }
 
 }

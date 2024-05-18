@@ -2,6 +2,7 @@ package com.example.Advogados.Controller;
 
 import java.time.Instant;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.swing.text.html.Option;
 
@@ -17,7 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Advogados.Model.Lawyers;
+import com.example.Advogados.Model.Role;
 import com.example.Advogados.Model.User;
+import com.example.Advogados.Model.UserAndLawyer;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.LoginResponse;
 import com.example.Advogados.Services.CRUDuser.LoginUserService;
@@ -40,23 +44,51 @@ public class TokenController {
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginDTO login) {
 
-        User user = loginUser.verifyLoginUser(login);
+        UserAndLawyer user = loginUser.verifyLoginUser(login);
+        UserAndLawyer lawyers = loginUser.verifyLoginUser(login);
 
-        if (user == null) {
+        if (user.getUser() != null) {
+
+            var now = Instant.now();
+            var expiresIn = 300L;
+
+            var scopes = user.getUser().getRoles()
+                    .stream()
+                    .map(Role::getName)
+                    .collect(Collectors.joining(""));
+
+            var claims = JwtClaimsSet.builder().issuer("mybackend").subject(user.getUser().getId().toString())
+                    .issuedAt(now)
+                    .expiresAt(now.plusSeconds(expiresIn))
+                    .claim("scope", scopes)
+                    .build();
+
+            var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+
+            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
+        } else if (lawyers.getLawyer() != null) {
+            var now = Instant.now();
+            var expiresIn = 300L;
+
+            var scopes = lawyers.getLawyer().getRoles()
+                    .stream()
+                    .map(Role::getName)
+                    .collect(Collectors.joining(""));
+
+            var claims = JwtClaimsSet.builder().issuer("mybackend").subject(lawyers.getLawyer().getId().toString())
+                    .issuedAt(now)
+                    .expiresAt(now.plusSeconds(expiresIn))
+                    .claim("scope", scopes)
+                    .build();
+
+            var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+
+            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
+        } else {
             throw new BadCredentialsException("Incorret user");
+
         }
 
-        var now = Instant.now();
-        var expiresIn = 300L;
-
-        var claims = JwtClaimsSet.builder().issuer("mybackend").subject(user.getId().toString())
-                .issuedAt(now)
-                .expiresAt(now.plusSeconds(expiresIn))
-                .build();
-
-        var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
-
-        return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
     }
 
 }

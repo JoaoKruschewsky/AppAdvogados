@@ -55,7 +55,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private long Id;
 
     @NotBlank
     @CPF(message = "Insira um CPF válido")

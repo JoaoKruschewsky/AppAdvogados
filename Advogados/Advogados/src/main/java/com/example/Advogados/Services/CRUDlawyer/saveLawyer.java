@@ -8,9 +8,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Lawyers;
+import com.example.Advogados.Model.Role;
+import com.example.Advogados.Repository.RolesRepository;
 import com.example.Advogados.Repository.repositoryLawyers;
 import com.example.Advogados.Services.interfaces.email.emailInterface;
 import com.example.Advogados.Services.interfaces.lawyer.verifySaveLawyer;
@@ -21,13 +24,17 @@ public class saveLawyer implements verifySaveLawyer {
 
     private repositoryLawyers actionLawyers;
     private Message msg;
-    private JavaMailSender javaMailSender;
+    private BCryptPasswordEncoder passwordEncoder;
+    private RolesRepository rolesRepository;
 
     @Autowired
-    public void setWired(repositoryLawyers actionLawyers, Message msg, JavaMailSender javaMailSender) {
+    public void setWired(repositoryLawyers actionLawyers, Message msg, BCryptPasswordEncoder passwordEncoder,
+            RolesRepository rolesRepository) {
         this.actionLawyers = actionLawyers;
         this.msg = msg;
-        this.javaMailSender = javaMailSender;
+        this.passwordEncoder = passwordEncoder;
+        this.rolesRepository = rolesRepository;
+
     }
 
     @Value("${spring.mail.username}")
@@ -40,6 +47,10 @@ public class saveLawyer implements verifySaveLawyer {
             msg.setMensagem("Já existe um email cadastrado");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         } else {
+            var roleUser = rolesRepository.findByName(Role.Values.LAWYER.name());
+
+            lawyers.setPassword(passwordEncoder.encode(lawyers.getPassword()));
+            lawyers.setRoles(roleUser);
             msg.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + actionLawyers.save(lawyers));
 
             return new ResponseEntity<>(msg, HttpStatus.OK);
