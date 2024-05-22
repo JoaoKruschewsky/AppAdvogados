@@ -8,27 +8,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.DTO.User.updateUserDTO;
-import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.User.updateUser;
+import com.example.Advogados.Model.DTO.User.UpdateUserDTO;
+import com.example.Advogados.Repository.RepositoryUser;
+import com.example.Advogados.Services.interfaces.User.UpdateUser;
 import com.example.Advogados.message.Message;
 
 @Service
-public class UpdateUserService implements updateUser {
+public class UpdateUserService implements UpdateUser {
 
-    private repositoryUser action;
+    private RepositoryUser action;
     private Message message;
 
     @Autowired
-    public void setWired(repositoryUser action, Message message) {
+    public void setWired(RepositoryUser action, Message message) {
         this.action = action;
         this.message = message;
     }
 
-    public ResponseEntity<?> updateUser(Long id, updateUserDTO updateUserDTO) {
+    @Override
+    public ResponseEntity<?> updateUser(Long id, UpdateUserDTO updateUserDTO) {
         Optional<User> optionalUser = action.findById(id);
 
         if (optionalUser.isPresent()) {
+            optionalUser.get().setImg_Profile(updateUserDTO.getImgDTO());
             optionalUser.get().setEmail(updateUserDTO.getEmailDTO());
             optionalUser.get().setPhoneNumber(updateUserDTO.getPhoneNumberDTO());
             return new ResponseEntity<>(action.save(optionalUser.get()), HttpStatus.OK);

@@ -6,27 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.relations.saveRelationUI;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryUser;
+import com.example.Advogados.Services.interfaces.relations.SaveRelationUI;
 import com.example.Advogados.message.Message;
 
 @Service
-public class saveRelation implements saveRelationUI {
+public class SaveRelation implements SaveRelationUI {
 
-    private repositoryRelationShip action;
-    private repositoryUser actionUser;
-    private repositoryLawyers actionLawyer;
+    private RepositoryRelationShip action;
+    private RepositoryUser actionUser;
+    private RepositoryLawyers actionLawyer;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, repositoryUser actionUser, repositoryLawyers actionLawyers,
+    public void setWired(RepositoryRelationShip action, RepositoryUser actionUser, RepositoryLawyers actionLawyers,
             Message msg) {
         this.action = action;
         this.actionUser = actionUser;
@@ -35,19 +36,20 @@ public class saveRelation implements saveRelationUI {
     }
 
     @Override
-    public ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation) {
-        Optional<User> existingUser = actionUser.findById(relation.getClient().getId());
+    public ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation, JwtAuthenticationToken token) {
         Optional<Lawyers> existingLawyer = actionLawyer.findById(relation.getLawyer().getId());
-        if (existingUser.isPresent() && existingLawyer.isPresent()) {
-            ArrayList<Object> saves = new ArrayList<>();
-            saves.add(existingUser);
-            saves.add(existingLawyer);
-            action.save(relation);
-            msg.setMensagem("Relacao salva entre " + saves);
-            return new ResponseEntity<>(msg, HttpStatus.OK);
-        } else {
-            msg.setMensagem("Não foi possível salvar a relação");
+
+        if (!relation.getClient().getId().equals(Long.parseLong(token.getName()))) {
+            msg.setMensagem("Voce nao pode salvar relacoes apenas Usuarios!");
+            return new ResponseEntity<>(msg, HttpStatus.UNAUTHORIZED);
+
+        } else if ( !existingLawyer.isPresent()) {
+            msg.setMensagem("Nao existe esse advogado!");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        } else {
+            action.save(relation);
+            msg.setMensagem("Relacao salva");
+            return new ResponseEntity<>(msg, HttpStatus.OK);
         }
     }
 

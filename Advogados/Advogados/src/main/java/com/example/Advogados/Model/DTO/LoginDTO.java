@@ -1,5 +1,7 @@
 package com.example.Advogados.Model.DTO;
 
+import com.example.Advogados.Model.DTO.User.LoginUserDTO;
+
 public class LoginDTO {
 
     private String email;

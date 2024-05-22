@@ -1,11 +1,12 @@
 package com.example.Advogados.Services.interfaces.relations;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 
-public interface saveRelationUI {
+public interface SaveRelationUI {
 
-    ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation);
+    ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation, JwtAuthenticationToken token);
 
 }

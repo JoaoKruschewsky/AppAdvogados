@@ -45,7 +45,9 @@ public class Lawyers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @Column(unique = true)
     @NotBlank
+    @CPF(message = "Insira um cpf válido")
     private String cpf;
 
     private String name;

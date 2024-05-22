@@ -20,13 +20,13 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.DTO.Lawyer.updateLawyerDTO;
-import com.example.Advogados.Model.DTO.User.updateUserDTO;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.CRUDlawyer.updateLawyerService;
+import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
+import com.example.Advogados.Model.DTO.User.UpdateUserDTO;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryUser;
+import com.example.Advogados.Services.CRUDlawyer.UpdateLawyerService;
 import com.example.Advogados.Services.CRUDuser.UpdateUserService;
-import com.example.Advogados.Services.interfaces.User.updateUser;
+import com.example.Advogados.Services.interfaces.User.UpdateUser;
 import com.example.Advogados.message.Message;
 
 public class UpdateTest {
@@ -35,11 +35,11 @@ public class UpdateTest {
     class TestUpdateLawyer {
 
         @Mock
-        private repositoryLawyers action;
+        private RepositoryLawyers action;
 
         @Autowired
         @InjectMocks
-        private updateLawyerService updateLawyerService;
+        private UpdateLawyerService updateLawyerService;
 
         @BeforeEach
         void setup() {
@@ -48,7 +48,7 @@ public class UpdateTest {
 
         @Test
         void updateLawyer() {
-            updateLawyerDTO lawyerUpdate = new updateLawyerDTO("asdasd", "asdsada", "sra Gabi", "asdsadas",
+            UpdateLawyerDTO lawyerUpdate = new UpdateLawyerDTO("asdasd", "asdsada", "sra Gabi", "asdsadas",
                     new BigDecimal(32.32));
             Optional<Lawyers> lawyers = Optional
                     .of(new Lawyers(1L, "2312312", "krel", null, null, null, null, null, null, null, "12312312",
@@ -56,7 +56,7 @@ public class UpdateTest {
 
             when(action.findById(lawyers.get().getId())).thenReturn(lawyers);
 
-            ResponseEntity<?> result = updateLawyerService.updateLawyer(lawyers.get().getId(), lawyerUpdate);
+            ResponseEntity<?> result = updateLawyerService.updateLawyer(lawyers.get().getId(), lawyerUpdate, null);
 
             verify(action, times(1)).findById(lawyers.get().getId());
 
@@ -68,7 +68,7 @@ public class UpdateTest {
     class TestUpdateUser {
 
         @Mock
-        private repositoryUser actionUser;
+        private RepositoryUser actionUser;
 
         @Autowired
         @InjectMocks
@@ -81,7 +81,7 @@ public class UpdateTest {
 
         @Test
         void updateUser() {
-            updateUserDTO uptadeUser = new updateUserDTO("sdas@gmail.com", "123123123", "asdsasad");
+            UpdateUserDTO uptadeUser = new UpdateUserDTO("sdas@gmail.com", "123123123", "asdsasad");
 
             Optional<User> user = Optional.of(new User(1L, "123123123", "sadasd", "23123213", "asdasd", null, null,
                     "saasdsada@gmail.com", "12345678", null));

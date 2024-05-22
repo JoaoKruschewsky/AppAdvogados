@@ -13,10 +13,10 @@ import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Repository.repositoryRequests;
-import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryRequests;
+import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.interfaces.requests.SavesRequests;
 import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -26,15 +26,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service
 public class CreatedRequests implements SavesRequests {
 
-    private repositoryUser actionUser;
-    private repositoryLawyers actionLawyer;
-    private repositoryRequests action;
-    private repositoryRelationShip actionRelation;
+    private RepositoryUser actionUser;
+    private RepositoryLawyers actionLawyer;
+    private RepositoryRequests action;
+    private RepositoryRelationShip actionRelation;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryUser actionUser, repositoryLawyers actionLawyers, repositoryRequests action,
-            repositoryRelationShip actionRelation, Message msg) {
+    public void setWired(RepositoryUser actionUser, RepositoryLawyers actionLawyers, RepositoryRequests action,
+            RepositoryRelationShip actionRelation, Message msg) {
         this.actionUser = actionUser;
         this.actionLawyer = actionLawyers;
         this.action = action;

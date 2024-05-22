@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.repositoryRequests;
+import com.example.Advogados.Repository.RepositoryRequests;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrequests.CreatedRequests;
 import com.example.Advogados.Services.CRUDrequests.DropRequests;
@@ -59,6 +59,7 @@ public class ControllerAllRequests {
     }
 
     @DeleteMapping("dropRequests")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> dropRequests(@RequestBody List<Long> ids) {
         return drop.drop(ids);
     }

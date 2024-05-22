@@ -57,6 +57,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
 
+    @Column(unique = true)
     @NotBlank
     @CPF(message = "Insira um CPF válido")
     private String cpf;

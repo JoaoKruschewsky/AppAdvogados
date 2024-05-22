@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.example.Advogados.Model.Requests;
 
 @Repository
-public interface repositoryRequests extends CrudRepository<Requests, Long> {
+public interface RepositoryRequests extends CrudRepository<Requests, Long> {
 
     List<Requests> findRequestsByUserId(final Long id);
 

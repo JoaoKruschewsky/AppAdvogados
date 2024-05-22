@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Services.interfaces.lawyer.loginLawyerInterface;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Services.interfaces.lawyer.LoginLawyerInterface;
 import com.example.Advogados.message.Message;
 
 @Service
-public class loginLawyer implements loginLawyerInterface {
-    private repositoryLawyers actionLawyers;
+public class LoginLawyer implements LoginLawyerInterface {
+    private RepositoryLawyers actionLawyers;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryLawyers actionLawyers, Message msg) {
+    public void setWired(RepositoryLawyers actionLawyers, Message msg) {
         this.actionLawyers = actionLawyers;
         this.msg = msg;
     }

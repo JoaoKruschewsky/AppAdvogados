@@ -10,21 +10,21 @@ import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Enum.RelationEnum;
-import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Services.interfaces.relations.getRelations;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Services.interfaces.relations.GetRelations;
 import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class ReadRelations implements getRelations {
+public class ReadRelations implements GetRelations {
 
-    private repositoryRelationShip action;
+    private RepositoryRelationShip action;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, Message msg) {
+    public void setWired(RepositoryRelationShip action, Message msg) {
         this.action = action;
         this.msg = msg;
 

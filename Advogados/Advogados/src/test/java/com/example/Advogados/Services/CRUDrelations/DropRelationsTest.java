@@ -21,14 +21,14 @@ import org.springframework.http.ResponseEntity;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.message.Message;
 
 @ExtendWith(MockitoExtension.class)
 public class DropRelationsTest {
 
     @Mock
-    private repositoryRelationShip action;
+    private RepositoryRelationShip action;
 
     @InjectMocks
     private DropRelations dropRelations;

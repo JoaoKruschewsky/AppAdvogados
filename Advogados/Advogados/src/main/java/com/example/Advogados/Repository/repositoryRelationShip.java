@@ -13,7 +13,7 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 
 @Repository
-public interface repositoryRelationShip extends CrudRepository<LawyerClientRelationship, Long> {
+public interface RepositoryRelationShip extends CrudRepository<LawyerClientRelationship, Long> {
 
     List<LawyerClientRelationship> findAllLawyerClientRelationshipsByClientId(final long id);
 

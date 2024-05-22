@@ -11,18 +11,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.repositoryRequests;
+import com.example.Advogados.Repository.RepositoryRequests;
 import com.example.Advogados.Services.interfaces.DropRelationsAndRequests.DropUI;
 import com.example.Advogados.message.Message;
 
 @Service
 public class DropRequests implements DropUI {
 
-    private repositoryRequests action;
+    private RepositoryRequests action;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryRequests action, Message msg) {
+    public void setWired(RepositoryRequests action, Message msg) {
         this.action = action;
         this.msg = msg;
 

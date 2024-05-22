@@ -9,18 +9,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Repository.repositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Services.interfaces.DropRelationsAndRequests.DropUI;
 import com.example.Advogados.message.Message;
 
 @Service
 public class DropRelations implements DropUI {
 
-    private repositoryRelationShip action;
+    private RepositoryRelationShip action;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryRelationShip action, Message msg) {
+    public void setWired(RepositoryRelationShip action, Message msg) {
         this.action = action;
         this.msg = msg;
 

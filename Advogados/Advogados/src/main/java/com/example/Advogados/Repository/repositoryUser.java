@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.example.Advogados.Model.User;
 
 @Repository
-public interface repositoryUser extends CrudRepository<User, Long> {
+public interface RepositoryUser extends CrudRepository<User, Long> {
 
     List<User> findBynameStartingWithIgnoreCase(String name);
 

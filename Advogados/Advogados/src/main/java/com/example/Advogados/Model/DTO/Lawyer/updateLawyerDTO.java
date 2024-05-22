@@ -6,7 +6,7 @@ import java.util.Currency;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class updateLawyerDTO {
+public class UpdateLawyerDTO {
     private String imgDTO;
     private String descricionDTO;
     private String titleLawyerDTO;

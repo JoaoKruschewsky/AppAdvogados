@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
-import com.example.Advogados.Model.DTO.User.updateUserDTO;
-import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Model.DTO.User.UpdateUserDTO;
+import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.CRUDuser.LoginUserService;
 import com.example.Advogados.Services.CRUDuser.SaveUserService;
-import com.example.Advogados.Services.interfaces.User.updateUser;
+import com.example.Advogados.Services.interfaces.User.UpdateUser;
 
 import jakarta.validation.Valid;
 
@@ -29,14 +30,14 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/user")
 public class ControllerUser {
 
-    private repositoryUser action;
+    private RepositoryUser action;
     private SaveUserService saveService;
     private LoginUserService loginService;
-    private updateUser updateUser;
+    private UpdateUser updateUser;
 
     @Autowired
-    public void setWired(repositoryUser action, SaveUserService saveService, LoginUserService loginService,
-            updateUser updateUser) {
+    public void setWired(RepositoryUser action, SaveUserService saveService, LoginUserService loginService,
+            UpdateUser updateUser) {
         this.action = action;
         this.saveService = saveService;
         this.loginService = loginService;
@@ -49,7 +50,8 @@ public class ControllerUser {
     }
 
     @PostMapping("saveUpdatesUser/{id}")
-    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody updateUserDTO updateDTO) {
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody UpdateUserDTO updateDTO) {
         return updateUser.updateUser(id, updateDTO);
     }
 

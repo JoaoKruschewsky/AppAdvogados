@@ -29,11 +29,11 @@ import org.springframework.http.ResponseEntity;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
-import com.example.Advogados.Services.CRUDrelations.saveRelation;
+import com.example.Advogados.Services.CRUDrelations.SaveRelation;
 import com.example.Advogados.message.Message;
 
 import lombok.var;
@@ -45,13 +45,13 @@ public class RelationTest {
     private Message message;
 
     @Mock
-    private repositoryUser actionUser;
+    private RepositoryUser actionUser;
 
     @Mock
-    private repositoryLawyers actionLawyers;
+    private RepositoryLawyers actionLawyers;
 
     @Mock
-    private repositoryRelationShip actionRelation;
+    private RepositoryRelationShip actionRelation;
 
     @Autowired
     @InjectMocks
@@ -59,7 +59,7 @@ public class RelationTest {
 
     @Autowired
     @InjectMocks
-    private saveRelation saveRelation;
+    private SaveRelation saveRelation;
 
     @BeforeEach
     void setup() {
@@ -108,7 +108,7 @@ public class RelationTest {
 
     @Nested
     @DisplayName("Salvando Relacoes")
-    class SaveRelation {
+    class SaveNewRelation {
 
         @Test
         void SaveRelationTeste() {
@@ -117,7 +117,7 @@ public class RelationTest {
 
             when(actionLawyers.findById(createRelation().getLawyer().getId())).thenReturn(Optional.of(createLawyers()));
 
-            ResponseEntity<?> save = saveRelation.saveNewRelation(createRelation());
+            ResponseEntity<?> save = saveRelation.saveNewRelation(createRelation(), null);
 
             assertEquals(HttpStatus.OK, save.getStatusCode());
 
@@ -126,5 +126,6 @@ public class RelationTest {
             assertEquals(save.getBody(), message);
 
         }
+
     }
 }

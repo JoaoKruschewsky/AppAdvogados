@@ -16,24 +16,24 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.UserAndLawyer;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryUser;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.interfaces.User.LoginUserInterface;
 import com.example.Advogados.message.Message;
 
 @Service
 public class LoginUserService implements LoginUserInterface {
 
-    private repositoryUser actionUser;
+    private RepositoryUser actionUser;
     private Message msg;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private repositoryLawyers actionLawyer;
+    private RepositoryLawyers actionLawyer;
 
     private static Logger logger = LoggerFactory.getLogger(LoginUserService.class);
 
     @Autowired
-    public void setWired(repositoryUser actionUser, Message msg, BCryptPasswordEncoder bCryptPasswordEncoder,
-            repositoryLawyers actionLawyer) {
+    public void setWired(RepositoryUser actionUser, Message msg, BCryptPasswordEncoder bCryptPasswordEncoder,
+            RepositoryLawyers actionLawyer) {
         this.actionUser = actionUser;
         this.msg = msg;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -41,14 +41,14 @@ public class LoginUserService implements LoginUserInterface {
     }
 
     @Override
-    public UserAndLawyer verifyLoginUser(LoginDTO user) {
-        Optional<User> existingUser = actionUser.findByEmail(user.getEmail());
-        Optional<Lawyers> existingLawyer = actionLawyer.findByEmail(user.getEmail());
-        if (existingUser.isPresent() && existingUser.get().isLoginCorrect(user, bCryptPasswordEncoder)) {
+    public UserAndLawyer verifyLoginUser(LoginDTO newUser) {
+        Optional<User> existingUser = actionUser.findByEmail(newUser.getEmail());
+        Optional<Lawyers> existingLawyer = actionLawyer.findByEmail(newUser.getEmail());
+        if (existingUser.isPresent() && existingUser.get().isLoginCorrect(newUser, bCryptPasswordEncoder)) {
             // msg.setMensagem("Accepted Login Lawyer.");
             return new UserAndLawyer(existingUser.get(), null);
         }
-        if (existingLawyer.isPresent() && existingLawyer.get().isLoginCorrect(user, bCryptPasswordEncoder)) {
+        if (existingLawyer.isPresent() && existingLawyer.get().isLoginCorrect(newUser, bCryptPasswordEncoder)) {
             // msg.setMensagem("Accept Login Lawyer.");
             return new UserAndLawyer(null, existingLawyer.get());
         }

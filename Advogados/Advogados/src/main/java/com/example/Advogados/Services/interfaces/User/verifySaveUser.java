@@ -4,7 +4,7 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.User;
 
-public interface verifySaveUser {
+public interface VerifySaveUser {
    
     public ResponseEntity<?> verifyUser(User user);
 }

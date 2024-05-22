@@ -9,23 +9,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.repositoryLawyers;
-import com.example.Advogados.Repository.repositoryRelationShip;
-import com.example.Advogados.Repository.repositoryRequests;
-import com.example.Advogados.Repository.repositoryUser;
-import com.example.Advogados.Services.interfaces.requests.getRequests;
+import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryRequests;
+import com.example.Advogados.Repository.RepositoryUser;
+import com.example.Advogados.Services.interfaces.requests.GetRequests;
 import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class ReadRequests implements getRequests {
-    private repositoryRequests action;
+public class ReadRequests implements GetRequests {
+    private RepositoryRequests action;
     private Message msg;
 
     @Autowired
-    public void setWired(repositoryRequests action, Message msg) {
+    public void setWired(RepositoryRequests action, Message msg) {
         this.action = action;
         this.msg = msg;
 

@@ -16,14 +16,14 @@ import org.springframework.http.ResponseEntity;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryRequests;
+import com.example.Advogados.Repository.RepositoryRequests;
 import com.example.Advogados.message.Message;
 
 @ExtendWith(MockitoExtension.class)
 public class DropRequestsTest {
 
     @Mock
-    private repositoryRequests action;
+    private RepositoryRequests action;
 
     @Mock
     private Message msg;

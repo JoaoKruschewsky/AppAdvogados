@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,22 +17,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Repository.repositoryRelationShip;
+import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Services.CRUDrelations.DropRelations;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
-import com.example.Advogados.Services.CRUDrelations.saveRelation;
+import com.example.Advogados.Services.CRUDrelations.SaveRelation;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/relationShip")
 public class ControllerRelationShip {
 
-    private saveRelation service;
+    private SaveRelation service;
     private ReadRelations readRelations;
     private DropRelations dropRelations;
 
     @Autowired
-    public void setWired(ReadRelations relationReadLawyer, saveRelation service,
+    public void setWired(ReadRelations relationReadLawyer, SaveRelation service,
             DropRelations dropRelations) {
         this.readRelations = relationReadLawyer;
         this.service = service;
@@ -41,8 +42,9 @@ public class ControllerRelationShip {
 
     @PostMapping("saveRelation")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship) {
-        return service.saveNewRelation(relationship);
+    public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship,
+            JwtAuthenticationToken token) {
+        return service.saveNewRelation(relationship, token);
     }
 
     @GetMapping("getRelationUser/{id}")

@@ -12,7 +12,7 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 
 @Repository
-public interface repositoryLawyers extends CrudRepository<Lawyers, Long> {
+public interface RepositoryLawyers extends CrudRepository<Lawyers, Long> {
 
     Optional<Lawyers> findByEmail(String email);
 

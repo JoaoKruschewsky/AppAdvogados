@@ -55,7 +55,7 @@ public class TokenController {
             var scopes = user.getUser().getRoles()
                     .stream()
                     .map(Role::getName)
-                    .collect(Collectors.joining(""));
+                    .collect(Collectors.joining(" "));
 
             var claims = JwtClaimsSet.builder().issuer("mybackend").subject(user.getUser().getId().toString())
                     .issuedAt(now)
@@ -65,7 +65,7 @@ public class TokenController {
 
             var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 
-            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
+            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn, user.getUser(), null));
         } else if (lawyers.getLawyer() != null) {
             var now = Instant.now();
             var expiresIn = 300L;
@@ -73,7 +73,7 @@ public class TokenController {
             var scopes = lawyers.getLawyer().getRoles()
                     .stream()
                     .map(Role::getName)
-                    .collect(Collectors.joining(""));
+                    .collect(Collectors.joining(" "));
 
             var claims = JwtClaimsSet.builder().issuer("mybackend").subject(lawyers.getLawyer().getId().toString())
                     .issuedAt(now)
@@ -83,7 +83,7 @@ public class TokenController {
 
             var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
 
-            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
+            return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn, null, lawyers.getLawyer()));
         } else {
             throw new BadCredentialsException("Incorret user");
 

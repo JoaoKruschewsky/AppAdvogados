@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class updateUserDTO {
+public class UpdateUserDTO {
 
     private String emailDTO;
     private String phoneNumberDTO;
