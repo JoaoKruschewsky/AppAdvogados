@@ -15,6 +15,7 @@ import com.example.Advogados.Services.interfaces.lawyer.LoginLawyerInterface;
 import com.example.Advogados.message.Message;
 
 @Service
+
 public class LoginLawyer implements LoginLawyerInterface {
     private RepositoryLawyers actionLawyers;
     private Message msg;

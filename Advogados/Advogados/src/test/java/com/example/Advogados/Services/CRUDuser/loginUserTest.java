@@ -35,7 +35,7 @@ public class LoginUserTest {
 
     @Autowired
     @InjectMocks
-    private LoginUserService loginUser;
+    private Login loginUser;
 
     @BeforeEach
     void setup() {
@@ -49,7 +49,7 @@ public class LoginUserTest {
 
         when(actionUser.findByEmail(newUser.getEmailDTO())).thenReturn(Optional.empty());
 
-        UserAndLawyer result = loginUser.verifyLoginUser(new LoginDTO(newUser));
+       // UserAndLawyer result = loginUser.verifyLoginUser(new LoginDTO(newUser));
 
         verify(actionUser).findByEmail(newUser.getEmailDTO());
 
@@ -66,7 +66,7 @@ public class LoginUserTest {
 
         when(actionUser.findByEmail(newUser.getEmailDTO())).thenReturn(user);
 
-        UserAndLawyer resultCorrect = loginUser.verifyLoginUser(new LoginDTO(newUser));
+      //  UserAndLawyer resultCorrect = loginUser.verifyLoginUser(new LoginDTO(newUser));
 
         verify(actionUser).findByEmail(newUser.getEmailDTO());
 

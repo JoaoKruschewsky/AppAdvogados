@@ -39,13 +39,20 @@ public class SaveRelation implements SaveRelationUI {
     public ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation, JwtAuthenticationToken token) {
         Optional<Lawyers> existingLawyer = actionLawyer.findById(relation.getLawyer().getId());
 
+        Optional<LawyerClientRelationship> existingRelation = action
+                .findLawyerClientRelationshipByClientIdAndLawyerId(relation.getClient().getId(),
+                        relation.getLawyer().getId());
+
         if (!relation.getClient().getId().equals(Long.parseLong(token.getName()))) {
             msg.setMensagem("Voce nao pode salvar relacoes apenas Usuarios!");
             return new ResponseEntity<>(msg, HttpStatus.UNAUTHORIZED);
 
-        } else if ( !existingLawyer.isPresent()) {
+        } else if (!existingLawyer.isPresent()) {
             msg.setMensagem("Nao existe esse advogado!");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        } else if (existingRelation.isPresent()) {
+            msg.setMensagem("Você já tem uma relação com esse advogado");
+            return new ResponseEntity<>(msg, HttpStatus.NOT_ACCEPTABLE);
         } else {
             action.save(relation);
             msg.setMensagem("Relacao salva");

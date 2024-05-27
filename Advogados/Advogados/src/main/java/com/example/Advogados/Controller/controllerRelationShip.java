@@ -22,9 +22,17 @@ import com.example.Advogados.Services.CRUDrelations.DropRelations;
 import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.SaveRelation;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/relationShip")
+@Tag(name = "Controller RelationShip for API JuríConecta")
 public class ControllerRelationShip {
 
     private SaveRelation service;
@@ -40,6 +48,11 @@ public class ControllerRelationShip {
 
     }
 
+    @Operation(summary = "\r\n" + //
+                "Relationship saved when user meets his lawyer and wants to talk to him")
+    @ApiResponses({
+        @ApiResponse(responseCode = "200", description = "Nova relacao salva", content = @Content(examples = @ExampleObject()))
+    })
     @PostMapping("saveRelation")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship,

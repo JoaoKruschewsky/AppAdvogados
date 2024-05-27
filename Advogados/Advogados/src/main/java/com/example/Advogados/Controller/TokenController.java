@@ -16,6 +16,7 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Lawyers;
@@ -24,15 +25,23 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.UserAndLawyer;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.LoginResponse;
-import com.example.Advogados.Services.CRUDuser.LoginUserService;
+import com.example.Advogados.Services.CRUDuser.Login;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
+@Tag(name = "Login JuríConecta")
 public class TokenController {
 
     private final JwtEncoder jwtEncoder;
 
     @Autowired
-    private LoginUserService loginUser;
+    private Login loginUser;
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -41,11 +50,18 @@ public class TokenController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    @Operation(summary = "login to JuríConecta\r\n" + //
+            "")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "\r\n" + //
+            "User verified and receives a token", content = @Content(mediaType = "application/json", examples = @ExampleObject("{ \"token\" : \"token\",\"InstantSec\":300}"))),
+            @ApiResponse(responseCode = "401", description = "User incorreto, retonar uma excpetion BadCredentials", content = @Content(mediaType = "application/json", examples = @ExampleObject("User incorreto, retonar uma excpetion BadCredentials")))
+
+    })
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginDTO login) {
 
-        UserAndLawyer user = loginUser.verifyLoginUser(login);
-        UserAndLawyer lawyers = loginUser.verifyLoginUser(login);
+        UserAndLawyer user = loginUser.verifyLogin(login);
+        UserAndLawyer lawyers = loginUser.verifyLogin(login);
 
         if (user.getUser() != null) {
 

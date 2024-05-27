@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.testRelation;
+package com.example.Advogados.Services.CRUDrelations;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
@@ -95,6 +95,9 @@ public class RelationTest {
 
             when(actionRelation.findAllLawyerClientRelationshipsByLawyerId(1L))
                     .thenReturn(listRelation);
+
+            when(actionRelation.findLawyerClientRelationshipByClientIdAndLawyerId(1L, 1L))
+                    .thenReturn(Optional.of(relationNew));
 
             ResponseEntity<?> result = relationReadLawyer.ReadUser(1L);
 

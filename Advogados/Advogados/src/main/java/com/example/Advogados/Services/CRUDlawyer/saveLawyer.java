@@ -37,8 +37,6 @@ public class SaveLawyer implements VerifySaveLawyer {
 
     }
 
-   
-
     public ResponseEntity<?> verifySaveLawyer(Lawyers lawyers) {
 
         Optional<Lawyers> verifyLawyers = actionLawyers.findByEmail(lawyers.getEmail());
@@ -46,10 +44,10 @@ public class SaveLawyer implements VerifySaveLawyer {
             msg.setMensagem("Já existe um email cadastrado");
             return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         } else {
-            var roleUser = rolesRepository.findByName(Role.Values.LAWYER.name());
+            var roleLawyer = rolesRepository.findByName(Role.Values.LAWYER.name());
 
             lawyers.setPassword(passwordEncoder.encode(lawyers.getPassword()));
-            lawyers.setRoles(Set.of(roleUser));
+            lawyers.setRoles(Set.of(roleLawyer));
             msg.setMensagem("Nenhum usuario encontrado, Cadastro Aceito " + actionLawyers.save(lawyers));
 
             return new ResponseEntity<>(msg, HttpStatus.OK);

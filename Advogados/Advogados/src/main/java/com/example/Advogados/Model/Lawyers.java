@@ -81,7 +81,7 @@ public class Lawyers {
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
+    @JoinTable(name = "tb_lawyer_roles", joinColumns = @JoinColumn(name = "lawyer_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
     private Set<Role> roles;
 
     public boolean isLoginCorrect(LoginDTO loginDTO, PasswordEncoder passwordEncoder) {

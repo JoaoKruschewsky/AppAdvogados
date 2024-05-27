@@ -7,7 +7,7 @@ import com.example.Advogados.Model.UserAndLawyer;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 
-public interface LoginUserInterface {
+public interface LoginUI {
 
-    public UserAndLawyer verifyLoginUser(LoginDTO user);
+    public UserAndLawyer verifyLogin(LoginDTO user);
 }

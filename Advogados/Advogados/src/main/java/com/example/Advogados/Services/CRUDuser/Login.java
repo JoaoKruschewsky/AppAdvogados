@@ -18,18 +18,18 @@ import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Repository.RepositoryUser;
-import com.example.Advogados.Services.interfaces.User.LoginUserInterface;
+import com.example.Advogados.Services.interfaces.User.LoginUI;
 import com.example.Advogados.message.Message;
 
 @Service
-public class LoginUserService implements LoginUserInterface {
+public class Login implements LoginUI {
 
     private RepositoryUser actionUser;
     private Message msg;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
     private RepositoryLawyers actionLawyer;
 
-    private static Logger logger = LoggerFactory.getLogger(LoginUserService.class);
+    private static Logger logger = LoggerFactory.getLogger(Login.class);
 
     @Autowired
     public void setWired(RepositoryUser actionUser, Message msg, BCryptPasswordEncoder bCryptPasswordEncoder,
@@ -41,7 +41,7 @@ public class LoginUserService implements LoginUserInterface {
     }
 
     @Override
-    public UserAndLawyer verifyLoginUser(LoginDTO newUser) {
+    public UserAndLawyer verifyLogin(LoginDTO newUser) {
         Optional<User> existingUser = actionUser.findByEmail(newUser.getEmail());
         Optional<Lawyers> existingLawyer = actionLawyer.findByEmail(newUser.getEmail());
         if (existingUser.isPresent() && existingUser.get().isLoginCorrect(newUser, bCryptPasswordEncoder)) {

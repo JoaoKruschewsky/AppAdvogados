@@ -19,6 +19,9 @@ public interface RepositoryRelationShip extends CrudRepository<LawyerClientRelat
 
     Optional<LawyerClientRelationship> findClientById(final long id);
 
+    Optional<LawyerClientRelationship> findLawyerClientRelationshipByClientIdAndLawyerId(final long id,
+            final long idLawyer);
+
     Optional<LawyerClientRelationship> findById(final long id);
 
     Optional<LawyerClientRelationship> findLawyerById(final long id);

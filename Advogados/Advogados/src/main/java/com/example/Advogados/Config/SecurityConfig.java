@@ -51,7 +51,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, urlLawyer + "saveLawyer").permitAll()
                 .requestMatchers(HttpMethod.GET, urlLawyer + "getLawyer").permitAll()
                 .requestMatchers(HttpMethod.GET, urlLawyer + "getLawyerbyName/{Name}").permitAll()
-
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .requestMatchers(HttpMethod.DELETE, urlRelations + "dropRelations").permitAll()
 
                 .anyRequest().authenticated())
@@ -79,4 +79,5 @@ public class SecurityConfig {
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 }
