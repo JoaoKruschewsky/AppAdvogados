@@ -1,5 +1,6 @@
 package com.example.Advogados.Services.CRUDlawyer;
 
+import java.nio.Buffer;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -37,6 +38,7 @@ public class UpdateLawyerService implements UptadeLawyer {
         }
 
         if (id.equals(Long.parseLong(token.getName()))) {
+
             optionalLawyer.get().setDescricion(updateDTO.getDescricionDTO());
             optionalLawyer.get().setImg_profile(updateDTO.getImgDTO());
             optionalLawyer.get().setPrice(updateDTO.getPriceDTO());

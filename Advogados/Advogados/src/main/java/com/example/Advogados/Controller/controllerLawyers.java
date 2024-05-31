@@ -36,63 +36,63 @@ import jakarta.validation.Valid;
 @Tag(name = "Register Lawyers")
 public class ControllerLawyers {
 
-    private RepositoryLawyers action;
-    private SaveLawyer saveService;
-    private UpdateLawyerService updateLawyerService;
+        private RepositoryLawyers action;
+        private SaveLawyer saveService;
+        private UpdateLawyerService updateLawyerService;
 
-    @Autowired
-    public void setWired(RepositoryLawyers action, SaveLawyer saveService,
-            UpdateLawyerService updateLawyerService) {
-        this.action = action;
-        this.saveService = saveService;
-        this.updateLawyerService = updateLawyerService;
-    }
+        @Autowired
+        public void setWired(RepositoryLawyers action, SaveLawyer saveService,
+                        UpdateLawyerService updateLawyerService) {
+                this.action = action;
+                this.saveService = saveService;
+                this.updateLawyerService = updateLawyerService;
+        }
 
-    @Operation(summary = "Register Lawyers", method = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Lawyer eligible for registration"),
-            @ApiResponse(responseCode = "400", description = "There is already a lawyer with an email or CPF"),
-            @ApiResponse(responseCode = "401", description = "You need a real lawyer to pass spring security authentication")
-    })
-    @PostMapping(path = "saveLawyer", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
-        return saveService.verifySaveLawyer(lawyers);
-    }
+        @Operation(summary = "Register Lawyers", method = "POST")
+        @ApiResponses(value = {
+                        @ApiResponse(responseCode = "200", description = "Lawyer eligible for registration"),
+                        @ApiResponse(responseCode = "400", description = "There is already a lawyer with an email or CPF"),
+                        @ApiResponse(responseCode = "401", description = "You need a real lawyer to pass spring security authentication")
+        })
+        @PostMapping(path = "saveLawyer", consumes = MediaType.APPLICATION_JSON_VALUE)
+        public ResponseEntity<?> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
+                return saveService.verifySaveLawyer(lawyers);
+        }
 
-    @Operation(summary = "\r\n" + //
-            "Get all lawyers and show the user that you are looking for lawyers", method = "GET")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Show every lawyers"),
-            @ApiResponse(responseCode = "400", description = "No register lawyers")
-    })
-    @GetMapping("getLawyer")
-    public List<Lawyers> getLawyers() {
-        return action.findAll();
-    }
+        @Operation(summary = "\r\n" + //
+                        "Get all lawyers and show the user that you are looking for lawyers", method = "GET")
+        @ApiResponses(value = {
+                        @ApiResponse(responseCode = "200", description = "Show every lawyers"),
+                        @ApiResponse(responseCode = "400", description = "No register lawyers")
+        })
+        @GetMapping("getLawyer")
+        public List<Lawyers> getLawyers() {
+                return action.findAll();
+        }
 
-    @Operation(summary = "\r\n" + //
-            "saves lawyer updates when he updates his profile", method = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Save updates"),
-            @ApiResponse(responseCode = "401", description = "\r\n" + //
-                    "Unauthorized error with access token")
-    })
-    @PostMapping(path = "saveUpdatesLawyer/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
-    public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody UpdateLawyerDTO updateDTO,
-            JwtAuthenticationToken token) {
-        return updateLawyerService.updateLawyer(id, updateDTO, token);
-    }
+        @Operation(summary = "\r\n" + //
+                        "saves lawyer updates when he updates his profile", method = "POST")
+        @ApiResponses(value = {
+                        @ApiResponse(responseCode = "200", description = "Save updates"),
+                        @ApiResponse(responseCode = "401", description = "\r\n" + //
+                                        "Unauthorized error with access token")
+        })
+        @PostMapping(path = "saveUpdatesLawyer/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+        @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
+        public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody UpdateLawyerDTO updateDTO,
+                        JwtAuthenticationToken token) {
+                return updateLawyerService.updateLawyer(id, updateDTO, token);
+        }
 
-    @Operation(summary = "Searching for lawyer name")
-    @ApiResponses(value = {
-            @ApiResponse(description = "\r\n" + //
-                    "No code response, as it was made to place a search bar.\r\n" + //
-                    "If you don't find anything, the bar won't load, etc...")
-    })
-    @GetMapping("getLawyerbyName/{name}")
-    public List<Lawyers> getLawyerEmail(@PathVariable String name) {
-        return action.findBynameStartingWithIgnoreCase(name);
-    }
+        @Operation(summary = "Searching for lawyer name")
+        @ApiResponses(value = {
+                        @ApiResponse(description = "\r\n" + //
+                                        "No code response, as it was made to place a search bar.\r\n" + //
+                                        "If you don't find anything, the bar won't load, etc...")
+        })
+        @GetMapping("getLawyerbyName/{name}")
+        public List<Lawyers> getLawyerEmail(@PathVariable String name) {
+                return action.findBynameStartingWithIgnoreCase(name);
+        }
 
 }

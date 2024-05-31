@@ -76,15 +76,22 @@ public class ControllerAllRequests {
     }
 
     @Operation(summary = "\r\n" + //
-                "catch requests made to the user")
+            "catch requests made to the user")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Return all request by id in a list", content = @Content(examples = @ExampleObject("[\"id by user\", \"name lawyer\", \"status da request\", \"name change relation\", \"id by lawyer\", \"2024-05-30\"]"))),
+            @ApiResponse(responseCode = "400", description = "User have not relation"),
+            @ApiResponse(responseCode = "500", description = "I have a try catch reading a json if it gives an error it returns 500"),
+            @ApiResponse(responseCode = "401", description = "\r\n" + //
+                    "Unauthorized error with access token")
+
+    })
     @GetMapping("getRequestsUser/{id}")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> getRequestsUser(@PathVariable Long id) {
         return read.readUser(id);
     }
 
-
-    @Operation( summary = "deletes requests that the user selected")
+    @Operation(summary = "deletes requests that the user selected")
     @DeleteMapping("dropRequests")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> dropRequests(@RequestBody List<Long> ids) {

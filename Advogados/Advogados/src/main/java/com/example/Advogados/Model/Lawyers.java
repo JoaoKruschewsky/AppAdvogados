@@ -1,6 +1,7 @@
 package com.example.Advogados.Model;
 
 import java.math.BigDecimal;
+import java.nio.Buffer;
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +20,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -54,6 +56,7 @@ public class Lawyers {
     private String titleLawyers;
     private String specializedAir;
     private String descricion;
+
     private String img_profile;
     private BigDecimal price;
 

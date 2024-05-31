@@ -18,6 +18,8 @@ import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Service
 public class ReadRequests implements GetRequests {
@@ -39,6 +41,10 @@ public class ReadRequests implements GetRequests {
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
+
+                objectMapper.registerModule(new JavaTimeModule());
+
+                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
                 String json = objectMapper.writeValueAsString(user);
                 JsonNode rootNode = objectMapper.readTree(json);
 
@@ -46,12 +52,14 @@ public class ReadRequests implements GetRequests {
 
                     JsonNode lawyerNode = node.get("lawyer");
                     JsonNode lawyerStatus = node.get("status");
+                    JsonNode dateNode = node.get("dateCreateRequests");
 
                     names.add(node.get("id"));
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
                     names.add(node.get("changeRelation").asText());
                     names.add(lawyerNode.get("id").asInt());
+                    names.add(dateNode.asText());
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);

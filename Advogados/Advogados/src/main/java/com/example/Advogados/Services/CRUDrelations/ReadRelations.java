@@ -1,7 +1,12 @@
 package com.example.Advogados.Services.CRUDrelations;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +19,11 @@ import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Services.interfaces.relations.GetRelations;
 import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 @Service
 public class ReadRelations implements GetRelations {
@@ -38,6 +46,10 @@ public class ReadRelations implements GetRelations {
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
+
+                objectMapper.registerModule(new JavaTimeModule());
+
+                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
                 String json = objectMapper.writeValueAsString(Lawyer);
                 JsonNode rootNode = objectMapper.readTree(json);
 
@@ -45,22 +57,23 @@ public class ReadRelations implements GetRelations {
 
                     JsonNode lawyerNode = node.get("client");
                     JsonNode lawyerStatus = node.get("status");
+                    JsonNode dateNode = node.get("dateCreateRelation");
 
                     names.add(node.get("id"));
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
                     names.add(lawyerNode.get("id"));
+                    names.add(dateNode.asText());
 
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
             } catch (JsonProcessingException e) {
                 // Trate a exceção aqui
                 e.printStackTrace(); // ou qualquer outra forma de tratamento
-                msg.setMensagem("User não encontrado");
                 return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
             }
         } else {
-            msg.setMensagem("Não existe usuário com esse nome");
+            msg.setMensagem("Nao tem Relacoes");
             return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
         }
     }
@@ -73,18 +86,22 @@ public class ReadRelations implements GetRelations {
 
             try {
                 ObjectMapper objectMapper = new ObjectMapper();
+
+                objectMapper.registerModule(new JavaTimeModule());
+
+                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
                 String json = objectMapper.writeValueAsString(user);
                 JsonNode rootNode = objectMapper.readTree(json);
 
                 for (JsonNode node : rootNode) {
-
                     JsonNode lawyerNode = node.get("lawyer");
                     JsonNode lawyerStatus = node.get("status");
-                    names.add(node.get("id"));
+                    JsonNode dateNode = node.get("dateCreateRelation");
+
                     names.add(lawyerNode.get("name").asText());
                     names.add(lawyerStatus.asText());
-                    names.add(lawyerNode.get("id"));
-
+                    names.add(dateNode.asText());
                 }
                 return new ResponseEntity<>(names, HttpStatus.OK);
             } catch (JsonProcessingException e) {

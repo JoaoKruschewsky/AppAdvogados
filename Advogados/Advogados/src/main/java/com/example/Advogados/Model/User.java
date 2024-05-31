@@ -1,5 +1,6 @@
 package com.example.Advogados.Model;
 
+import java.nio.Buffer;
 import java.sql.Date;
 import java.util.Collection;
 import java.util.HashMap;
@@ -31,6 +32,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -66,6 +68,7 @@ public class User {
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
     private String phoneNumber;
+
     private String img_profile;
 
     @OneToMany(mappedBy = "client")

@@ -1,5 +1,7 @@
 package com.example.Advogados.Model.DTO.User;
 
+import java.nio.Buffer;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,13 @@
 package com.example.Advogados.Model.DTO.Lawyer;
 
 import java.math.BigDecimal;
+
 import java.util.Currency;
 
+import org.apache.tomcat.jni.Buffer;
+
 import lombok.AllArgsConstructor;
+import lombok.var;
 
 @AllArgsConstructor
 public class UpdateLawyerDTO {
