@@ -24,7 +24,6 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "Lawyer_Client_Relationship")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -45,6 +44,14 @@ public class LawyerClientRelationship {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
+
+    public LawyerClientRelationship(Long id, Lawyers lawyer, String status, LocalDate dateCreateRelation, User client) {
+        this.id = id;
+        this.lawyer = lawyer;
+        this.status = status;
+        this.dateCreateRelation = dateCreateRelation;
+        this.client = client;
+    }
 
     @PrePersist
     protected void onCreate() {

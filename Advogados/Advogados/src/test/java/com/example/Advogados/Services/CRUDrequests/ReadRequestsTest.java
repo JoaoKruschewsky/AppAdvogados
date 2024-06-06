@@ -52,7 +52,7 @@ public class ReadRequestsTest {
     class TestingReadLawyer {
         @Test
         void testReadLawyer() {
-            Requests newRequests = new Requests(1L, createLawyers(), createUser(), "Em andamento", "pendente");
+            Requests newRequests = new Requests(1L, createLawyers(), createUser(), "Em andamento", "pendente", null);
 
             when(action.findRequestsByLawyerId(1L)).thenReturn(List.of(newRequests));
 

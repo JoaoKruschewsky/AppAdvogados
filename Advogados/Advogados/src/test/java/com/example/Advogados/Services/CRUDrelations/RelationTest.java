@@ -78,7 +78,7 @@ public class RelationTest {
     }
 
     public LawyerClientRelationship createRelation() {
-        return new LawyerClientRelationship(1L, this.createLawyers(), "Concluido", this.createUser());
+        return new LawyerClientRelationship(1L, this.createLawyers(), "Concluido", null, this.createUser());
     }
 
     @Nested

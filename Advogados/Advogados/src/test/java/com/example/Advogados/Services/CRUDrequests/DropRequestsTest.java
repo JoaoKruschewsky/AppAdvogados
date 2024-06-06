@@ -43,8 +43,9 @@ public class DropRequestsTest {
 
     @Test
     void testDrop() {
-        Requests requests = new Requests(1L, this.createLawyers(), this.createUser(), "em andamento", "pendente");
-        Requests requestsTwo = new Requests(2L, this.createLawyers(), this.createUser(), "em andamento", "pendente");
+        Requests requests = new Requests(1L, this.createLawyers(), this.createUser(), "em andamento", "pendente", null);
+        Requests requestsTwo = new Requests(2L, this.createLawyers(), this.createUser(), "em andamento", "pendente",
+                null);
 
         ArrayList<Long> listRequests = new ArrayList<>();
         listRequests.add(requests.getId());

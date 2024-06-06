@@ -60,4 +60,18 @@ public class SaveRelation implements SaveRelationUI {
         }
     }
 
+    @Override
+    public ResponseEntity<?> saveUpdateRelation(final LawyerClientRelationship relation) {
+        Optional<Lawyers> existingLawyer = actionLawyer.findById(relation.getLawyer().getId());
+
+        if (!existingLawyer.isPresent()) {
+            msg.setMensagem("Nao existe esse advogado!");
+            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+        } else {
+            action.save(relation);
+            msg.setMensagem("Relacao salva");
+            return new ResponseEntity<>(msg, HttpStatus.OK);
+        }
+    }
+
 }

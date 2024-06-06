@@ -100,4 +100,10 @@ public class ControllerRelationShip {
     public ResponseEntity<?> deleteRelations(@RequestBody List<Long> id) {
         return dropRelations.drop(id);
     }
+
+    @PostMapping(path = "saveUpdateRelation")
+    @PreAuthorize("hasAuthority('SCOPE_USER')")
+    public ResponseEntity<?> saveUpdate(@RequestBody LawyerClientRelationship relation) {
+        return service.saveUpdateRelation(relation);
+    }
 }

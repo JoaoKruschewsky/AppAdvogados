@@ -7,6 +7,8 @@ import com.example.Advogados.Model.LawyerClientRelationship;
 
 public interface SaveRelationUI {
 
-    ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation, JwtAuthenticationToken token);
+    ResponseEntity<?> saveNewRelation(final LawyerClientRelationship relation, JwtAuthenticationToken token);
+
+    ResponseEntity<?> saveUpdateRelation(final LawyerClientRelationship relation);
 
 }
