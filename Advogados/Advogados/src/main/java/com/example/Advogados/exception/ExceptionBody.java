@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.infra;
+package com.example.Advogados.infra;
 
 public class FieldMessage {
 

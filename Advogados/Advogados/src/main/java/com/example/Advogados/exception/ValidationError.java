@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.infra;
+package com.example.Advogados.infra;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    container_name: bdAppAdvogado
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - appAdvogado:/var/lib/postgresql
+volumes:
+  appAdvogado:
