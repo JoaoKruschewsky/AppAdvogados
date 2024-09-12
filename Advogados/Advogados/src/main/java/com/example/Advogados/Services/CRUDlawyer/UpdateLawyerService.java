@@ -38,9 +38,8 @@ public class UpdateLawyerService implements UptadeLawyer {
         }
 
         if (id.equals(Long.parseLong(token.getName()))) {
-
             optionalLawyer.get().setDescricion(updateDTO.getDescricionDTO());
-            optionalLawyer.get().setImg_profile(updateDTO.getImgDTO());
+            optionalLawyer.get().setImg_Profile(updateDTO.getImgDTO());
             optionalLawyer.get().setPrice(updateDTO.getPriceDTO());
             optionalLawyer.get().setSpecializedAir(updateDTO.getSpecializedAirDTO());
             optionalLawyer.get().setTitleLawyers(updateDTO.getTitleLawyerDTO());

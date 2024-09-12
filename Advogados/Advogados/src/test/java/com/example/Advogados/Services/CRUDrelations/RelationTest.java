@@ -36,7 +36,6 @@ import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrelations.SaveRelation;
 import com.example.Advogados.message.Message;
 
-import lombok.var;
 
 @ExtendWith(MockitoExtension.class)
 public class RelationTest {

@@ -3,17 +3,12 @@ package com.example.Advogados.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
@@ -33,7 +28,7 @@ import jakarta.validation.Valid;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/api/lawyer", produces = { "application/json" })
-@Tag(name = "Register Lawyers")
+@Tag(name = "RegisterDTO Lawyers")
 public class ControllerLawyers {
 
         private RepositoryLawyers action;
@@ -48,15 +43,16 @@ public class ControllerLawyers {
                 this.updateLawyerService = updateLawyerService;
         }
 
-        @Operation(summary = "Register Lawyers", method = "POST")
+        @Operation(summary = "RegisterDTO Lawyers", method = "POST")
         @ApiResponses(value = {
                         @ApiResponse(responseCode = "200", description = "Lawyer eligible for registration"),
                         @ApiResponse(responseCode = "400", description = "There is already a lawyer with an email or CPF"),
                         @ApiResponse(responseCode = "401", description = "You need a real lawyer to pass spring security authentication")
         })
         @PostMapping(path = "saveLawyer", consumes = MediaType.APPLICATION_JSON_VALUE)
-        public ResponseEntity<?> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
-                return saveService.verifySaveLawyer(lawyers);
+        @ResponseStatus(HttpStatus.OK)
+        public ResponseEntity<HttpStatus> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
+                return new ResponseEntity<>(HttpStatus.OK);
         }
 
         @Operation(summary = "\r\n" + //

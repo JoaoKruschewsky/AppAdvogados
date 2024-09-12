@@ -13,7 +13,6 @@ import com.example.Advogados.Model.Role;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.RolesRepository;
 import com.example.Advogados.Repository.RepositoryUser;
-import com.example.Advogados.Services.infra.RestExpectionHandler;
 import com.example.Advogados.Services.interfaces.User.VerifySaveUser;
 import com.example.Advogados.message.Message;
 

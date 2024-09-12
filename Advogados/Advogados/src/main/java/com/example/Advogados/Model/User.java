@@ -60,8 +60,6 @@ public class User {
     private long Id;
 
     @Column(unique = true)
-    @NotBlank
-    @CPF(message = "Insira um CPF válido")
     private String cpf;
 
     private String name;
@@ -80,12 +78,7 @@ public class User {
     private List<Requests> requests;
 
     @Column(unique = true)
-    @Email
-    @NotBlank
     private String email;
-
-    @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
-    @NotBlank
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

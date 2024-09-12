@@ -2,9 +2,7 @@ package com.example.Advogados.Controller;
 
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.example.Advogados.Services.CRUDrelations.DropService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.RepositoryRequests;
-import com.example.Advogados.Services.CRUDrelations.ReadRelations;
 import com.example.Advogados.Services.CRUDrequests.CreatedRequests;
-import com.example.Advogados.Services.CRUDrequests.DropRequests;
 import com.example.Advogados.Services.CRUDrequests.ReadRequests;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,10 +35,10 @@ public class ControllerAllRequests {
 
     private CreatedRequests created;
     private ReadRequests read;
-    private DropRequests drop;
+    private DropService drop;
 
     @Autowired
-    public void setWired(CreatedRequests service, ReadRequests read, DropRequests drop) {
+    public void setWired(CreatedRequests service, ReadRequests read, DropService drop) {
         this.created = service;
         this.read = read;
         this.drop = drop;
@@ -95,7 +90,7 @@ public class ControllerAllRequests {
     @DeleteMapping("dropRequests")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     public ResponseEntity<?> dropRequests(@RequestBody List<Long> ids) {
-        return drop.drop(ids);
+        return drop.dropAllById(ids);
     }
 
 }

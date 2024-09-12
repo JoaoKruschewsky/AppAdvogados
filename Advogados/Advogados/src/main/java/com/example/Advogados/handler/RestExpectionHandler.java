@@ -1,4 +1,4 @@
-package com.example.Advogados.infra;
+/* package com.example.Advogados.handler;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -20,4 +20,4 @@ public class RestExpectionHandler {
         return ResponseEntity.status(e.getStatusCode()).body(validation);
     }
 
-}
+}*/

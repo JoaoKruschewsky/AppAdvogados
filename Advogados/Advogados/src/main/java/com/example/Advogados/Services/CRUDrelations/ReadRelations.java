@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,57 +26,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
+import javax.swing.*;
+
 @Service
+@AllArgsConstructor
 public class ReadRelations implements GetRelations {
 
-    private RepositoryRelationShip action;
-    private Message msg;
-
-    @Autowired
-    public void setWired(RepositoryRelationShip action, Message msg) {
-        this.action = action;
-        this.msg = msg;
-
-    }
+    private final RepositoryRelationShip action;
+    private final Message msg;
 
     @Override
     public ResponseEntity<?> ReadLawyer(final Long id) {
         List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
         if (!Lawyer.isEmpty()) {
-            ArrayList<Object> names = new ArrayList<>();
 
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
+            ArrayList<Object> namesAdd = new ArrayList<>();
 
-                objectMapper.registerModule(new JavaTimeModule());
-
-                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-                String json = objectMapper.writeValueAsString(Lawyer);
-                JsonNode rootNode = objectMapper.readTree(json);
-
-                for (JsonNode node : rootNode) {
-
-                    JsonNode lawyerNode = node.get("client");
-                    JsonNode lawyerStatus = node.get("status");
-                    JsonNode dateNode = node.get("dateCreateRelation");
-
-                    names.add(node.get("id"));
-                    names.add(lawyerNode.get("name").asText());
-                    names.add(lawyerStatus.asText());
-                    names.add(lawyerNode.get("id"));
-                    names.add(dateNode.asText());
-
-                }
-                return new ResponseEntity<>(names, HttpStatus.OK);
-            } catch (JsonProcessingException e) {
-                // Trate a exceção aqui
-                e.printStackTrace(); // ou qualquer outra forma de tratamento
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } else {
-            msg.setMensagem("Nao tem Relacoes");
-            return new ResponseEntity<>(Lawyer, HttpStatus.BAD_REQUEST);
+            Lawyer.forEach(idRelation -> namesAdd.addAll(List.of(idRelation.getLawyer().getId(),
+                    idRelation.getClient().getId(),
+                    idRelation.getClient().getName(),
+                    idRelation.getStatus(),
+                    idRelation.getDateCreateRelation()
+            )));
+            return ResponseEntity.ok().body(namesAdd);
         }
+
+        return ResponseEntity.ok().body("Nao tem Relacoes");
     }
 
     @Override
@@ -83,36 +59,14 @@ public class ReadRelations implements GetRelations {
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
             ArrayList<Object> names = new ArrayList<>();
-
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-
-                objectMapper.registerModule(new JavaTimeModule());
-
-                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-
-                String json = objectMapper.writeValueAsString(user);
-                JsonNode rootNode = objectMapper.readTree(json);
-
-                for (JsonNode node : rootNode) {
-                    JsonNode lawyerNode = node.get("lawyer");
-                    JsonNode lawyerStatus = node.get("status");
-                    JsonNode dateNode = node.get("dateCreateRelation");
-
-                    names.add(lawyerNode.get("name").asText());
-                    names.add(lawyerStatus.asText());
-                    names.add(dateNode.asText());
-                }
-                return new ResponseEntity<>(names, HttpStatus.OK);
-            } catch (JsonProcessingException e) {
-                // Trate a exceção aqui
-                e.printStackTrace(); // ou qualquer outra forma de tratamento
-                msg.setMensagem("User não encontrado");
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } else {
-            msg.setMensagem("Não existe usuário com esse nome");
-            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+            user.forEach(idRelation -> names.addAll(List.of(idRelation.getClient().getId(),
+                    idRelation.getLawyer().getId(),
+                    idRelation.getLawyer().getName(),
+                    idRelation.getStatus(),
+                    idRelation.getDateCreateRelation()
+            )));
+            return ResponseEntity.ok().body(names);
         }
+        return ResponseEntity.ok().body("Nao tem Relacoes");
     }
 }

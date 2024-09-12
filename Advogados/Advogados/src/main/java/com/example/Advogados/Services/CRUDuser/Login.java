@@ -2,6 +2,7 @@ package com.example.Advogados.Services.CRUDuser;
 
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,23 +23,15 @@ import com.example.Advogados.Services.interfaces.User.LoginUI;
 import com.example.Advogados.message.Message;
 
 @Service
+@AllArgsConstructor
 public class Login implements LoginUI {
 
-    private RepositoryUser actionUser;
-    private Message msg;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private RepositoryLawyers actionLawyer;
+    private final RepositoryUser actionUser;
+    private final Message msg;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final RepositoryLawyers actionLawyer;
 
     private static Logger logger = LoggerFactory.getLogger(Login.class);
-
-    @Autowired
-    public void setWired(RepositoryUser actionUser, Message msg, BCryptPasswordEncoder bCryptPasswordEncoder,
-            RepositoryLawyers actionLawyer) {
-        this.actionUser = actionUser;
-        this.msg = msg;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.actionLawyer = actionLawyer;
-    }
 
     @Override
     public UserAndLawyer verifyLogin(LoginDTO newUser) {

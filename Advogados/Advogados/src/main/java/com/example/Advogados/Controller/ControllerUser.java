@@ -37,7 +37,7 @@ import jakarta.validation.Valid;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
-@Tag(name = "Register User for API JuríConecta")
+@Tag(name = "RegisterDTO User for API JuríConecta")
 public class ControllerUser {
 
     private SaveUserService saveService;
@@ -50,7 +50,7 @@ public class ControllerUser {
         this.updateUser = updateUser;
     }
 
-    @Operation(summary = "Register User")
+    @Operation(summary = "RegisterDTO User")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User able to register\r\n" + //
                     "", content = @Content(mediaType = "application/json", examples = @ExampleObject("User save succesc!"))),

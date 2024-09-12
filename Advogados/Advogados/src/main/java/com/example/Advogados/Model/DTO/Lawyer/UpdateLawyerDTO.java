@@ -7,7 +7,7 @@ import java.util.Currency;
 import org.apache.tomcat.jni.Buffer;
 
 import lombok.AllArgsConstructor;
-import lombok.var;
+
 
 @AllArgsConstructor
 public class UpdateLawyerDTO {

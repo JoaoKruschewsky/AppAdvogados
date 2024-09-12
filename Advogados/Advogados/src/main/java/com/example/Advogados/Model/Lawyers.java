@@ -41,23 +41,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Lawyers {
+public class Lawyers extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(unique = true)
-    @NotBlank
-    @CPF(message = "Insira um cpf válido")
-    private String cpf;
 
-    private String name;
     private String titleLawyers;
     private String specializedAir;
     private String descricion;
 
-    private String img_profile;
+
     private BigDecimal price;
 
     @OneToMany(mappedBy = "lawyer")
@@ -69,19 +64,12 @@ public class Lawyers {
     private List<Requests> requests;
 
     // @Pattern(regexp = "(\\d{2}) \\d{4}-\\d{4}")
-    private String phoneNumber;
+
 
     // @NotBlank
     private String validationOAB;
 
-    @Column(unique = true)
-    @Email
-    @NotBlank
-    private String email;
 
-    @Size(min = 8, message = "A senha deve ter pelo menos 8 caracteres")
-    @NotBlank
-    private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "tb_lawyer_roles", joinColumns = @JoinColumn(name = "lawyer_id"), inverseJoinColumns = @JoinColumn(name = "roles_id"))
