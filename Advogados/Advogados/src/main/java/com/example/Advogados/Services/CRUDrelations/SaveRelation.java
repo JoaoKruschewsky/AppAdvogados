@@ -17,9 +17,10 @@ import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.interfaces.relations.SaveRelationUI;
 import com.example.Advogados.message.Message;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
-public class SaveRelation implements SaveRelationUI {
+public class  SaveRelation implements SaveRelationUI {
 
     private RepositoryRelationShip action;
     private RepositoryUser actionUser;
@@ -37,19 +38,13 @@ public class SaveRelation implements SaveRelationUI {
 
     @Override
     public ResponseEntity<?> saveNewRelation(LawyerClientRelationship relation, JwtAuthenticationToken token) {
-        Optional<Lawyers> existingLawyer = actionLawyer.findById(relation.getLawyer().getId());
 
         Optional<LawyerClientRelationship> existingRelation = action
-                .findLawyerClientRelationshipByClientIdAndLawyerId(relation.getClient().getId(),
-                        relation.getLawyer().getId());
+                .findLawyerClientRelationshipByClientIdAndLawyerId(relation.getClient().getId(), relation.getLawyer().getId());
 
         if (!relation.getClient().getId().equals(Long.parseLong(token.getName()))) {
             msg.setMensagem("Voce nao pode salvar relacoes apenas Usuarios!");
             return new ResponseEntity<>(msg, HttpStatus.UNAUTHORIZED);
-
-        } else if (!existingLawyer.isPresent()) {
-            msg.setMensagem("Nao existe esse advogado!");
-            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
         } else if (existingRelation.isPresent()) {
             msg.setMensagem("Você já tem uma relação com esse advogado");
             return new ResponseEntity<>(msg, HttpStatus.NOT_ACCEPTABLE);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,64 +23,42 @@ import com.example.Advogados.message.Message;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
+@AllArgsConstructor
 public class CreatedRequests implements SavesRequests {
 
-    private RepositoryUser actionUser;
-    private RepositoryLawyers actionLawyer;
-    private RepositoryRequests action;
-    private RepositoryRelationShip actionRelation;
-    private Message msg;
-
-    @Autowired
-    public void setWired(RepositoryUser actionUser, RepositoryLawyers actionLawyers, RepositoryRequests action,
-            RepositoryRelationShip actionRelation, Message msg) {
-        this.actionUser = actionUser;
-        this.actionLawyer = actionLawyers;
-        this.action = action;
-        this.actionRelation = actionRelation;
-        this.msg = msg;
-
-    }
+    private final RepositoryUser actionUser;
+    private final RepositoryLawyers actionLawyer;
+    private final RepositoryRequests action;
 
     @Override
-    public ResponseEntity<?> saveRequests(final Requests requests) {
+    public ResponseEntity<HttpStatus> saveRequests(final Requests requests) {
 
         Optional<User> existingUser = actionUser.findById(requests.getUser().getId());
         Optional<Lawyers> existingLawyer = actionLawyer.findById(requests.getLawyer().getId());
 
         if (existingUser.isPresent() && existingLawyer.isPresent()) {
-            ArrayList<Object> saves = new ArrayList<>();
-            saves.add(existingUser);
-            saves.add(existingLawyer);
-            saves.add(requests);
             action.save(requests);
 
-            return new ResponseEntity<>(saves, HttpStatus.OK);
-        } else {
-            msg.setMensagem("Não foi possível salvar a relação");
-            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.ok().build();
         }
+
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
 
     @Override
-    public ResponseEntity<?> saveSecondRequests(final Requests requests) {
+    public ResponseEntity<HttpStatus> saveSecondRequests(final Requests requests) {
 
         Optional<User> existingUser = actionUser.findById(requests.getUser().getId());
         Optional<Lawyers> existingLawyer = actionLawyer.findById(requests.getLawyer().getId());
 
         if (existingUser.isPresent() && existingLawyer.isPresent()) {
-            ArrayList<Object> saves = new ArrayList<>();
-            saves.add(existingUser);
-            saves.add(existingLawyer);
-            saves.add(requests);
             action.save(requests);
 
-            return new ResponseEntity<>(saves, HttpStatus.OK);
-        } else {
-            msg.setMensagem("Não foi possível salvar a relação");
-            return new ResponseEntity<>(msg, HttpStatus.BAD_REQUEST);
+            return ResponseEntity.ok().build();
         }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }
 }

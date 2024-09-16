@@ -2,6 +2,7 @@ package com.example.Advogados.Controller;
 
 import java.util.List;
 
+import com.example.Advogados.Services.UpdateServiceIpml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,15 +12,11 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
 import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
 import com.example.Advogados.Repository.RepositoryLawyers;
-import com.example.Advogados.Services.CRUDlawyer.LoginLawyer;
 import com.example.Advogados.Services.CRUDlawyer.SaveLawyer;
-import com.example.Advogados.Services.CRUDlawyer.UpdateLawyerService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -33,11 +30,11 @@ public class ControllerLawyers {
 
         private RepositoryLawyers action;
         private SaveLawyer saveService;
-        private UpdateLawyerService updateLawyerService;
+        private UpdateServiceIpml updateLawyerService;
 
         @Autowired
         public void setWired(RepositoryLawyers action, SaveLawyer saveService,
-                        UpdateLawyerService updateLawyerService) {
+                        UpdateServiceIpml updateLawyerService) {
                 this.action = action;
                 this.saveService = saveService;
                 this.updateLawyerService = updateLawyerService;

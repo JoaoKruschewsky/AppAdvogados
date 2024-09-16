@@ -83,8 +83,9 @@ public class ControllerRelationShip {
     })
     @GetMapping("getRelationLawyer/{id}")
     @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
-    public ResponseEntity<?> getRelationLawyer(@PathVariable Long id) {
-        return readRelations.ReadLawyer(id);
+    @ResponseStatus(HttpStatus.OK)
+    public void getRelationLawyer(@PathVariable Long id) {
+         readRelations.ReadLawyer(id);
     }
 
     @Operation(summary = "deletes requests that the user or Lawyer selected")

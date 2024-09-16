@@ -7,7 +7,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import com.example.Advogados.Model.Lawyers;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +28,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.*;
 
@@ -36,22 +40,19 @@ public class ReadRelations implements GetRelations {
     private final Message msg;
 
     @Override
-    public ResponseEntity<?> ReadLawyer(final Long id) {
+    public List<Object> ReadLawyer(final Long id) {
         List<LawyerClientRelationship> Lawyer = action.findAllLawyerClientRelationshipsByLawyerId(id);
         if (!Lawyer.isEmpty()) {
-
-            ArrayList<Object> namesAdd = new ArrayList<>();
-
-            Lawyer.forEach(idRelation -> namesAdd.addAll(List.of(idRelation.getLawyer().getId(),
-                    idRelation.getClient().getId(),
-                    idRelation.getClient().getName(),
-                    idRelation.getStatus(),
-                    idRelation.getDateCreateRelation()
-            )));
-            return ResponseEntity.ok().body(namesAdd);
+            return  Lawyer.stream().flatMap(idRelation -> Stream.of(
+                            idRelation.getLawyer().getId(),
+                            idRelation.getClient().getId(),
+                            idRelation.getClient().getName(),
+                            idRelation.getStatus(),
+                            idRelation.getDateCreateRelation()
+                    )).collect(Collectors.toList());
         }
 
-        return ResponseEntity.ok().body("Nao tem Relacoes");
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @Override

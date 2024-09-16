@@ -5,6 +5,7 @@ import java.nio.Buffer;
 import java.util.List;
 import java.util.Set;
 
+import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -76,7 +77,14 @@ public class Lawyers extends User {
     private Set<Role> roles;
 
     public boolean isLoginCorrect(LoginDTO loginDTO, PasswordEncoder passwordEncoder) {
-        return passwordEncoder.matches(loginDTO.getPassword(), this.password);
+        return passwordEncoder.matches(loginDTO.getPassword(), this.getPassword());
     }
 
+
+    public  void updateLawyers(UpdateLawyerDTO updateLawyerDTO) {
+        this.titleLawyers = updateLawyerDTO.getTitleLawyerDTO();
+        this.specializedAir = updateLawyerDTO.getSpecializedAirDTO();
+        this.descricion = updateLawyerDTO.getDescricionDTO();
+        this.price = updateLawyerDTO.getPriceDTO();
+    }
 }
