@@ -56,7 +56,7 @@ public class ReadRequestsTest {
 
             when(action.findRequestsByLawyerId(1L)).thenReturn(List.of(newRequests));
 
-            ResponseEntity<?> read = readRequests.readUser(1L);
+            List<Object> read = readRequests.readUser(1L);
 
             assertEquals(HttpStatus.OK, read.getStatusCode());
 

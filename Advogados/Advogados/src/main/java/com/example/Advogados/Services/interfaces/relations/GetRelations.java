@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GetRelations {
     
-    public ResponseEntity<?> ReadUser(final Long id);
+    public List<Object> ReadUser(final Long id);
 
     public List<Object> ReadLawyer(final Long id);
 }

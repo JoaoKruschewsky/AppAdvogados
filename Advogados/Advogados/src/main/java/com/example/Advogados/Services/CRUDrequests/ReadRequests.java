@@ -2,7 +2,10 @@ package com.example.Advogados.Services.CRUDrequests;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.stream.Streams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +23,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ReadRequests implements GetRequests {
@@ -34,45 +38,18 @@ public class ReadRequests implements GetRequests {
     }
 
     @Override
-    public ResponseEntity<?> readUser(final long id) {
+    public List<Object> readUser(final long id) {
         List<Requests> user = action.findRequestsByUserId(id);
         if (!user.isEmpty()) {
-            ArrayList<Object> names = new ArrayList<>();
-
-            try {
-                ObjectMapper objectMapper = new ObjectMapper();
-
-                objectMapper.registerModule(new JavaTimeModule());
-
-                objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-                String json = objectMapper.writeValueAsString(user);
-                JsonNode rootNode = objectMapper.readTree(json);
-
-                for (JsonNode node : rootNode) {
-
-                    JsonNode lawyerNode = node.get("lawyer");
-                    JsonNode lawyerStatus = node.get("status");
-                    JsonNode dateNode = node.get("dateCreateRequests");
-
-                    names.add(node.get("id"));
-                    names.add(lawyerNode.get("name").asText());
-                    names.add(lawyerStatus.asText());
-                    names.add(node.get("changeRelation").asText());
-                    names.add(lawyerNode.get("id").asInt());
-                    names.add(dateNode.asText());
-
-                }
-                return new ResponseEntity<>(names, HttpStatus.OK);
-            } catch (JsonProcessingException e) {
-                // Trate a exceção aqui
-                e.printStackTrace(); // ou qualquer outra forma de tratamento
-                msg.setMensagem("User não encontrado");
-                return new ResponseEntity<>(msg, HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        } else {
-            msg.setMensagem("Não existe usuário com esse nome");
-            return new ResponseEntity<>(user, HttpStatus.BAD_REQUEST);
+            return user.stream().flatMap(idRequest -> Streams.of(
+                    idRequest.getUser().getId(),
+                    idRequest.getUser().getName(),
+                    idRequest.getLawyer().getId(),
+                    idRequest.getLawyer().getName(),
+                    idRequest.getDateCreateRequests(),
+                    idRequest.getChangeRelation()
+            )).collect(Collectors.toList());
         }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Não existe nenhuma solicitação pra esse usuario");
     }
-
 }

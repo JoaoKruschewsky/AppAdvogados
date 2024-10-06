@@ -67,7 +67,8 @@ public class ControllerRelationShip {
     })
     @GetMapping("getRelationUser/{id}")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> getRelationUser(@PathVariable Long id) {
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object> getRelationUser(@PathVariable Long id) {
         return readRelations.ReadUser(id);
     }
 

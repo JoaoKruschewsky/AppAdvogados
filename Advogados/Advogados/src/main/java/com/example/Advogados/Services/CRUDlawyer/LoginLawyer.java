@@ -2,6 +2,7 @@ package com.example.Advogados.Services.CRUDlawyer;
 
 import java.util.Optional;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,16 +16,10 @@ import com.example.Advogados.Services.interfaces.lawyer.LoginLawyerInterface;
 import com.example.Advogados.message.Message;
 
 @Service
-
+@AllArgsConstructor
 public class LoginLawyer implements LoginLawyerInterface {
-    private RepositoryLawyers actionLawyers;
-    private Message msg;
-
-    @Autowired
-    public void setWired(RepositoryLawyers actionLawyers, Message msg) {
-        this.actionLawyers = actionLawyers;
-        this.msg = msg;
-    }
+    private final RepositoryLawyers actionLawyers;
+    private final Message msg;
 
     @Override
     public ResponseEntity<?> verifyLoginLawyers(LoginLawyerDTO Lawyers) {

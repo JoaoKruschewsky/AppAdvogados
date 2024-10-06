@@ -51,23 +51,21 @@ public class ReadRelations implements GetRelations {
                             idRelation.getDateCreateRelation()
                     )).collect(Collectors.toList());
         }
-
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     @Override
-    public ResponseEntity<?> ReadUser(final Long id) {
+    public List<Object> ReadUser(final Long id) {
         List<LawyerClientRelationship> user = action.findAllLawyerClientRelationshipsByClientId(id);
         if (!user.isEmpty()) {
-            ArrayList<Object> names = new ArrayList<>();
-            user.forEach(idRelation -> names.addAll(List.of(idRelation.getClient().getId(),
-                    idRelation.getLawyer().getId(),
-                    idRelation.getLawyer().getName(),
-                    idRelation.getStatus(),
-                    idRelation.getDateCreateRelation()
-            )));
-            return ResponseEntity.ok().body(names);
+            return user.stream().flatMap( users -> Stream.of(
+                    users.getClient().getId(),
+                    users.getLawyer().getId(),
+                    users.getLawyer().getName(),
+                    users.getStatus(),
+                    users.getDateCreateRelation()))
+                    .collect(Collectors.toList());
         }
-        return ResponseEntity.ok().body("Nao tem Relacoes");
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 }

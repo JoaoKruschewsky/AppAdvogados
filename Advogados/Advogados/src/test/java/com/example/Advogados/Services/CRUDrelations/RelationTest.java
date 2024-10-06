@@ -98,11 +98,10 @@ public class RelationTest {
             when(actionRelation.findLawyerClientRelationshipByClientIdAndLawyerId(1L, 1L))
                     .thenReturn(Optional.of(relationNew));
 
-            ResponseEntity<?> result = relationReadLawyer.ReadUser(1L);
+            List<Object> result = relationReadLawyer.ReadUser(1L);
 
-            assertEquals(HttpStatus.OK, result.getStatusCode());
 
-            assertThat(result.getBody());
+            result.forEach(System.out::println);
 
         }
 

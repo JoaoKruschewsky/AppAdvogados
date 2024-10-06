@@ -4,6 +4,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Services.interfaces.relations.GetRelations;
 
+import java.util.List;
+
 public interface GetRequests {
-    public ResponseEntity<?> readUser(final long id);
+    public List<Object> readUser(final long id);
 }
