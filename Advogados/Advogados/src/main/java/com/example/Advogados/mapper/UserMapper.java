@@ -16,8 +16,7 @@ nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper  {
 
 
-    @Mapping(source = "userDTO" , target = "user")
-    UserAndLawyer toUser (LawyerUserDTO lawyerUserDTO);
+    User toUser (UserDto lawyerUserDTO);
 
 
     void updateUser(UpdateUserDTO updateUserDTO, @MappingTarget User user);

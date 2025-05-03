@@ -47,19 +47,14 @@ public class Lawyers extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
-
-
     private String titleLawyers;
     private String specializedAir;
     private String descricion;
-
-
+    private String cpf;
     private BigDecimal price;
-
     @OneToMany(mappedBy = "lawyer")
     @JsonIgnore
     private List<LawyerClientRelationship> clientRelationships;
-
     @OneToMany(mappedBy = "lawyer")
     @JsonIgnore
     private List<Requests> requests;

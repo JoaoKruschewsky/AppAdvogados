@@ -1,9 +1,8 @@
-package com.example.Advogados.Services;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+package com.example.Advogados.application.service;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
 public interface SaveRelationUI {
 

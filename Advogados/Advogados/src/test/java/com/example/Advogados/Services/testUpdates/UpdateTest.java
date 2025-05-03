@@ -25,9 +25,7 @@ import com.example.Advogados.Model.DTO.User.UpdateUserDTO;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Repository.RepositoryUser;
 import com.example.Advogados.Services.CRUDlawyer.UpdateLawyerService;
-import com.example.Advogados.Services.CRUDuser.UpdateUserService;
-import com.example.Advogados.Services.interfaces.User.UpdateUser;
-import com.example.Advogados.message.Message;
+import com.example.Advogados.Services.Impl.UpdateUserService;
 
 public class UpdateTest {
 

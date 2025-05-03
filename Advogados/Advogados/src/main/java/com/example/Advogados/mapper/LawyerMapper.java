@@ -1,5 +1,6 @@
 package com.example.Advogados.mapper;
 
+import com.example.Advogados.Model.DTO.Lawyer.LawyerDTO;
 import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
 import com.example.Advogados.Model.DTO.LawyerUserDTO;
 import com.example.Advogados.Model.Lawyers;
@@ -14,10 +15,9 @@ nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface LawyerMapper {
 
 
-    @Mapping(source = "lawyerDTO" , target = "lawyer")
-    UserAndLawyer toLawyer (LawyerUserDTO lawyerUserDTO);
+    Lawyers toLawyer (LawyerDTO body);
 
 
-    void updateLaywer(UpdateLawyerDTO updateLawyerDTO, @MappingTarget Lawyers lawyers);
+    void updateLaywer(LawyerDTO updateLawyerDTO, @MappingTarget Lawyers lawyers);
 
 }

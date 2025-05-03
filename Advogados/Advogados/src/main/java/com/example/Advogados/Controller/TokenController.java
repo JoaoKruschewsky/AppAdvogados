@@ -1,13 +1,9 @@
 package com.example.Advogados.Controller;
 
 import java.time.Instant;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
-import javax.swing.text.html.Option;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,16 +12,13 @@ import org.springframework.security.oauth2.jwt.JwtEncoder;
 import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.Role;
-import com.example.Advogados.Model.User;
 import com.example.Advogados.Model.UserAndLawyer;
 import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.LoginResponse;
-import com.example.Advogados.Services.CRUDuser.Login;
+import com.example.Advogados.Services.Impl.Login;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

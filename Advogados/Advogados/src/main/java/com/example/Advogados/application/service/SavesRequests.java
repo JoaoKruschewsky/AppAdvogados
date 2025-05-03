@@ -1,8 +1,7 @@
-package com.example.Advogados.Services;
-
-import org.springframework.http.ResponseEntity;
+package com.example.Advogados.application.service;
 
 import com.example.Advogados.Model.Requests;
+import org.springframework.http.ResponseEntity;
 
 public interface SavesRequests {
     

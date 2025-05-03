@@ -2,7 +2,7 @@ package com.example.Advogados.Controller;
 
 import java.util.List;
 
-import com.example.Advogados.Services.CRUDrelations.DropService;
+import com.example.Advogados.Services.Impl.DropService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,8 +11,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Services.CRUDrequests.CreatedRequests;
-import com.example.Advogados.Services.CRUDrequests.ReadRequests;
+import com.example.Advogados.Services.Impl.CreatedRequests;
+import com.example.Advogados.Services.Impl.ReadRequests;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

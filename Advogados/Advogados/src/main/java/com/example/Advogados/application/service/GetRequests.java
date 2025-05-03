@@ -1,4 +1,4 @@
-package com.example.Advogados.Services;
+package com.example.Advogados.application.service;
 
 import java.util.List;
 

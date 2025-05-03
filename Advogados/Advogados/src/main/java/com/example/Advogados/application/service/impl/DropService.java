@@ -1,17 +1,16 @@
-package com.example.Advogados.Services.Impl;
+package com.example.Advogados.application.service.impl;
 
-import java.util.List;
-
+import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Services.DropUI;
+import com.example.Advogados.message.Message;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import com.example.Advogados.Repository.RepositoryRelationShip;
-import com.example.Advogados.message.Message;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor

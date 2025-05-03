@@ -1,20 +1,19 @@
-package com.example.Advogados.Services.Impl;
-
-import java.util.Optional;
-
-import com.example.Advogados.Services.SaveRelationUI;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
-import org.springframework.stereotype.Service;
+package com.example.Advogados.application.service.impl;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Repository.RepositoryUser;
+import com.example.Advogados.Services.SaveRelationUI;
 import com.example.Advogados.message.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class  SaveRelation implements SaveRelationUI {

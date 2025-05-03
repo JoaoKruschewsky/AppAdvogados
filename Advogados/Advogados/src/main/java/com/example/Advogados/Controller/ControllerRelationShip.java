@@ -11,9 +11,9 @@ import org.springframework.security.oauth2.server.resource.authentication.JwtAut
 import org.springframework.web.bind.annotation.*;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Services.CRUDrelations.DropService;
-import com.example.Advogados.Services.CRUDrelations.ReadRelations;
-import com.example.Advogados.Services.CRUDrelations.SaveRelation;
+import com.example.Advogados.Services.Impl.DropService;
+import com.example.Advogados.Services.Impl.ReadRelations;
+import com.example.Advogados.Services.Impl.SaveRelation;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

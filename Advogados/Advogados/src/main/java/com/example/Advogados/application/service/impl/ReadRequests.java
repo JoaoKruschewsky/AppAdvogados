@@ -1,18 +1,17 @@
-package com.example.Advogados.Services.Impl;
+package com.example.Advogados.application.service.impl;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
+import com.example.Advogados.Model.Requests;
+import com.example.Advogados.Repository.RepositoryRequests;
 import com.example.Advogados.Services.GetRequests;
+import com.example.Advogados.message.Message;
 import org.apache.commons.lang3.stream.Streams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-
-import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Repository.RepositoryRequests;
-import com.example.Advogados.message.Message;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ReadRequests implements GetRequests {

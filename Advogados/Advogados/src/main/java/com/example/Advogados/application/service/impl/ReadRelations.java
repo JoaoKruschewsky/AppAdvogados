@@ -1,18 +1,17 @@
-package com.example.Advogados.Services.Impl;
+package com.example.Advogados.application.service.impl;
+
+import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.Repository.RepositoryRelationShip;
+import com.example.Advogados.Services.GetRelations;
+import com.example.Advogados.message.Message;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import com.example.Advogados.Services.GetRelations;
-import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-
-import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Repository.RepositoryRelationShip;
-import com.example.Advogados.message.Message;
-import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @AllArgsConstructor

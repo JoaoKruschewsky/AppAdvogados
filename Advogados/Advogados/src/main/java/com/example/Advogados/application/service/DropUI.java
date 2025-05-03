@@ -1,9 +1,9 @@
-package com.example.Advogados.Services;
-
-import java.util.List;
+package com.example.Advogados.application.service;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface DropUI {
 

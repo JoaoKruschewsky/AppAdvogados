@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -57,5 +58,6 @@ public class LawyerClientRelationship {
     protected void onCreate() {
         dateCreateRelation = LocalDate.now();
     }
+
 
 }

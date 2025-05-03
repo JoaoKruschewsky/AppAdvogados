@@ -2,14 +2,12 @@ package com.example.Advogados.Services.CRUDuser;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
-import org.checkerframework.checker.units.qual.A;
-import org.h2.command.dml.MergeUsing.When;
+import com.example.Advogados.Services.Impl.Login;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,16 +15,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.User;
-import com.example.Advogados.Model.UserAndLawyer;
-import com.example.Advogados.Model.DTO.LoginDTO;
 import com.example.Advogados.Model.DTO.User.LoginUserDTO;
 import com.example.Advogados.Repository.RepositoryUser;
-import com.example.Advogados.message.Message;
 
 public class LoginUserTest {
 

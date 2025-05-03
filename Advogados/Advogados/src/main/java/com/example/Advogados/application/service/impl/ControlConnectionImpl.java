@@ -1,4 +1,4 @@
-package com.example.Advogados.Services.Impl;
+package com.example.Advogados.application.service.impl;
 
 import com.example.Advogados.Model.DTO.LawyerUserDTO;
 import com.example.Advogados.Model.Lawyers;

@@ -2,7 +2,7 @@ package com.example.Advogados.Controller;
 
 import java.util.List;
 
-import com.example.Advogados.Services.UpdateServiceIpml;
+import com.example.Advogados.Services.Impl.UpdateServiceIpml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
 import com.example.Advogados.Repository.RepositoryLawyers;
-import com.example.Advogados.Services.CRUDlawyer.SaveLawyer;
+import com.example.Advogados.Services.Impl.SaveLawyer;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

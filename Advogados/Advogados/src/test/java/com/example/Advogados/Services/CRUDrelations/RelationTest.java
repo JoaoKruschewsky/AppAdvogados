@@ -4,14 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.connector.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -23,7 +21,6 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 
 import com.example.Advogados.Model.LawyerClientRelationship;
@@ -32,8 +29,8 @@ import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.Repository.RepositoryUser;
-import com.example.Advogados.Services.CRUDrelations.ReadRelations;
-import com.example.Advogados.Services.CRUDrelations.SaveRelation;
+import com.example.Advogados.Services.Impl.ReadRelations;
+import com.example.Advogados.Services.Impl.SaveRelation;
 import com.example.Advogados.message.Message;
 
 
