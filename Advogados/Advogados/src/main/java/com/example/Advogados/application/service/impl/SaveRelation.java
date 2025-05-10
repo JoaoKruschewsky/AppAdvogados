@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class  SaveRelation implements SaveRelationUI {
+public class    SaveRelation implements SaveRelationUI {
 
     private RepositoryRelationShip action;
     private RepositoryUser actionUser;

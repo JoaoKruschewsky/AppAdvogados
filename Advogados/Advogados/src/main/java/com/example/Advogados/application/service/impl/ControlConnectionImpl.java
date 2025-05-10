@@ -5,7 +5,6 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Model.User;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Repository.RepositoryUser;
-import com.example.Advogados.Services.ControlService;
 import com.example.Advogados.mapper.UserMapper;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
