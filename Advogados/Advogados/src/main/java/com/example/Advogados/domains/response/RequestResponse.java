@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @Data
 public class RequestResponse {
 
-    private LawyerResponse lawyers;
-    private UserResponse users;
+    private RelationShipUsersResponse lawyers;
+    private RelationShipUsersResponse users;
     private String changeRelation;
     private String status;
     private LocalDate dateCreateRequests;

@@ -28,6 +28,21 @@ public class RelationsControlImpl implements RelationsControl {
     }
 
     @Override
+    public ResponseEntity<HttpStatus> drop(final List<Long> id) {
+        action.deleteAllById(id);
+
+        id.forEach(i -> {
+            boolean exist = action.findById(i).isEmpty();
+
+            if(exist) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Ocorreu um erro");
+            }
+        });
+
+        return ResponseEntity.noContent().build();
+    }
+
+    @Override
     public ResponseEntity<?> saveRelation(LawyerClientRelationship relation, JwtAuthenticationToken token) {
         Optional<LawyerClientRelationship> existingRelation = action
                 .findLawyerClientRelationshipByClientIdAndLawyerId(relation.getClient().getId(), relation.getLawyer().getId());

@@ -3,6 +3,7 @@ package com.example.Advogados.application.service;
 import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.domains.response.RelationShipResponse;
 import com.example.Advogados.domains.response.RelationShipUsersResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 
@@ -13,6 +14,8 @@ public interface RelationsControl {
     public List<RelationShipResponse> getRelations(final long id);
     ResponseEntity<?> saveRelation(final LawyerClientRelationship relation, JwtAuthenticationToken token);
     ResponseEntity<?> updateRelation(final LawyerClientRelationship relation);
+    public ResponseEntity<HttpStatus> drop(final List<Long> id);
+
 
 
 }

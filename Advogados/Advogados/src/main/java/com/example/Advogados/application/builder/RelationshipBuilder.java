@@ -7,7 +7,7 @@ import com.example.Advogados.domains.response.RelationShipUsersResponse;
 import java.time.LocalDate;
 import java.util.List;
 
-public class RelationshipBuilder {
+public class    RelationshipBuilder {
 
 
     public static List<RelationShipResponse> parseRelationShipLawyers (List<LawyerClientRelationship> relationShip){
