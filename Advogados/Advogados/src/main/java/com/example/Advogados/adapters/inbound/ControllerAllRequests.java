@@ -4,6 +4,9 @@ import com.example.Advogados.Model.Requests;
 import com.example.Advogados.Services.Impl.CreatedRequests;
 import com.example.Advogados.Services.Impl.DropService;
 import com.example.Advogados.Services.Impl.ReadRequests;
+import com.example.Advogados.application.service.RelationsControl;
+import com.example.Advogados.application.service.RequestsControls;
+import com.example.Advogados.domains.dto.RequestDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -25,18 +28,16 @@ import java.util.List;
 @Tag(name = "Request Controller for API JuríConecta")
 public class ControllerAllRequests {
 
-    private CreatedRequests created;
+  /*  private CreatedRequests created;
     private ReadRequests read;
-    private DropService drop;
+    private DropService drop;*/
+  private final RequestsControls requestsControls;
 
-    @Autowired
-    public void setWired(CreatedRequests service, ReadRequests read, DropService drop) {
-        this.created = service;
-        this.read = read;
-        this.drop = drop;
-    }
+  public ControllerAllRequests(RequestsControls requestsControls) {
+    this.requestsControls = requestsControls;
+  }
 
-    @Operation(summary = "\r\n" + //
+  @Operation(summary = "\r\n" + //
             "first request to change relationshi ", method = "POST")
     @ApiResponses({ @ApiResponse(responseCode = "200", description = "\r\n" + //
             "Request sent by the lawyer only the lawyer makes the first request", content = @Content(examples = @ExampleObject(" { \"status\": \"pending\",\"changeRelation\": \"In Progress\",\"lawyer\": {\"id\":1 },\"client\":{ \"id\":1} }"))),
@@ -45,8 +46,8 @@ public class ControllerAllRequests {
 
     @PostMapping(path = "firstRequest", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
-    public ResponseEntity<?> firstRequestSave(@RequestBody Requests request) {
-        return created.saveRequests(request);
+    public ResponseEntity<?> firstRequestSave(@RequestBody RequestDTO request) {
+        return requestsControls.saveRequests(request);
     }
 
     @Operation(summary = "\r\n" + //
@@ -58,8 +59,8 @@ public class ControllerAllRequests {
                     "Unauthorized error with access token only Users and not Lawyers") })
     @PostMapping(path = "secondRequests", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> secondRequestSave(@RequestBody Requests request) {
-        return created.saveSecondRequests(request);
+    public ResponseEntity<?> secondRequestSave(@RequestBody RequestDTO request) {
+        return requestsControls.saveRequests(request);
     }
 
     @Operation(summary = "\r\n" + //
@@ -82,8 +83,8 @@ public class ControllerAllRequests {
     @Operation(summary = "deletes requests that the user selected")
     @DeleteMapping("dropRequests")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> dropRequests(@RequestBody List<Long> ids) {
-        return drop.dropAllById(ids);
+    public ResponseEntity<?> dropRequests(@RequestBody List<Long> id) {
+        return requestsControls.drop(id);
     }
 
 }

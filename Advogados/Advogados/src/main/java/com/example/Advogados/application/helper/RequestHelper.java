@@ -1,7 +1,7 @@
 package com.example.Advogados.application.helper;
 
-import com.example.Advogados.Model.Requests;
-import com.example.Advogados.exception.RequestsException;
+import com.example.Advogados.application.exception.RequestsException;
+import com.example.Advogados.domains.Requests;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;

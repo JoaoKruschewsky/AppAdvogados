@@ -5,6 +5,10 @@ import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.RepositoryLawyers;
 import com.example.Advogados.Services.Impl.SaveLawyer;
 import com.example.Advogados.Services.Impl.UpdateServiceIpml;
+import com.example.Advogados.application.service.LawyersControls;
+import com.example.Advogados.domains.Lawyers;
+import com.example.Advogados.domains.dto.Lawyer.LawyerDTO;
+import com.example.Advogados.domains.dto.Lawyer.UpdateLawyerDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -26,16 +30,10 @@ import java.util.List;
 @Tag(name = "RegisterDTO Lawyers")
 public class ControllerLawyers {
 
-        private RepositoryLawyers action;
-        private SaveLawyer saveService;
-        private UpdateServiceIpml updateLawyerService;
+        private final LawyersControls lawyersControls;
 
-        @Autowired
-        public void setWired(RepositoryLawyers action, SaveLawyer saveService,
-                        UpdateServiceIpml updateLawyerService) {
-                this.action = action;
-                this.saveService = saveService;
-                this.updateLawyerService = updateLawyerService;
+        public ControllerLawyers(LawyersControls lawyersControls) {
+                this.lawyersControls = lawyersControls;
         }
 
         @Operation(summary = "RegisterDTO Lawyers", method = "POST")
@@ -46,8 +44,8 @@ public class ControllerLawyers {
         })
         @PostMapping(path = "saveLawyer", consumes = MediaType.APPLICATION_JSON_VALUE)
         @ResponseStatus(HttpStatus.OK)
-        public ResponseEntity<HttpStatus> saveLawyers(@Valid @RequestBody Lawyers lawyers) {
-                return new ResponseEntity<>(HttpStatus.OK);
+        public ResponseEntity<HttpStatus> saveLawyers(@Valid @RequestBody LawyerDTO body) {
+                return lawyersControls.saveLawyer(body);
         }
 
         @Operation(summary = "\r\n" + //
@@ -72,7 +70,7 @@ public class ControllerLawyers {
         @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
         public ResponseEntity<?> saveimg(@PathVariable Long id, @RequestBody UpdateLawyerDTO updateDTO,
                         JwtAuthenticationToken token) {
-                return updateLawyerService.updateLawyer(id, updateDTO, token);
+                return lawyersControls.updateLawyer(id, updateDTO, token);
         }
 
         @Operation(summary = "Searching for lawyer name")

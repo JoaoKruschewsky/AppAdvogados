@@ -5,10 +5,10 @@ import java.util.Optional;
 
 import javax.swing.text.html.Option;
 
+import com.example.Advogados.domains.Requests;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.Advogados.Model.Requests;
 
 @Repository
 public interface RepositoryRequests extends CrudRepository<Requests, Long> {

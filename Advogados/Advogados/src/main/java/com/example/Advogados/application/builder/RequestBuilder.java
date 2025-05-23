@@ -1,12 +1,11 @@
 package com.example.Advogados.application.builder;
 
-import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Model.Requests;
+
+import com.example.Advogados.domains.Requests;
 import com.example.Advogados.domains.response.RelationShipUsersResponse;
 import com.example.Advogados.domains.response.RequestResponse;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RequestBuilder {

@@ -3,6 +3,7 @@ package com.example.Advogados.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.Advogados.domains.User;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

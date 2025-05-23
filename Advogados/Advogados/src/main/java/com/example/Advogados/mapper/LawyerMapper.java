@@ -1,10 +1,8 @@
 package com.example.Advogados.mapper;
 
-import com.example.Advogados.Model.DTO.Lawyer.LawyerDTO;
-import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
-import com.example.Advogados.Model.DTO.LawyerUserDTO;
-import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Model.UserAndLawyer;
+import com.example.Advogados.domains.Lawyers;
+import com.example.Advogados.domains.dto.Lawyer.LawyerDTO;
+import com.example.Advogados.domains.dto.Lawyer.UpdateLawyerDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -18,6 +16,6 @@ public interface LawyerMapper {
     Lawyers toLawyer (LawyerDTO body);
 
 
-    void updateLaywer(LawyerDTO updateLawyerDTO, @MappingTarget Lawyers lawyers);
+    void updateLaywer(UpdateLawyerDTO updateLawyerDTO, @MappingTarget Lawyers lawyers);
 
 }

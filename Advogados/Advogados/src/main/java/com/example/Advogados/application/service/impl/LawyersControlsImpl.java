@@ -1,11 +1,12 @@
 package com.example.Advogados.application.service.impl;
 
-import com.example.Advogados.Model.DTO.Lawyer.LawyerDTO;
-import com.example.Advogados.Model.DTO.Lawyer.LoginLawyerDTO;
-import com.example.Advogados.Model.Lawyers;
 import com.example.Advogados.Repository.RepositoryLawyers;
+import com.example.Advogados.application.exception.LawyerExceptions;
 import com.example.Advogados.application.service.LawyersControls;
-import com.example.Advogados.exception.LawyerExceptions;
+import com.example.Advogados.domains.Lawyers;
+import com.example.Advogados.domains.dto.Lawyer.LawyerDTO;
+import com.example.Advogados.domains.dto.Lawyer.LoginLawyerDTO;
+import com.example.Advogados.domains.dto.Lawyer.UpdateLawyerDTO;
 import com.example.Advogados.mapper.LawyerMapper;
 import com.example.Advogados.message.Message;
 import org.springframework.http.HttpStatus;
@@ -31,11 +32,12 @@ public class LawyersControlsImpl implements LawyersControls {
     }
 
     @Override
-    public ResponseEntity<?> saveLawyer(LawyerDTO lawyers) {
+    public ResponseEntity<HttpStatus> saveLawyer(LawyerDTO lawyers) {
        if(actionLawyers.findById(lawyers.id()).isPresent()){
            throw new LawyerExceptions("Not found Lawyer", HttpStatus.NOT_FOUND);
        };
-       actionLawyers.save(lawyerMapper.toLawyer(lawyers));
+        Lawyers toMapper = lawyerMapper.toLawyer(lawyers);
+        actionLawyers.save(toMapper);
 
        return ResponseEntity.ok().build();
 
@@ -43,7 +45,7 @@ public class LawyersControlsImpl implements LawyersControls {
 
 
     @Override
-    public ResponseEntity<?> loginLawyer(LoginLawyerDTO Lawyers) {
+    public ResponseEntity<HttpStatus> loginLawyer(LoginLawyerDTO Lawyers) {
         Optional<Lawyers> existingLawyers = actionLawyers.findByEmail(Lawyers.getEmailDTO());
 
         if (!(existingLawyers.isPresent() && existingLawyers.get().getPassword().equals(Lawyers.getPasswordDTO()))) {
@@ -54,7 +56,7 @@ public class LawyersControlsImpl implements LawyersControls {
     }
 
     @Override
-    public ResponseEntity<?> updateLawyer(Long id, LawyerDTO body, JwtAuthenticationToken token) {
+    public ResponseEntity<HttpStatus> updateLawyer(Long id, UpdateLawyerDTO body, JwtAuthenticationToken token) {
         Optional<Lawyers> optionalLawyer = actionLawyers.findById(id);
 
         if (optionalLawyer.isEmpty()) {

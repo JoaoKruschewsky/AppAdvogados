@@ -1,8 +1,7 @@
 package com.example.Advogados.application.service;
 
-import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.domains.LawyerClientRelationship;
 import com.example.Advogados.domains.response.RelationShipResponse;
-import com.example.Advogados.domains.response.RelationShipUsersResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;

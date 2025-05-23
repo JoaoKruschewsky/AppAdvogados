@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.swing.text.html.Option;
 
+import com.example.Advogados.domains.Lawyers;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
