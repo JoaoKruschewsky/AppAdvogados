@@ -1,7 +1,6 @@
 package com.example.Advogados.domains.response;
 
 
-import com.example.Advogados.Model.Lawyers;
 import lombok.Data;
 
 import java.time.LocalDate;

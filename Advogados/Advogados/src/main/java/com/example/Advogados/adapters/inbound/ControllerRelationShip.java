@@ -4,6 +4,10 @@ import com.example.Advogados.Model.LawyerClientRelationship;
 import com.example.Advogados.Services.Impl.DropService;
 import com.example.Advogados.Services.Impl.ReadRelations;
 import com.example.Advogados.Services.Impl.SaveRelation;
+import com.example.Advogados.application.service.RelationsControl;
+import com.example.Advogados.domains.dto.RelationShipDTO;
+import com.example.Advogados.domains.dto.RelationShipUpdateDTO;
+import com.example.Advogados.domains.response.RelationShipResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -26,17 +30,11 @@ import java.util.List;
 @Tag(name = "Controller RelationShip for API JuríConecta")
 public class ControllerRelationShip {
 
-    private SaveRelation service;
-    private ReadRelations readRelations;
-    private DropService dropService;
 
-    @Autowired
-    public void setWired(ReadRelations relationReadLawyer, SaveRelation service,
-            DropService dropService) {
-        this.readRelations = relationReadLawyer;
-        this.service = service;
-        this.dropService = dropService;
+    private final RelationsControl relationsControl;
 
+    public ControllerRelationShip(RelationsControl relationsControl) {
+        this.relationsControl = relationsControl;
     }
 
     @Operation(summary = "\r\n" + //
@@ -48,9 +46,9 @@ public class ControllerRelationShip {
     })
     @PostMapping(path = "saveRelation", consumes = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> saveRelation(@RequestBody LawyerClientRelationship relationship,
+    public ResponseEntity<?> saveRelation(@RequestBody RelationShipDTO relationship,
             JwtAuthenticationToken token) {
-        return service.saveNewRelation(relationship, token);
+        return relationsControl.saveRelation(relationship, token);
     }
 
     @Operation(summary = "\r\n" + //
@@ -66,37 +64,20 @@ public class ControllerRelationShip {
     @GetMapping("getRelationUser/{id}")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object> getRelationUser(@PathVariable Long id) {
-        return readRelations.ReadUser(id);
-    }
-
-    @Operation(summary = "\r\n" + //
-            "get the Lawyer relationship by id")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Return all relationships by id in a lit", content = @Content(examples = @ExampleObject("[\"name user\", \"status of relation\", \"2024-05-30\"]"))),
-            @ApiResponse(responseCode = "400", description = "Lawyer have not relation"),
-            @ApiResponse(responseCode = "500", description = "I have a try catch reading a json if it gives an error it returns 500"),
-            @ApiResponse(responseCode = "401", description = "\r\n" + //
-                    "Unauthorized error with access token")
-
-    })
-    @GetMapping("getRelationLawyer/{id}")
-    @PreAuthorize("hasAuthority('SCOPE_LAWYER')")
-    @ResponseStatus(HttpStatus.OK)
-    public void getRelationLawyer(@PathVariable Long id) {
-         readRelations.ReadLawyer(id);
+    public List<RelationShipResponse> getRelationUser(@PathVariable Long id) {
+        return relationsControl.getRelations(id);
     }
 
     @Operation(summary = "deletes requests that the user or Lawyer selected")
     @DeleteMapping(path = "dropService", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> deleteRelations(@RequestBody List<Long> id) {
-        return dropService.dropAllById(id);
+        return relationsControl.drop(id);
     }
 
     @PostMapping(path = "saveUpdateRelation")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
-    public ResponseEntity<?> saveUpdate(@RequestBody LawyerClientRelationship relation) {
-        return service.saveUpdateRelation(relation);
+    public ResponseEntity<?> saveUpdate(@RequestBody RelationShipUpdateDTO relation) {
+        return relationsControl.updateRelation(relation);
     }
 }

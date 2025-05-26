@@ -3,14 +3,12 @@ package com.example.Advogados.Repository;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.Advogados.domains.LawyerClientRelationship;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Model.User;
 
 @Repository
 public interface RepositoryRelationShip extends CrudRepository<LawyerClientRelationship, Long> {

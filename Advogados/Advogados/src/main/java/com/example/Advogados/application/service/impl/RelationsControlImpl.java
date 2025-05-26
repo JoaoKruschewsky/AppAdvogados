@@ -1,15 +1,16 @@
 package com.example.Advogados.application.service.impl;
 
 
-import com.example.Advogados.Model.LawyerClientRelationship;
-import com.example.Advogados.Model.Lawyers;
+
 import com.example.Advogados.Repository.RepositoryRelationShip;
 import com.example.Advogados.application.helper.RelationShipHelper;
 import com.example.Advogados.application.service.RelationsControl;
 import com.example.Advogados.application.usecase.RelationShipUseCase;
+import com.example.Advogados.domains.LawyerClientRelationship;
+import com.example.Advogados.domains.dto.RelationShipDTO;
+import com.example.Advogados.domains.dto.RelationShipUpdateDTO;
 import com.example.Advogados.domains.response.RelationShipResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.stereotype.Service;
@@ -43,9 +44,9 @@ public class RelationsControlImpl implements RelationsControl {
     }
 
     @Override
-    public ResponseEntity<?> saveRelation(LawyerClientRelationship relation, JwtAuthenticationToken token) {
+    public ResponseEntity<?> saveRelation(RelationShipDTO relation, JwtAuthenticationToken token) {
         Optional<LawyerClientRelationship> existingRelation = action
-                .findLawyerClientRelationshipByClientIdAndLawyerId(relation.getClient().getId(), relation.getLawyer().getId());
+                .findLawyerClientRelationshipByClientIdAndLawyerId(relation.idUser(), relation.idLawyer());
 
         RelationShipUseCase.validRelationShip(relation, token);
         if (existingRelation.isPresent()) {
@@ -58,7 +59,7 @@ public class RelationsControlImpl implements RelationsControl {
     }
 
     @Override
-    public ResponseEntity<?> updateRelation(LawyerClientRelationship relation) {
+    public ResponseEntity<?> updateRelation(RelationShipUpdateDTO relation) {
 
 
             action.save(relation);

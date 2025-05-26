@@ -1,6 +1,6 @@
 package com.example.Advogados.application.builder;
 
-import com.example.Advogados.Model.LawyerClientRelationship;
+import com.example.Advogados.domains.LawyerClientRelationship;
 import com.example.Advogados.domains.response.RelationShipResponse;
 import com.example.Advogados.domains.response.RelationShipUsersResponse;
 

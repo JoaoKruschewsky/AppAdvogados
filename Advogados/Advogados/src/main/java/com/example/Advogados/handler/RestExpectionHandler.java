@@ -1,6 +1,6 @@
 package com.example.Advogados.handler;
 
-import com.example.Advogados.exception.ValidationError;
+import com.example.Advogados.application.exception.ValidationError;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;

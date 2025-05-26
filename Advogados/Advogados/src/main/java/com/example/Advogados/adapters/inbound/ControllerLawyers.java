@@ -1,10 +1,6 @@
 package com.example.Advogados.adapters.inbound;
 
-import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
-import com.example.Advogados.Model.Lawyers;
-import com.example.Advogados.Repository.RepositoryLawyers;
-import com.example.Advogados.Services.Impl.SaveLawyer;
-import com.example.Advogados.Services.Impl.UpdateServiceIpml;
+
 import com.example.Advogados.application.service.LawyersControls;
 import com.example.Advogados.domains.Lawyers;
 import com.example.Advogados.domains.dto.Lawyer.LawyerDTO;

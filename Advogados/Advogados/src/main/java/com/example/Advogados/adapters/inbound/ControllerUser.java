@@ -1,9 +1,10 @@
 package com.example.Advogados.adapters.inbound;
 
-import com.example.Advogados.Model.DTO.User.UpdateUserDTO;
-import com.example.Advogados.Model.DTO.User.UserDto;
+
 import com.example.Advogados.application.service.UserControl;
 import com.example.Advogados.application.service.impl.UserControlImpl;
+import com.example.Advogados.domains.dto.User.UpdateUserDTO;
+import com.example.Advogados.domains.dto.User.UserDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;

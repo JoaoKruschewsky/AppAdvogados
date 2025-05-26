@@ -1,7 +1,8 @@
 package com.example.Advogados.domains;
 
-import com.example.Advogados.Model.DTO.Lawyer.UpdateLawyerDTO;
-import com.example.Advogados.Model.DTO.LoginDTO;
+
+import com.example.Advogados.domains.dto.Lawyer.UpdateLawyerDTO;
+import com.example.Advogados.domains.dto.LoginDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

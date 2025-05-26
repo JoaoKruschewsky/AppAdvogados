@@ -1,12 +1,9 @@
 package com.example.Advogados.adapters.inbound;
 
-import com.example.Advogados.Model.Requests;
-import com.example.Advogados.Services.Impl.CreatedRequests;
-import com.example.Advogados.Services.Impl.DropService;
-import com.example.Advogados.Services.Impl.ReadRequests;
-import com.example.Advogados.application.service.RelationsControl;
+
 import com.example.Advogados.application.service.RequestsControls;
 import com.example.Advogados.domains.dto.RequestDTO;
+import com.example.Advogados.domains.response.RequestResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
@@ -76,8 +73,8 @@ public class ControllerAllRequests {
     @GetMapping("getRequestsUser/{id}")
     @PreAuthorize("hasAuthority('SCOPE_USER')")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object> getRequestsUser(@PathVariable Long id) {
-        return read.readUser(id);
+    public List<RequestResponse> getRequestsUser(@PathVariable Long id) {
+        return requestsControls.getRequests(id);
     }
 
     @Operation(summary = "deletes requests that the user selected")

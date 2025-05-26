@@ -1,8 +1,8 @@
 package com.example.Advogados.handler;
 
 
-import com.example.Advogados.exception.MessageException;
-import com.example.Advogados.exception.RelationsException;
+import com.example.Advogados.application.exception.MessageException;
+import com.example.Advogados.application.exception.RelationsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

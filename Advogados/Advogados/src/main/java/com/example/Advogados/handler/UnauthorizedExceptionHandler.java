@@ -1,8 +1,8 @@
 package com.example.Advogados.handler;
 
 
-import com.example.Advogados.exception.MessageException;
-import com.example.Advogados.exception.UnauthorizedException;
+import com.example.Advogados.application.exception.MessageException;
+import com.example.Advogados.application.exception.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
